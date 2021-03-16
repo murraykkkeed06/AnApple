@@ -11,7 +11,6 @@ import GameplayKit
 class GameScene: SKScene {
     
     var player: Player!
-    
     var timer: Timer?
     
     
@@ -23,27 +22,28 @@ class GameScene: SKScene {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         let touch = touches.first!
         let location = touch.location(in: self)
-        
+        //set player position when touch
         playerHandler(position: location)
         
     }
     
     func playerHandler(position: CGPoint) {
         
-        if(!player.isMoving){
+        //get another touch when player is moving
+        if(player.isMoving){timer?.invalidate()}
         //moving left
         if(position.x < player.position.x){
             player.isMoving = true
             player.playerState = .goingLeft
             timer = Timer.scheduledTimer(timeInterval: 0.01, target: self,selector: #selector(playerGoingLeft), userInfo: position, repeats: true)
-            //print("moving left")
         }
+        //moviing right
         if(position.x>player.position.x){
             player.isMoving = true
             player.playerState = .goingRight
             timer = Timer.scheduledTimer(timeInterval: 0.01, target: self,selector: #selector(playerGoingRight), userInfo: position, repeats: true)
         }
-        }
+       
         
     }
     @objc func playerGoingLeft(timer: Timer) {
