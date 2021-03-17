@@ -24,8 +24,11 @@ class Equipment: SKSpriteNode {
     
     var homeScene: SKScene!
     
+    //access bag
     var equipmentBag: EquipmentBag!
     var storageBag: StorageBag!
+    
+    var ability: Abiltiy!
     
     private var _isWeared: Bool!
     var isWeared: Bool{
@@ -37,9 +40,9 @@ class Equipment: SKSpriteNode {
                 storageBag.removeStorage(name: self.name!)
                 //move parent to equipment bag
                 equipmentBag.setupEquipment(equipment: self)
-                print("wearing")
+                
             case false:
-                print("not wearing")
+                
                 //add parent to storage bag
                 storageBag.addStorage(storage: self)
                 
@@ -49,7 +52,7 @@ class Equipment: SKSpriteNode {
     }
     
     
-    init(texture: SKTexture, type: EquipmentType, scene: SKScene) {
+    init(texture: SKTexture, type: EquipmentType, scene: SKScene, ability: Abiltiy) {
         super.init(texture: texture, color: .clear, size: CGSize(width: 40, height: 40))
         self.type = type
         self.homeScene = scene
@@ -57,9 +60,16 @@ class Equipment: SKSpriteNode {
         self.storageBag = (scene.childNode(withName: "//storageBag") as! StorageBag)
         self.isWeared = false
         self.zPosition = 5
+        self.ability = ability
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        let touch = touches.first!
+        let location = touch.location(in: self)
+        print("equipment touched!")
     }
 }

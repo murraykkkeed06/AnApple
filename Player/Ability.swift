@@ -10,7 +10,13 @@ import SpriteKit
 
 class Abiltiy{
     
-    var attack: CGFloat!
-    var defense: CGFloat!
-    var health: CGFloat!
+    var attackNumber: CGFloat!
+    var defenseNumber: CGFloat!
+    var healthNumber: CGFloat!
+    
+    init(attackNumber: CGFloat, defenseNumber: CGFloat, healthNumber: CGFloat) {
+        self.attackNumber = attackNumber
+        self.defenseNumber = defenseNumber
+        self.healthNumber = healthNumber
+    }
 }

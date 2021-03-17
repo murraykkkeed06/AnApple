@@ -26,6 +26,8 @@
 		723E91432600BA63006B70BB /* nakedAnt_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 723E91402600BA63006B70BB /* nakedAnt_3.png */; };
 		723E91462600BB1C006B70BB /* PlayerAction.sks in Resources */ = {isa = PBXBuildFile; fileRef = 723E91452600BB1C006B70BB /* PlayerAction.sks */; };
 		723E91492600BF65006B70BB /* backGround.png in Resources */ = {isa = PBXBuildFile; fileRef = 723E91482600BF65006B70BB /* backGround.png */; };
+		72448E972601D6CF008B13D0 /* life_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 72448E962601D6CF008B13D0 /* life_bg.png */; };
+		72448E9A2601D6EF008B13D0 /* life.png in Resources */ = {isa = PBXBuildFile; fileRef = 72448E992601D6EF008B13D0 /* life.png */; };
 		72CBB7DE2601B67C003687F9 /* storageBag.png in Resources */ = {isa = PBXBuildFile; fileRef = 72CBB7DD2601B67C003687F9 /* storageBag.png */; };
 		72D0BA812600FB8A000FE1B9 /* EquipmentList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D0BA802600FB8A000FE1B9 /* EquipmentList.swift */; };
 		72D0BA842600FB96000FE1B9 /* MaterialList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D0BA832600FB96000FE1B9 /* MaterialList.swift */; };
@@ -63,6 +65,8 @@
 		723E91402600BA63006B70BB /* nakedAnt_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nakedAnt_3.png; sourceTree = "<group>"; };
 		723E91452600BB1C006B70BB /* PlayerAction.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = PlayerAction.sks; sourceTree = "<group>"; };
 		723E91482600BF65006B70BB /* backGround.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backGround.png; sourceTree = "<group>"; };
+		72448E962601D6CF008B13D0 /* life_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = life_bg.png; sourceTree = "<group>"; };
+		72448E992601D6EF008B13D0 /* life.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = life.png; sourceTree = "<group>"; };
 		72CBB7DD2601B67C003687F9 /* storageBag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = storageBag.png; sourceTree = "<group>"; };
 		72D0BA802600FB8A000FE1B9 /* EquipmentList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipmentList.swift; sourceTree = "<group>"; };
 		72D0BA832600FB96000FE1B9 /* MaterialList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaterialList.swift; sourceTree = "<group>"; };
@@ -128,6 +132,8 @@
 		723E91332600B4E7006B70BB /* assets.atlas */ = {
 			isa = PBXGroup;
 			children = (
+				72448E962601D6CF008B13D0 /* life_bg.png */,
+				72448E992601D6EF008B13D0 /* life.png */,
 				7209FCDF2601C0D200483536 /* equipmentBag.png */,
 				72CBB7DD2601B67C003687F9 /* storageBag.png */,
 				7209FCEA2601C87500483536 /* armor_1.png */,
@@ -229,8 +235,10 @@
 				723E91462600BB1C006B70BB /* PlayerAction.sks in Resources */,
 				7209FCE42601C70A00483536 /* weapon_1.png in Resources */,
 				723E91222600A9E6006B70BB /* Main.storyboard in Resources */,
+				72448E972601D6CF008B13D0 /* life_bg.png in Resources */,
 				723E91432600BA63006B70BB /* nakedAnt_3.png in Resources */,
 				723E91412600BA63006B70BB /* nakedAnt_2.png in Resources */,
+				72448E9A2601D6EF008B13D0 /* life.png in Resources */,
 				7209FCE02601C0D300483536 /* equipmentBag.png in Resources */,
 				72D0BA942601016D000FE1B9 /* shoes_1.png in Resources */,
 				7209FCEB2601C87500483536 /* armor_1.png in Resources */,

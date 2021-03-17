@@ -12,6 +12,7 @@ class GameScene: SKScene {
     
     var player: Player!
     var showButton: MSButtonNode!
+    var healthBarBackground: SKSpriteNode!
     var timer: Timer?
     
     
@@ -24,6 +25,8 @@ class GameScene: SKScene {
         showButton = (self.childNode(withName: "showButton") as! MSButtonNode)
         setupShowButton()
         
+        healthBarBackground = (self.childNode(withName: "healthBarBackground") as! SKSpriteNode)
+        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -31,6 +34,50 @@ class GameScene: SKScene {
         let location = touch.location(in: self)
         //set player position when touch
         player.playerHandler(position: location)
+        
+        let nodeAtPoint = nodes(at: location)
+        print("\(nodeAtPoint.n)")
+    }
+    
+    override func update(_ currentTime: TimeInterval) {
+        countPlayerAbility(healthBarBackground: healthBarBackground, player: player)
+    }
+    
+    
+    
+    
+    
+    
+    
+    func countPlayerAbility(healthBarBackground: SKSpriteNode, player: Player) {
+        let attackNumber = (healthBarBackground.childNode(withName: "//attackNumber") as! SKLabelNode)
+        let defenseNumber = (healthBarBackground.childNode(withName: "//defenseNumber") as! SKLabelNode)
+        let healthBar = (healthBarBackground.childNode(withName: "//healthBar") as! SKSpriteNode)
+        
+        var totalAttackNumber: CGFloat = 0
+        var totalDefenseNumber: CGFloat = 0
+        var totalHealBarNumber: CGFloat = 0
+        
+        let componentList = player.equipmentList.componentList
+        
+        for i in 0..<componentList.count{
+            if componentList[i].isWeared{
+                totalAttackNumber += componentList[i].ability.attackNumber
+                totalDefenseNumber += componentList[i].ability.defenseNumber
+                totalHealBarNumber += componentList[i].ability.healthNumber
+            }
+        }
+        
+        totalAttackNumber += player.ability.attackNumber
+        totalDefenseNumber += player.ability.defenseNumber
+        totalHealBarNumber += player.ability.healthNumber
+        
+        attackNumber.text = "\(totalAttackNumber)"
+        defenseNumber.text = "\(totalDefenseNumber)"
+        healthBar.xScale = totalHealBarNumber/player.fullBlood
+        
+        
+        
     }
     
     
