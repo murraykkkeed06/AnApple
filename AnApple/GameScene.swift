@@ -32,11 +32,12 @@ class GameScene: SKScene {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         let touch = touches.first!
         let location = touch.location(in: self)
+        let nodeAtPoint = atPoint(location)
         //set player position when touch
         player.playerHandler(position: location)
         
-        let nodeAtPoint = nodes(at: location)
-        print("\(nodeAtPoint.n)")
+        
+        //print("\(nodeAtPoint.name)")
     }
     
     override func update(_ currentTime: TimeInterval) {
@@ -50,9 +51,9 @@ class GameScene: SKScene {
     
     
     func countPlayerAbility(healthBarBackground: SKSpriteNode, player: Player) {
-        let attackNumber = (healthBarBackground.childNode(withName: "//attackNumber") as! SKLabelNode)
-        let defenseNumber = (healthBarBackground.childNode(withName: "//defenseNumber") as! SKLabelNode)
-        let healthBar = (healthBarBackground.childNode(withName: "//healthBar") as! SKSpriteNode)
+        let attackNumber = (healthBarBackground.childNode(withName: "//playerAttackNumber") as! SKLabelNode)
+        let defenseNumber = (healthBarBackground.childNode(withName: "//playerDefenseNumber") as! SKLabelNode)
+        let healthBar = (healthBarBackground.childNode(withName: "//playerHealthBar") as! SKSpriteNode)
         
         var totalAttackNumber: CGFloat = 0
         var totalDefenseNumber: CGFloat = 0
@@ -89,6 +90,7 @@ class GameScene: SKScene {
                 action.timingMode = .easeInEaseOut
                 self.showButton.run(action)
                 self.showButton.buttonState = .hide
+                self.childNode(withName: "//detailDisplay")?.isHidden = true
             case .hide:
                 let action = SKAction.moveTo(x: 495, duration: 1)
                 action.timingMode = .easeInEaseOut

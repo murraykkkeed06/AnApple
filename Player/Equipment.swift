@@ -24,11 +24,16 @@ class Equipment: SKSpriteNode {
     
     var homeScene: SKScene!
     
+    var movingNode: SKSpriteNode!
+    
     //access bag
     var equipmentBag: EquipmentBag!
     var storageBag: StorageBag!
     
     var ability: Abiltiy!
+    
+    //detail display node
+    var detailDisplay: SKSpriteNode!
     
     private var _isWeared: Bool!
     var isWeared: Bool{
@@ -61,6 +66,10 @@ class Equipment: SKSpriteNode {
         self.isWeared = false
         self.zPosition = 5
         self.ability = ability
+        self.isUserInteractionEnabled = true
+        
+       detailDisplay = (self.homeScene.childNode(withName: "//detailDisplay") as! SKSpriteNode)
+        detailDisplay.isHidden = true
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -70,6 +79,39 @@ class Equipment: SKSpriteNode {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         let touch = touches.first!
         let location = touch.location(in: self)
-        print("equipment touched!")
+        setupDetailDisplay()
+        
+        
+    }
+    
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        let touch = touches.first!
+        let location = touch.location(in: self)
+        
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+        //self.isWeared = true
+        
+    }
+    
+    func setupDetailDisplay()  {
+        
+        detailDisplay.isHidden = false
+        let attackNumber = (detailDisplay.childNode(withName: "//attackNumber") as! SKLabelNode)
+        let defenseNumber = (detailDisplay.childNode(withName: "//defenseNumber") as! SKLabelNode)
+        let healthNumber = (detailDisplay.childNode(withName: "//healthNumber") as! SKLabelNode)
+        
+        let equipButton = (detailDisplay.childNode(withName: "//equipButton") as! MSButtonNode)
+        
+        equipButton.selectedHandler = {
+            self.isWeared = true
+            if self.storageBag.storageList.count == 0{self.detailDisplay.isHidden = true}
+        }
+        
+        attackNumber.text = "\(self.ability.attackNumber!)"
+        defenseNumber.text = "\(self.ability.defenseNumber!)"
+        healthNumber.text = "\(self.ability.healthNumber!)"
     }
 }

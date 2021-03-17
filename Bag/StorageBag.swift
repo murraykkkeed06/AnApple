@@ -19,7 +19,7 @@ class StorageBag: SKSpriteNode {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
-    
+        self.isUserInteractionEnabled = true
     }
     
     func addStorage(storage: Equipment) {
@@ -68,6 +68,15 @@ class StorageBag: SKSpriteNode {
                 y += 1
             }
         }
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        print("bag selected!")
+        let touch = touches.first!
+        let location = touch.location(in: self)
+        let nodeAtPoint = atPoint(location)
+        
+        //print("\(nodeAtPoint.name)")
     }
     
     

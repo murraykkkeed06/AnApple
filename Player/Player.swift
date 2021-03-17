@@ -62,7 +62,7 @@ class Player: SKSpriteNode {
         self.zPosition = 1
         self.position = bornPosition
         self.homeScene = scene
-        
+        self.isUserInteractionEnabled = true
         //declare the basic component
         equipmentList = EquipmentList()
         materialList = MaterialList()
@@ -75,21 +75,21 @@ class Player: SKSpriteNode {
         //add the initial equipment
         //shoes
         let shoes_1Texture = SKTexture(imageNamed: "shoes_1")
-        let shoes_1Ability = Abiltiy(attackNumber: 5, defenseNumber: 2, healthNumber: 10)
+        let shoes_1Ability = Abiltiy(attackNumber: 4, defenseNumber: 1, healthNumber: 13)
         let shoes_1Equipment = Equipment(texture: shoes_1Texture, type: .shoes, scene: homeScene, ability: shoes_1Ability)
         shoes_1Equipment.name = "shoes_1"
         equipmentList.addComponent(component: shoes_1Equipment)
         
         //weapon
         let weapon_1Texture = SKTexture(imageNamed: "weapon_1")
-        let weapon_1Ability = Abiltiy(attackNumber: 5, defenseNumber: 2, healthNumber: 10)
+        let weapon_1Ability = Abiltiy(attackNumber: 5, defenseNumber: 9, healthNumber: 7)
         let weapon_1Equipment = Equipment(texture: weapon_1Texture, type: .weapon, scene: homeScene, ability: weapon_1Ability)
         weapon_1Equipment.name = "weapon_1"
         equipmentList.addComponent(component: weapon_1Equipment)
         
         //armor
         let armor_1Texture = SKTexture(imageNamed: "armor_1")
-        let armor_1Ability = Abiltiy(attackNumber: 5, defenseNumber: 2, healthNumber: 10)
+        let armor_1Ability = Abiltiy(attackNumber: 4, defenseNumber: 6, healthNumber: 12)
         let armor_1Equipment = Equipment(texture: armor_1Texture, type: .armor, scene: homeScene, ability: armor_1Ability)
         armor_1Equipment.name = "armor_1"
         equipmentList.addComponent(component: armor_1Equipment)
@@ -108,6 +108,8 @@ class Player: SKSpriteNode {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
+    
+    
     
     //handle movement when user touch began
     func playerHandler(position: CGPoint) {
