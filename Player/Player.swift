@@ -68,6 +68,13 @@ class Player: SKSpriteNode {
         materialList = MaterialList()
         plantCardList = PlantCardList()
         
+        
+        //add the initail material
+        let appleTexture = SKTexture(imageNamed: "apple")
+        let appleMaterial = Material(texture: appleTexture, scene: homeScene)
+        appleMaterial.name = "apple"
+        materialList.addComponent(component: appleMaterial)
+        
 
         //declare ability
         self.ability = Abiltiy(attackNumber: 20, defenseNumber: 20, healthNumber: 100)

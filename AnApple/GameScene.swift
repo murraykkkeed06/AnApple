@@ -14,6 +14,7 @@ class GameScene: SKScene {
     var showButton: MSButtonNode!
     var healthBarBackground: SKSpriteNode!
     var timer: Timer?
+    var movingNode: Material!
     
     
     override func didMove(to view: SKView) {
@@ -36,8 +37,18 @@ class GameScene: SKScene {
         //set player position when touch
         player.playerHandler(position: location)
         
+        if nodeAtPoint.name == "apple" {
+            movingNode = (nodeAtPoint as! Material)
+            movingNode.move(toParent: self)
+        }
         
         //print("\(nodeAtPoint.name)")
+    }
+    
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        let touch = touches.first!
+        let location = touch.location(in: self)
+        movingNode.position = location
     }
     
     override func update(_ currentTime: TimeInterval) {
