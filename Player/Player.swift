@@ -109,6 +109,13 @@ class Player: SKSpriteNode {
         weapon_1Equipment.name = "weapon_1"
         equipmentList.addComponent(component: weapon_1Equipment)
         
+        //weapon
+        let weapon_2Texture = SKTexture(imageNamed: "weapon_2")
+        let weapon_2Ability = Abiltiy(attackNumber: 9, defenseNumber: 9, healthNumber: 21)
+        let weapon_2Equipment = Equipment(texture: weapon_2Texture, type: .weapon, scene: homeScene, ability: weapon_2Ability)
+        weapon_2Equipment.name = "weapon_2"
+        equipmentList.addComponent(component: weapon_2Equipment)
+        
         //armor
         let armor_1Texture = SKTexture(imageNamed: "armor_1")
         let armor_1Ability = Abiltiy(attackNumber: 4, defenseNumber: 6, healthNumber: 12)
@@ -116,12 +123,26 @@ class Player: SKSpriteNode {
         armor_1Equipment.name = "armor_1"
         equipmentList.addComponent(component: armor_1Equipment)
         
+        //armor
+        let armor_2Texture = SKTexture(imageNamed: "armor_2")
+        let armor_2Ability = Abiltiy(attackNumber: 9, defenseNumber: 9, healthNumber: 12)
+        let armor_2Equipment = Equipment(texture: armor_2Texture, type: .armor, scene: homeScene, ability: armor_2Ability)
+        armor_2Equipment.name = "armor_2"
+        equipmentList.addComponent(component: armor_2Equipment)
+        
         //helmet
         let helmet_1Texture = SKTexture(imageNamed: "helmet_1")
         let helmet_1Ability = Abiltiy(attackNumber: 5, defenseNumber: 2, healthNumber: 10)
         let helmet_1Equipment = Equipment(texture: helmet_1Texture, type: .helmet, scene: homeScene, ability: helmet_1Ability)
         helmet_1Equipment.name = "helmet_1"
         equipmentList.addComponent(component: helmet_1Equipment)
+        
+        //helmet
+        let helmet_2Texture = SKTexture(imageNamed: "helmet_2")
+        let helmet_2Ability = Abiltiy(attackNumber: 8, defenseNumber: 5, healthNumber: 19)
+        let helmet_2Equipment = Equipment(texture: helmet_2Texture, type: .helmet, scene: homeScene, ability: helmet_2Ability)
+        helmet_2Equipment.name = "helmet_2"
+        equipmentList.addComponent(component: helmet_2Equipment)
         
         
         

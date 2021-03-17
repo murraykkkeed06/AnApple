@@ -34,7 +34,12 @@
 		72448EA726021DB7008B13D0 /* apple.png in Resources */ = {isa = PBXBuildFile; fileRef = 72448EA626021DB7008B13D0 /* apple.png */; };
 		7288D03426023D310051C735 /* plantCardBag.png in Resources */ = {isa = PBXBuildFile; fileRef = 7288D03326023D310051C735 /* plantCardBag.png */; };
 		7288D037260241370051C735 /* flower.png in Resources */ = {isa = PBXBuildFile; fileRef = 7288D036260241370051C735 /* flower.png */; };
+		7288D03B260257450051C735 /* home.png in Resources */ = {isa = PBXBuildFile; fileRef = 7288D03A260257450051C735 /* home.png */; };
+		7288D04226025A0E0051C735 /* workshop.png in Resources */ = {isa = PBXBuildFile; fileRef = 7288D04126025A0E0051C735 /* workshop.png */; };
 		72CBB7DE2601B67C003687F9 /* storageBag.png in Resources */ = {isa = PBXBuildFile; fileRef = 72CBB7DD2601B67C003687F9 /* storageBag.png */; };
+		72CC85812602627700F47B9C /* helmet_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 72CC85802602627700F47B9C /* helmet_2.png */; };
+		72CC85852602628500F47B9C /* weapon_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 72CC85832602628500F47B9C /* weapon_2.png */; };
+		72CC85862602628500F47B9C /* armor_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 72CC85842602628500F47B9C /* armor_2.png */; };
 		72D0BA812600FB8A000FE1B9 /* EquipmentList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D0BA802600FB8A000FE1B9 /* EquipmentList.swift */; };
 		72D0BA842600FB96000FE1B9 /* MaterialList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D0BA832600FB96000FE1B9 /* MaterialList.swift */; };
 		72D0BA872600FBA7000FE1B9 /* PlantCardList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D0BA862600FBA7000FE1B9 /* PlantCardList.swift */; };
@@ -79,7 +84,12 @@
 		72448EA626021DB7008B13D0 /* apple.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = apple.png; sourceTree = "<group>"; };
 		7288D03326023D310051C735 /* plantCardBag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plantCardBag.png; sourceTree = "<group>"; };
 		7288D036260241370051C735 /* flower.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flower.png; sourceTree = "<group>"; };
+		7288D03A260257450051C735 /* home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home.png; sourceTree = "<group>"; };
+		7288D04126025A0E0051C735 /* workshop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = workshop.png; path = ../../../../Downloads/workshop.png; sourceTree = "<group>"; };
 		72CBB7DD2601B67C003687F9 /* storageBag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = storageBag.png; sourceTree = "<group>"; };
+		72CC85802602627700F47B9C /* helmet_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = helmet_2.png; sourceTree = "<group>"; };
+		72CC85832602628500F47B9C /* weapon_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = weapon_2.png; sourceTree = "<group>"; };
+		72CC85842602628500F47B9C /* armor_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = armor_2.png; sourceTree = "<group>"; };
 		72D0BA802600FB8A000FE1B9 /* EquipmentList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipmentList.swift; sourceTree = "<group>"; };
 		72D0BA832600FB96000FE1B9 /* MaterialList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaterialList.swift; sourceTree = "<group>"; };
 		72D0BA862600FBA7000FE1B9 /* PlantCardList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantCardList.swift; sourceTree = "<group>"; };
@@ -144,6 +154,11 @@
 		723E91332600B4E7006B70BB /* assets.atlas */ = {
 			isa = PBXGroup;
 			children = (
+				72CC85842602628500F47B9C /* armor_2.png */,
+				72CC85832602628500F47B9C /* weapon_2.png */,
+				72CC85802602627700F47B9C /* helmet_2.png */,
+				7288D04126025A0E0051C735 /* workshop.png */,
+				7288D03A260257450051C735 /* home.png */,
 				7288D036260241370051C735 /* flower.png */,
 				7288D03326023D310051C735 /* plantCardBag.png */,
 				72448EA626021DB7008B13D0 /* apple.png */,
@@ -258,18 +273,23 @@
 				723E91432600BA63006B70BB /* nakedAnt_3.png in Resources */,
 				723E91412600BA63006B70BB /* nakedAnt_2.png in Resources */,
 				72448E9A2601D6EF008B13D0 /* life.png in Resources */,
+				72CC85862602628500F47B9C /* armor_2.png in Resources */,
 				7209FCE02601C0D300483536 /* equipmentBag.png in Resources */,
 				72D0BA942601016D000FE1B9 /* shoes_1.png in Resources */,
 				7288D03426023D310051C735 /* plantCardBag.png in Resources */,
 				7288D037260241370051C735 /* flower.png in Resources */,
 				72448EA726021DB7008B13D0 /* apple.png in Resources */,
+				72CC85852602628500F47B9C /* weapon_2.png in Resources */,
 				7209FCEB2601C87500483536 /* armor_1.png in Resources */,
 				72448E9E2601FFAB008B13D0 /* equipButton.png in Resources */,
+				72CC85812602627700F47B9C /* helmet_2.png in Resources */,
 				723E91192600A9E6006B70BB /* GameScene.sks in Resources */,
+				7288D04226025A0E0051C735 /* workshop.png in Resources */,
 				723E91242600A9E6006B70BB /* Assets.xcassets in Resources */,
 				72CBB7DE2601B67C003687F9 /* storageBag.png in Resources */,
 				7209FCE82601C86200483536 /* helmet_1.png in Resources */,
 				723E911B2600A9E6006B70BB /* Actions.sks in Resources */,
+				7288D03B260257450051C735 /* home.png in Resources */,
 				723E91492600BF65006B70BB /* backGround.png in Resources */,
 				723E91422600BA63006B70BB /* nakedAnt_1.png in Resources */,
 				72448EA126020C0F008B13D0 /* shoes_2.png in Resources */,
