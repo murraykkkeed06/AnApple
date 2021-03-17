@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7209FCDC2601BBC500483536 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7209FCDB2601BBC500483536 /* Extension.swift */; };
+		7209FCE02601C0D300483536 /* equipmentBag.png in Resources */ = {isa = PBXBuildFile; fileRef = 7209FCDF2601C0D200483536 /* equipmentBag.png */; };
+		7209FCE42601C70A00483536 /* weapon_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7209FCE32601C70A00483536 /* weapon_1.png */; };
+		7209FCE82601C86200483536 /* helmet_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7209FCE72601C86200483536 /* helmet_1.png */; };
+		7209FCEB2601C87500483536 /* armor_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7209FCEA2601C87500483536 /* armor_1.png */; };
+		7209FCEE2601CB1D00483536 /* MSButtonNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7209FCED2601CB1D00483536 /* MSButtonNode.swift */; };
 		723E91172600A9E6006B70BB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723E91162600A9E6006B70BB /* AppDelegate.swift */; };
 		723E91192600A9E6006B70BB /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 723E91182600A9E6006B70BB /* GameScene.sks */; };
 		723E911B2600A9E6006B70BB /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 723E911A2600A9E6006B70BB /* Actions.sks */; };
@@ -20,7 +26,7 @@
 		723E91432600BA63006B70BB /* nakedAnt_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 723E91402600BA63006B70BB /* nakedAnt_3.png */; };
 		723E91462600BB1C006B70BB /* PlayerAction.sks in Resources */ = {isa = PBXBuildFile; fileRef = 723E91452600BB1C006B70BB /* PlayerAction.sks */; };
 		723E91492600BF65006B70BB /* backGround.png in Resources */ = {isa = PBXBuildFile; fileRef = 723E91482600BF65006B70BB /* backGround.png */; };
-		72CBB7DB26011831003687F9 /* equipmentBag.png in Resources */ = {isa = PBXBuildFile; fileRef = 72CBB7DA26011831003687F9 /* equipmentBag.png */; };
+		72CBB7DE2601B67C003687F9 /* storageBag.png in Resources */ = {isa = PBXBuildFile; fileRef = 72CBB7DD2601B67C003687F9 /* storageBag.png */; };
 		72D0BA812600FB8A000FE1B9 /* EquipmentList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D0BA802600FB8A000FE1B9 /* EquipmentList.swift */; };
 		72D0BA842600FB96000FE1B9 /* MaterialList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D0BA832600FB96000FE1B9 /* MaterialList.swift */; };
 		72D0BA872600FBA7000FE1B9 /* PlantCardList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D0BA862600FBA7000FE1B9 /* PlantCardList.swift */; };
@@ -30,12 +36,18 @@
 		72D0BA942601016D000FE1B9 /* shoes_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 72D0BA932601016D000FE1B9 /* shoes_1.png */; };
 		72D0BA97260106A4000FE1B9 /* Ability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D0BA96260106A4000FE1B9 /* Ability.swift */; };
 		72D0BA9B26010772000FE1B9 /* MaterialBag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D0BA9A26010771000FE1B9 /* MaterialBag.swift */; };
-		72D0BA9E26010783000FE1B9 /* WearedBag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D0BA9D26010783000FE1B9 /* WearedBag.swift */; };
+		72D0BA9E26010783000FE1B9 /* StorageBag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D0BA9D26010783000FE1B9 /* StorageBag.swift */; };
 		72D0BAA126010792000FE1B9 /* EquipmentBag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D0BAA026010792000FE1B9 /* EquipmentBag.swift */; };
 		72D0BAA5260107A7000FE1B9 /* PlantCardBag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D0BAA4260107A7000FE1B9 /* PlantCardBag.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7209FCDB2601BBC500483536 /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		7209FCDF2601C0D200483536 /* equipmentBag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = equipmentBag.png; sourceTree = "<group>"; };
+		7209FCE32601C70A00483536 /* weapon_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = weapon_1.png; sourceTree = "<group>"; };
+		7209FCE72601C86200483536 /* helmet_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = helmet_1.png; sourceTree = "<group>"; };
+		7209FCEA2601C87500483536 /* armor_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = armor_1.png; sourceTree = "<group>"; };
+		7209FCED2601CB1D00483536 /* MSButtonNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSButtonNode.swift; sourceTree = "<group>"; };
 		723E91132600A9E6006B70BB /* AnApple.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnApple.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		723E91162600A9E6006B70BB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		723E91182600A9E6006B70BB /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -51,7 +63,7 @@
 		723E91402600BA63006B70BB /* nakedAnt_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nakedAnt_3.png; sourceTree = "<group>"; };
 		723E91452600BB1C006B70BB /* PlayerAction.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = PlayerAction.sks; sourceTree = "<group>"; };
 		723E91482600BF65006B70BB /* backGround.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backGround.png; sourceTree = "<group>"; };
-		72CBB7DA26011831003687F9 /* equipmentBag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = equipmentBag.png; sourceTree = "<group>"; };
+		72CBB7DD2601B67C003687F9 /* storageBag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = storageBag.png; sourceTree = "<group>"; };
 		72D0BA802600FB8A000FE1B9 /* EquipmentList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipmentList.swift; sourceTree = "<group>"; };
 		72D0BA832600FB96000FE1B9 /* MaterialList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaterialList.swift; sourceTree = "<group>"; };
 		72D0BA862600FBA7000FE1B9 /* PlantCardList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantCardList.swift; sourceTree = "<group>"; };
@@ -61,7 +73,7 @@
 		72D0BA932601016D000FE1B9 /* shoes_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shoes_1.png; sourceTree = "<group>"; };
 		72D0BA96260106A4000FE1B9 /* Ability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ability.swift; sourceTree = "<group>"; };
 		72D0BA9A26010771000FE1B9 /* MaterialBag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaterialBag.swift; sourceTree = "<group>"; };
-		72D0BA9D26010783000FE1B9 /* WearedBag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WearedBag.swift; sourceTree = "<group>"; };
+		72D0BA9D26010783000FE1B9 /* StorageBag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageBag.swift; sourceTree = "<group>"; };
 		72D0BAA026010792000FE1B9 /* EquipmentBag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EquipmentBag.swift; sourceTree = "<group>"; };
 		72D0BAA4260107A7000FE1B9 /* PlantCardBag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlantCardBag.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -103,7 +115,9 @@
 				723E91182600A9E6006B70BB /* GameScene.sks */,
 				723E911A2600A9E6006B70BB /* Actions.sks */,
 				723E911C2600A9E6006B70BB /* GameScene.swift */,
+				7209FCDB2601BBC500483536 /* Extension.swift */,
 				723E911E2600A9E6006B70BB /* GameViewController.swift */,
+				7209FCED2601CB1D00483536 /* MSButtonNode.swift */,
 				723E91202600A9E6006B70BB /* Main.storyboard */,
 				723E91232600A9E6006B70BB /* Assets.xcassets */,
 				723E91252600A9E6006B70BB /* Info.plist */,
@@ -114,12 +128,16 @@
 		723E91332600B4E7006B70BB /* assets.atlas */ = {
 			isa = PBXGroup;
 			children = (
+				7209FCDF2601C0D200483536 /* equipmentBag.png */,
+				72CBB7DD2601B67C003687F9 /* storageBag.png */,
+				7209FCEA2601C87500483536 /* armor_1.png */,
 				72D0BA932601016D000FE1B9 /* shoes_1.png */,
+				7209FCE72601C86200483536 /* helmet_1.png */,
 				723E91482600BF65006B70BB /* backGround.png */,
-				72CBB7DA26011831003687F9 /* equipmentBag.png */,
 				723E913F2600BA63006B70BB /* nakedAnt_1.png */,
 				723E913E2600BA62006B70BB /* nakedAnt_2.png */,
 				723E91402600BA63006B70BB /* nakedAnt_3.png */,
+				7209FCE32601C70A00483536 /* weapon_1.png */,
 			);
 			path = assets.atlas;
 			sourceTree = "<group>";
@@ -144,7 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				72D0BA9A26010771000FE1B9 /* MaterialBag.swift */,
-				72D0BA9D26010783000FE1B9 /* WearedBag.swift */,
+				72D0BA9D26010783000FE1B9 /* StorageBag.swift */,
 				72D0BAA026010792000FE1B9 /* EquipmentBag.swift */,
 				72D0BAA4260107A7000FE1B9 /* PlantCardBag.swift */,
 			);
@@ -209,13 +227,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				723E91462600BB1C006B70BB /* PlayerAction.sks in Resources */,
+				7209FCE42601C70A00483536 /* weapon_1.png in Resources */,
 				723E91222600A9E6006B70BB /* Main.storyboard in Resources */,
 				723E91432600BA63006B70BB /* nakedAnt_3.png in Resources */,
-				72CBB7DB26011831003687F9 /* equipmentBag.png in Resources */,
 				723E91412600BA63006B70BB /* nakedAnt_2.png in Resources */,
+				7209FCE02601C0D300483536 /* equipmentBag.png in Resources */,
 				72D0BA942601016D000FE1B9 /* shoes_1.png in Resources */,
+				7209FCEB2601C87500483536 /* armor_1.png in Resources */,
 				723E91192600A9E6006B70BB /* GameScene.sks in Resources */,
 				723E91242600A9E6006B70BB /* Assets.xcassets in Resources */,
+				72CBB7DE2601B67C003687F9 /* storageBag.png in Resources */,
+				7209FCE82601C86200483536 /* helmet_1.png in Resources */,
 				723E911B2600A9E6006B70BB /* Actions.sks in Resources */,
 				723E91492600BF65006B70BB /* backGround.png in Resources */,
 				723E91422600BA63006B70BB /* nakedAnt_1.png in Resources */,
@@ -236,8 +258,10 @@
 				723E912D2600AC35006B70BB /* Player.swift in Sources */,
 				72D0BA9B26010772000FE1B9 /* MaterialBag.swift in Sources */,
 				72D0BA812600FB8A000FE1B9 /* EquipmentList.swift in Sources */,
+				7209FCDC2601BBC500483536 /* Extension.swift in Sources */,
 				723E911D2600A9E6006B70BB /* GameScene.swift in Sources */,
-				72D0BA9E26010783000FE1B9 /* WearedBag.swift in Sources */,
+				72D0BA9E26010783000FE1B9 /* StorageBag.swift in Sources */,
+				7209FCEE2601CB1D00483536 /* MSButtonNode.swift in Sources */,
 				72D0BA912600FBF9000FE1B9 /* PlantCard.swift in Sources */,
 				72D0BAA126010792000FE1B9 /* EquipmentBag.swift in Sources */,
 				723E911F2600A9E6006B70BB /* GameViewController.swift in Sources */,

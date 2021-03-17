@@ -21,7 +21,6 @@ class EquipmentBag: SKSpriteNode {
         set{
             _helmet = newValue
             _helmet.position = helmetPosition
-            self.addChild(_helmet)
         }
         get{
             return _helmet
@@ -32,7 +31,6 @@ class EquipmentBag: SKSpriteNode {
         set{
             _weapon = newValue
             _weapon.position = weaponPosition
-            self.addChild(_weapon)
         }
         get{
             return _helmet
@@ -43,7 +41,6 @@ class EquipmentBag: SKSpriteNode {
         set{
             _armor = newValue
             _armor.position = armorPosition
-            self.addChild(_armor)
         }
         get{
             return _armor
@@ -54,7 +51,6 @@ class EquipmentBag: SKSpriteNode {
         set{
             _pants = newValue
             _pants.position = pantsPosition
-            self.addChild(_pants)
         }
         get{
             return _pants
@@ -66,7 +62,6 @@ class EquipmentBag: SKSpriteNode {
         set{
             _shoes = newValue
             _shoes.position = shoesPosition
-            self.addChild(_shoes)
         }
         get{
             return _shoes
@@ -82,11 +77,13 @@ class EquipmentBag: SKSpriteNode {
         weaponPosition = self.childNode(withName: "//weapon")?.position
         armorPosition = self.childNode(withName: "//armor")?.position
         pantsPosition = self.childNode(withName: "//pants")?.position
-        shoesPosition = self.childNode(withName: "shoes")?.position
+        shoesPosition = self.childNode(withName: "//shoes")?.position
         
     }
     
     func setupEquipment(equipment: Equipment) {
+        //addChild(equipment)
+        equipment.move(toParent: self)
         let type: EquipmentType = equipment.type
         switch type{
         case .helmet:

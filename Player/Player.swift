@@ -71,11 +71,29 @@ class Player: SKSpriteNode {
         ability = Abiltiy()
         
         //add the initial equipment
+        //shoes
         let shoes_1Texture = SKTexture(imageNamed: "shoes_1")
         let shoes_1Equipment = Equipment(texture: shoes_1Texture, type: .shoes, scene: homeScene)
-        shoes_1Equipment.isWeared = true
+        shoes_1Equipment.name = "shoes_1"
         equipmentList.addComponent(component: shoes_1Equipment)
         
+        //weapon
+        let weapon_1Texture = SKTexture(imageNamed: "weapon_1")
+        let weapon_1Equipment = Equipment(texture: weapon_1Texture, type: .weapon, scene: homeScene)
+        weapon_1Equipment.name = "weapon_1"
+        equipmentList.addComponent(component: weapon_1Equipment)
+        
+        //armor
+        let armor_1Texture = SKTexture(imageNamed: "armor_1")
+        let armor_1Equipment = Equipment(texture: armor_1Texture, type: .armor, scene: homeScene)
+        armor_1Equipment.name = "armor_1"
+        equipmentList.addComponent(component: armor_1Equipment)
+        
+        //helmet
+        let helmet_1Texture = SKTexture(imageNamed: "helmet_1")
+        let helmet_1Equipment = Equipment(texture: helmet_1Texture, type: .helmet, scene: homeScene)
+        helmet_1Equipment.name = "helmet_1"
+        equipmentList.addComponent(component: helmet_1Equipment)
         
         
         

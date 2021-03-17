@@ -25,6 +25,7 @@ class Equipment: SKSpriteNode {
     var homeScene: SKScene!
     
     var equipmentBag: EquipmentBag!
+    var storageBag: StorageBag!
     
     private var _isWeared: Bool!
     var isWeared: Bool{
@@ -32,10 +33,16 @@ class Equipment: SKSpriteNode {
             _isWeared = newValue
             switch newValue {
             case true:
+                //move iten in storage list
+                storageBag.removeStorage(name: self.name!)
+                //move parent to equipment bag
                 equipmentBag.setupEquipment(equipment: self)
                 print("wearing")
             case false:
-                print("not wear implementation")
+                print("not wearing")
+                //add parent to storage bag
+                storageBag.addStorage(storage: self)
+                
             }
         }
         get{return _isWeared}
@@ -47,6 +54,7 @@ class Equipment: SKSpriteNode {
         self.type = type
         self.homeScene = scene
         self.equipmentBag = (scene.childNode(withName: "equipmentBag") as! EquipmentBag)
+        self.storageBag = (scene.childNode(withName: "//storageBag") as! StorageBag)
         self.isWeared = false
         self.zPosition = 5
     }
