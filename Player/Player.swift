@@ -69,6 +69,12 @@ class Player: SKSpriteNode {
         plantCardList = PlantCardList()
         
         
+        //add the initial plant card
+        let flowerTexture = SKTexture(imageNamed: "flower")
+        let flowerPlantCard = PlantCard(texture: flowerTexture, scene: homeScene)
+        flowerPlantCard.name = "flower"
+        plantCardList.addComponent(component: flowerPlantCard)
+        
         //add the initail material
         let appleTexture = SKTexture(imageNamed: "apple")
         let appleMaterial = Material(texture: appleTexture, scene: homeScene)
