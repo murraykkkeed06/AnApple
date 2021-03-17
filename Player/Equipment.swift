@@ -32,6 +32,7 @@ class Equipment: SKSpriteNode {
     
     var ability: Abiltiy!
     
+    var equipButton: MSButtonNode!
     //detail display node
     var detailDisplay: SKSpriteNode!
     
@@ -41,7 +42,7 @@ class Equipment: SKSpriteNode {
             _isWeared = newValue
             switch newValue {
             case true:
-                //move iten in storage list
+                //move item in storage list
                 storageBag.removeStorage(name: self.name!)
                 //move parent to equipment bag
                 equipmentBag.setupEquipment(equipment: self)
@@ -97,17 +98,28 @@ class Equipment: SKSpriteNode {
     }
     
     func setupDetailDisplay()  {
+        //detail will hide when storagebag is hide
+        let showButton = (self.homeScene.childNode(withName: "showButton") as! MSButtonNode)
+        if showButton.buttonState == .hide {
+            return
+        }
         
         detailDisplay.isHidden = false
         let attackNumber = (detailDisplay.childNode(withName: "//attackNumber") as! SKLabelNode)
         let defenseNumber = (detailDisplay.childNode(withName: "//defenseNumber") as! SKLabelNode)
         let healthNumber = (detailDisplay.childNode(withName: "//healthNumber") as! SKLabelNode)
         
-        let equipButton = (detailDisplay.childNode(withName: "//equipButton") as! MSButtonNode)
+        self.equipButton = (detailDisplay.childNode(withName: "//equipButton") as! MSButtonNode)
+        
+        if self.isWeared{self.equipButton.isHidden=true}
+        else {self.equipButton.isHidden=false}
+        
         
         equipButton.selectedHandler = {
+            
             self.isWeared = true
             if self.storageBag.storageList.count == 0{self.detailDisplay.isHidden = true}
+            self.detailDisplay.isHidden = true
         }
         
         attackNumber.text = "\(self.ability.attackNumber!)"

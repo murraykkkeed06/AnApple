@@ -16,11 +16,18 @@ class EquipmentBag: SKSpriteNode {
     var pantsPosition: CGPoint!
     var shoesPosition: CGPoint!
     
+    var helmetIsSet = false
+    var weaponIsSet = false
+    var armorIsSet = false
+    var pantsIsSet = false
+    var shoesIsSet = false
+    
     private var _helmet: Equipment!
     var helmet: Equipment{
         set{
             _helmet = newValue
             _helmet.position = helmetPosition
+            helmetIsSet = true
         }
         get{
             return _helmet
@@ -31,6 +38,7 @@ class EquipmentBag: SKSpriteNode {
         set{
             _weapon = newValue
             _weapon.position = weaponPosition
+            weaponIsSet = true
         }
         get{
             return _helmet
@@ -41,6 +49,7 @@ class EquipmentBag: SKSpriteNode {
         set{
             _armor = newValue
             _armor.position = armorPosition
+            armorIsSet = true
         }
         get{
             return _armor
@@ -51,6 +60,7 @@ class EquipmentBag: SKSpriteNode {
         set{
             _pants = newValue
             _pants.position = pantsPosition
+            pantsIsSet = true
         }
         get{
             return _pants
@@ -62,6 +72,7 @@ class EquipmentBag: SKSpriteNode {
         set{
             _shoes = newValue
             _shoes.position = shoesPosition
+            shoesIsSet = true
         }
         get{
             return _shoes
@@ -82,20 +93,26 @@ class EquipmentBag: SKSpriteNode {
     }
     
     func setupEquipment(equipment: Equipment) {
+        //check if is set yet
+        
         //addChild(equipment)
         equipment.move(toParent: self)
         let type: EquipmentType = equipment.type
         switch type{
         case .helmet:
+            if helmetIsSet{helmet.removeFromParent();helmet.isWeared=false}
             helmet = equipment
-            print("helmet")
         case .weapon:
+            if weaponIsSet{weapon.removeFromParent();weapon.isWeared=false}
             weapon = equipment
         case .armor:
+            if armorIsSet{armor.removeFromParent();armor.isWeared=false}
             armor = equipment
         case .pants:
+            if pantsIsSet{pants.removeFromParent();pants.isWeared=false}
             pants = equipment
         case .shoes:
+            if shoesIsSet{shoes.removeFromParent();shoes.isWeared=false}
             shoes = equipment
             print("shoes")
         }
