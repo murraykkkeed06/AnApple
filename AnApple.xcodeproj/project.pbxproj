@@ -38,6 +38,9 @@
 		7288D037260241370051C735 /* flower.png in Resources */ = {isa = PBXBuildFile; fileRef = 7288D036260241370051C735 /* flower.png */; };
 		7288D03B260257450051C735 /* home.png in Resources */ = {isa = PBXBuildFile; fileRef = 7288D03A260257450051C735 /* home.png */; };
 		7288D04226025A0E0051C735 /* workshop.png in Resources */ = {isa = PBXBuildFile; fileRef = 7288D04126025A0E0051C735 /* workshop.png */; };
+		728F71C52603BCB60065AE90 /* vine.png in Resources */ = {isa = PBXBuildFile; fileRef = 728F71C42603BCB60065AE90 /* vine.png */; };
+		728F71C82603BE740065AE90 /* dirtBackGround.png in Resources */ = {isa = PBXBuildFile; fileRef = 728F71C72603BE740065AE90 /* dirtBackGround.png */; };
+		728F71CB2603BF350065AE90 /* GridXY.swift in Sources */ = {isa = PBXBuildFile; fileRef = 728F71CA2603BF350065AE90 /* GridXY.swift */; };
 		729E0770260357F7008929D2 /* tree.png in Resources */ = {isa = PBXBuildFile; fileRef = 729E076F260357F7008929D2 /* tree.png */; };
 		729E077726035A08008929D2 /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 729E077626035A08008929D2 /* arrow.png */; };
 		729E077A26035C80008929D2 /* TreeScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 729E077926035C80008929D2 /* TreeScene.swift */; };
@@ -105,6 +108,9 @@
 		7288D036260241370051C735 /* flower.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flower.png; sourceTree = "<group>"; };
 		7288D03A260257450051C735 /* home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home.png; sourceTree = "<group>"; };
 		7288D04126025A0E0051C735 /* workshop.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = workshop.png; path = ../../../../Downloads/workshop.png; sourceTree = "<group>"; };
+		728F71C42603BCB60065AE90 /* vine.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vine.png; sourceTree = "<group>"; };
+		728F71C72603BE740065AE90 /* dirtBackGround.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dirtBackGround.png; sourceTree = "<group>"; };
+		728F71CA2603BF350065AE90 /* GridXY.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridXY.swift; sourceTree = "<group>"; };
 		729E076F260357F7008929D2 /* tree.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tree.png; sourceTree = "<group>"; };
 		729E077626035A08008929D2 /* arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow.png; sourceTree = "<group>"; };
 		729E077926035C80008929D2 /* TreeScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TreeScene.swift; sourceTree = "<group>"; };
@@ -197,6 +203,8 @@
 		723E91332600B4E7006B70BB /* assets.atlas */ = {
 			isa = PBXGroup;
 			children = (
+				728F71C72603BE740065AE90 /* dirtBackGround.png */,
+				728F71C42603BCB60065AE90 /* vine.png */,
 				72D029632603A6AB008EF98A /* furry.png */,
 				729E077F26035D8E008929D2 /* treeScene.png */,
 				729E076F260357F7008929D2 /* tree.png */,
@@ -268,6 +276,7 @@
 				72D029512603A342008EF98A /* Dirt.swift */,
 				72D029522603A342008EF98A /* Rock.swift */,
 				72D029502603A342008EF98A /* Wood.swift */,
+				728F71CA2603BF350065AE90 /* GridXY.swift */,
 			);
 			path = Tree;
 			sourceTree = "<group>";
@@ -371,8 +380,10 @@
 				729E0770260357F7008929D2 /* tree.png in Resources */,
 				723E911B2600A9E6006B70BB /* Actions.sks in Resources */,
 				72D0295A2603A4BF008EF98A /* dirt.png in Resources */,
+				728F71C52603BCB60065AE90 /* vine.png in Resources */,
 				7288D03B260257450051C735 /* home.png in Resources */,
 				723E91492600BF65006B70BB /* backGround.png in Resources */,
+				728F71C82603BE740065AE90 /* dirtBackGround.png in Resources */,
 				72D0295B2603A4BF008EF98A /* rock.png in Resources */,
 				729E077D26035CAC008929D2 /* TreeScene.sks in Resources */,
 				723E91422600BA63006B70BB /* nakedAnt_1.png in Resources */,
@@ -403,6 +414,7 @@
 				72D0BA812600FB8A000FE1B9 /* EquipmentList.swift in Sources */,
 				7209FCDC2601BBC500483536 /* Extension.swift in Sources */,
 				72D029602603A645008EF98A /* Furry.swift in Sources */,
+				728F71CB2603BF350065AE90 /* GridXY.swift in Sources */,
 				723E911D2600A9E6006B70BB /* GameScene.swift in Sources */,
 				72D0BA9E26010783000FE1B9 /* StorageBag.swift in Sources */,
 				7209FCEE2601CB1D00483536 /* MSButtonNode.swift in Sources */,

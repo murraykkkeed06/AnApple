@@ -16,9 +16,7 @@ enum MonsterType {
 
 class Monster: SKSpriteNode {
     
-    
-    var monsterPositionX: Int!
-    var monsterPositionY: Int!
+    var gridXY: GridXY!
     
     var mosterType: MonsterType!
 

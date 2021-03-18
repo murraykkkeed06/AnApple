@@ -176,7 +176,6 @@ class Player: SKSpriteNode {
             }
         }
         
-        
         //get another touch when player is moving
         if(self.isMoving){timer?.invalidate()}
         //moving left

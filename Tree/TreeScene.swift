@@ -153,7 +153,7 @@ class TreeScene: SKScene, SKPhysicsContactDelegate {
             groundList.append([])
             for x in 0..<groundCol{
                 
-                let newType = GroundType.getRadom()
+                let newType = GroundType.getRadom(dirt: 0.7, rock: 0.2, wood: 0.1)
                 var newGround : GroundNode!
                 
                 
@@ -162,6 +162,7 @@ class TreeScene: SKScene, SKPhysicsContactDelegate {
                     newGround = Dirt()
                     newGround.groundType = .dirt
                     newGround.position = oringinPos
+                    newGround.gridXY = GridXY(x: 0, y: 0)
                 }else{
                     switch newType {
                     case .dirt:
@@ -174,6 +175,7 @@ class TreeScene: SKScene, SKPhysicsContactDelegate {
                     
                     newGround.groundType = newType
                     newGround.position = oringinPos + CGPoint(x: x*60, y: y*45)
+                    newGround.gridXY = GridXY(x: x, y: y)
                 }
                 
                 addChild(newGround)
@@ -226,9 +228,7 @@ class TreeScene: SKScene, SKPhysicsContactDelegate {
                         
                         let newMonster = Furry()
                         newMonster.isAlived = true
-                        newMonster.monsterPositionX = x
-                        newMonster.monsterPositionY = y
-                    
+                        newMonster.gridXY = GridXY(x: x, y: y)
                         newMonster.position = oringinPos + CGPoint(x: x*60, y: y*45)
                         //newMonster.move(toParent: groundList[y][x])
                         monsterList.append(newMonster)
@@ -247,7 +247,7 @@ class TreeScene: SKScene, SKPhysicsContactDelegate {
         var hasMonster: Bool = false
         for i in 0..<monsterList.count{
             
-            if(monsterList[i].monsterPositionX == x && monsterList[i].monsterPositionY == y && monsterList[i].isAlived){
+            if(monsterList[i].gridXY.x == x && monsterList[i].gridXY.y == y && monsterList[i].isAlived){
                 hasMonster = true
                 continue
             }else{

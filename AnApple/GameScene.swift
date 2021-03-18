@@ -51,7 +51,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 //            movingNode.move(toParent: self)
 //        }
         
-        //print("\(nodeAtPoint.name)")
+        print("\(nodeAtPoint.name)")
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {

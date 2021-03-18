@@ -23,10 +23,22 @@ enum GroundType: UInt32 {
         return maxValue
     }()
 
-    static func getRadom() -> GroundType {
+    static func getRadom(dirt: CGFloat, rock: CGFloat, wood: CGFloat) -> GroundType {
         // pick and return a new value
-        let rand = arc4random_uniform(_count)
-        return GroundType(rawValue: rand)!
+        //let rand = arc4random_uniform(_count)
+        var result: UInt32!
+        
+        if CGFloat.random(in: 0..<100) < dirt*100 {
+            result = 0
+        }
+        else if CGFloat.random(in: 0..<100) < rock*100 {
+            result = 1
+        }
+        else {
+            result = 2
+        }
+        
+        return GroundType(rawValue: result)!
     }
 }
 
@@ -34,6 +46,7 @@ enum GroundType: UInt32 {
 class GroundNode: SKSpriteNode {
     
     //var monsterList = [Monster]()
+    var gridXY: GridXY!
     
     private var _groundType: GroundType!
     var groundType: GroundType{

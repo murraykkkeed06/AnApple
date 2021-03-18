@@ -10,9 +10,9 @@ import SpriteKit
 
 class Furry: Monster {
     
-    static var bornSecond: TimeInterval = 6
+    static var bornSecond: TimeInterval = 10
     static var bornGround: GroundType = .dirt
-    static var bornChance: CGFloat = 0.05
+    static var bornChance: CGFloat = 0.03
     
     init(){
         

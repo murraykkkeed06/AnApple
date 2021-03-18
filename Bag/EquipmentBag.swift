@@ -41,7 +41,7 @@ class EquipmentBag: SKSpriteNode {
             weaponIsSet = true
         }
         get{
-            return _helmet
+            return _weapon
         }
     }
     private var _armor: Equipment!
