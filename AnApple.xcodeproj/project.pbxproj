@@ -32,6 +32,7 @@
 		72448EA126020C0F008B13D0 /* shoes_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 72448EA026020C0F008B13D0 /* shoes_2.png */; };
 		72448EA426021CBF008B13D0 /* materialBag.png in Resources */ = {isa = PBXBuildFile; fileRef = 72448EA326021CBF008B13D0 /* materialBag.png */; };
 		72448EA726021DB7008B13D0 /* apple.png in Resources */ = {isa = PBXBuildFile; fileRef = 72448EA626021DB7008B13D0 /* apple.png */; };
+		7247909E26031B5800D4D70A /* enter.png in Resources */ = {isa = PBXBuildFile; fileRef = 7247909D26031B5800D4D70A /* enter.png */; };
 		7288D03426023D310051C735 /* plantCardBag.png in Resources */ = {isa = PBXBuildFile; fileRef = 7288D03326023D310051C735 /* plantCardBag.png */; };
 		7288D037260241370051C735 /* flower.png in Resources */ = {isa = PBXBuildFile; fileRef = 7288D036260241370051C735 /* flower.png */; };
 		7288D03B260257450051C735 /* home.png in Resources */ = {isa = PBXBuildFile; fileRef = 7288D03A260257450051C735 /* home.png */; };
@@ -82,6 +83,7 @@
 		72448EA026020C0F008B13D0 /* shoes_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shoes_2.png; sourceTree = "<group>"; };
 		72448EA326021CBF008B13D0 /* materialBag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = materialBag.png; sourceTree = "<group>"; };
 		72448EA626021DB7008B13D0 /* apple.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = apple.png; sourceTree = "<group>"; };
+		7247909D26031B5800D4D70A /* enter.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = enter.png; sourceTree = "<group>"; };
 		7288D03326023D310051C735 /* plantCardBag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plantCardBag.png; sourceTree = "<group>"; };
 		7288D036260241370051C735 /* flower.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flower.png; sourceTree = "<group>"; };
 		7288D03A260257450051C735 /* home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home.png; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 		723E910A2600A9E5006B70BB = {
 			isa = PBXGroup;
 			children = (
+				7247909A2603167700D4D70A /* ActionFile */,
 				72D0BA9926010746000FE1B9 /* Bag */,
 				723E914D2600CE00006B70BB /* Player */,
 				723E91332600B4E7006B70BB /* assets.atlas */,
@@ -139,7 +142,6 @@
 			children = (
 				723E91162600A9E6006B70BB /* AppDelegate.swift */,
 				723E91182600A9E6006B70BB /* GameScene.sks */,
-				723E911A2600A9E6006B70BB /* Actions.sks */,
 				723E911C2600A9E6006B70BB /* GameScene.swift */,
 				7209FCDB2601BBC500483536 /* Extension.swift */,
 				723E911E2600A9E6006B70BB /* GameViewController.swift */,
@@ -154,6 +156,7 @@
 		723E91332600B4E7006B70BB /* assets.atlas */ = {
 			isa = PBXGroup;
 			children = (
+				7247909D26031B5800D4D70A /* enter.png */,
 				72CC85842602628500F47B9C /* armor_2.png */,
 				72CC85832602628500F47B9C /* weapon_2.png */,
 				72CC85802602627700F47B9C /* helmet_2.png */,
@@ -184,7 +187,6 @@
 		723E914D2600CE00006B70BB /* Player */ = {
 			isa = PBXGroup;
 			children = (
-				723E91452600BB1C006B70BB /* PlayerAction.sks */,
 				723E912C2600AC35006B70BB /* Player.swift */,
 				72D0BA802600FB8A000FE1B9 /* EquipmentList.swift */,
 				72D0BA832600FB96000FE1B9 /* MaterialList.swift */,
@@ -195,6 +197,15 @@
 				72D0BA96260106A4000FE1B9 /* Ability.swift */,
 			);
 			path = Player;
+			sourceTree = "<group>";
+		};
+		7247909A2603167700D4D70A /* ActionFile */ = {
+			isa = PBXGroup;
+			children = (
+				723E91452600BB1C006B70BB /* PlayerAction.sks */,
+				723E911A2600A9E6006B70BB /* Actions.sks */,
+			);
+			path = ActionFile;
 			sourceTree = "<group>";
 		};
 		72D0BA9926010746000FE1B9 /* Bag */ = {
@@ -269,6 +280,7 @@
 				7209FCE42601C70A00483536 /* weapon_1.png in Resources */,
 				723E91222600A9E6006B70BB /* Main.storyboard in Resources */,
 				72448EA426021CBF008B13D0 /* materialBag.png in Resources */,
+				7247909E26031B5800D4D70A /* enter.png in Resources */,
 				72448E972601D6CF008B13D0 /* life_bg.png in Resources */,
 				723E91432600BA63006B70BB /* nakedAnt_3.png in Resources */,
 				723E91412600BA63006B70BB /* nakedAnt_2.png in Resources */,

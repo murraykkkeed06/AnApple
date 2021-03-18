@@ -24,6 +24,7 @@ class Player: SKSpriteNode {
     
     var isMoving = false
     
+    let bodySize : CGSize = CGSize(width: 40, height: 40)
     //component
     var equipmentList: EquipmentList!
     var materialList: MaterialList!
@@ -56,7 +57,7 @@ class Player: SKSpriteNode {
     
     init(scene: SKScene) {
         let texture = SKTexture(imageNamed: "nakedAnt_2")
-        super.init(texture: texture, color: .clear , size: CGSize(width: 40, height: 40))
+        super.init(texture: texture, color: .clear , size: bodySize)
         
         self.playerState = .idle
         self.zPosition = 1
@@ -67,6 +68,16 @@ class Player: SKSpriteNode {
         equipmentList = EquipmentList()
         materialList = MaterialList()
         plantCardList = PlantCardList()
+        
+        //setup physicbody
+        self.physicsBody = SKPhysicsBody(rectangleOf: bodySize)
+        self.physicsBody!.affectedByGravity = false
+        //self.physicsBody!.isDynamic = false
+        self.physicsBody!.allowsRotation = false
+        self.physicsBody!.categoryBitMask = 1
+        self.physicsBody!.contactTestBitMask = 6
+        self.physicsBody!.collisionBitMask = 0
+        
         
         
         //add the initial plant card
