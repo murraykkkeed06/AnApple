@@ -23,8 +23,12 @@ class TreeScene: SKScene, SKPhysicsContactDelegate {
     var sinceStart: TimeInterval = 0
     
     var monsterList = [Monster]()
+   
     
     var debugButton : MSButtonNode!
+    
+    
+    
     
     override func didMove(to view: SKView) {
         
@@ -61,7 +65,7 @@ class TreeScene: SKScene, SKPhysicsContactDelegate {
         let touch = touches.first!
         let location = touch.location(in: self)
         //set player position when touch
-        player.playerHandler(position: location)
+        player.playerHandler(position: location, boundage: true)
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -203,14 +207,18 @@ class TreeScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func setupMonster()  {
-        if(sinceStart > 6){
+        
+        
+        
+        
+        if(sinceStart > Furry.bornSecond){
+            
             let oringinPos = CGPoint(x: 110, y: 102.5)
-            //furry will born in dirt every minute with 30% chance
-            //monsterList has a list of monster object,
+            
             for y in 0..<groundRow {
                 for x in 0..<groundCol{
                     
-                    if(Int.random(in: 0..<100)<5 && groundList[y][x].groundType == GroundType.dirt){
+                    if(CGFloat.random(in: 0..<100)<Furry.bornChance*100 && groundList[y][x].groundType == Furry.bornGround){
                         //check if already exist
                         if (xyHasMonster(x: x,y: y)){return}
                         //ant position won't born monster
@@ -220,7 +228,7 @@ class TreeScene: SKScene, SKPhysicsContactDelegate {
                         newMonster.isAlived = true
                         newMonster.monsterPositionX = x
                         newMonster.monsterPositionY = y
-                        newMonster.mosterType = MonsterType.furry
+                    
                         newMonster.position = oringinPos + CGPoint(x: x*60, y: y*45)
                         //newMonster.move(toParent: groundList[y][x])
                         monsterList.append(newMonster)

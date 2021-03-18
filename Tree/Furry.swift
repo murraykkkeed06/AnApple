@@ -9,17 +9,20 @@ import Foundation
 import SpriteKit
 
 class Furry: Monster {
+    
+    static var bornSecond: TimeInterval = 6
+    static var bornGround: GroundType = .dirt
+    static var bornChance: CGFloat = 0.05
+    
     init(){
         
-        
         let texture = SKTexture(imageNamed: "furry")
-        super.init(texture: texture, color: .clear, size: CGSize(width: 50, height: 50))
-    
-        self.zPosition = 2
+        super.init(texture: texture)
         
-        //self.anchorPoint = CGPoint(x: 0, y: 0)
-        self.alpha = 1
+        self.mosterType = .furry
+        self.zPosition = 2
         self.name = "furry"
+        self.ability = Abiltiy(attackNumber: 6, defenseNumber: 5, healthNumber: 50)
         
 //        self.physicsBody = SKPhysicsBody()
 //        self.physicsBody?.collisionBitMask = 0
@@ -29,8 +32,7 @@ class Furry: Monster {
 //        self.physicsBody?.isDynamic = false
         
         //physicsBody.collisionBitMask = 0xFFFFFFFF
-//        self.healthNumber = 50
-//        self.attackPoint = 5
+
         
     }
     

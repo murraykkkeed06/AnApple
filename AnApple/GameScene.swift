@@ -44,7 +44,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let location = touch.location(in: self)
         let nodeAtPoint = atPoint(location)
         //set player position when touch
-        player.playerHandler(position: location)
+        player.playerHandler(position: location, boundage: false)
         
 //        if nodeAtPoint.name == "apple" {
 //            movingNode = (nodeAtPoint as! Material)

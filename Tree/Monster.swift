@@ -10,23 +10,28 @@ import SpriteKit
 
 enum MonsterType {
     case furry
+    case spider
+    case fly
 }
 
 class Monster: SKSpriteNode {
-    var attackNumber: CGFloat!
-    var defenseNumber: Int!
+    
+    
     var monsterPositionX: Int!
     var monsterPositionY: Int!
+    
     var mosterType: MonsterType!
-//    var bornRateEveryMinute: CGFloat!
+
     var isAlived: Bool = false
     
-    var healthNumber : CGFloat!
+    var ability: Abiltiy!
 
+//    var bornSecond: TimeInterval!
+//    var bornGround: GroundType!
+//    var bornChance: CGFloat!
     
-    
-    init(texture: SKTexture, color: UIColor, size: CGSize) {
-        super.init(texture: texture, color: color, size: size)
+    init(texture: SKTexture) {
+        super.init(texture: texture, color: .clear, size: CGSize(width: 50, height: 50))
     }
     
     required init?(coder aDecoder: NSCoder) {

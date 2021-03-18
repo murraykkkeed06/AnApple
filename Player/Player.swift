@@ -20,7 +20,7 @@ class Player: SKSpriteNode {
     let playerMoveDistance: CGFloat = 1
     //full blood
     let fullBlood: CGFloat = 500
-    let bornPosition: CGPoint = CGPoint(x: 300, y: 80)
+    let bornPosition: CGPoint = CGPoint(x: 110, y: 102.5)
     
     var isMoving = false
     
@@ -168,7 +168,14 @@ class Player: SKSpriteNode {
     
     
     //handle movement when user touch began
-    func playerHandler(position: CGPoint) {
+    func playerHandler(position: CGPoint, boundage: Bool) {
+        //check whether out of place
+        if boundage {
+            if position.x < 80 || position.x > 620 || position.y < 80 || position.y > 305{
+                return
+            }
+        }
+        
         
         //get another touch when player is moving
         if(self.isMoving){timer?.invalidate()}
