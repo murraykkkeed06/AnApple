@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7209925E260339DB002566D0 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7209925D260339DB002566D0 /* Home.swift */; };
 		7209FCDC2601BBC500483536 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7209FCDB2601BBC500483536 /* Extension.swift */; };
 		7209FCE02601C0D300483536 /* equipmentBag.png in Resources */ = {isa = PBXBuildFile; fileRef = 7209FCDF2601C0D200483536 /* equipmentBag.png */; };
 		7209FCE42601C70A00483536 /* weapon_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7209FCE32601C70A00483536 /* weapon_1.png */; };
@@ -56,6 +57,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7209925D260339DB002566D0 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		7209FCDB2601BBC500483536 /* Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		7209FCDF2601C0D200483536 /* equipmentBag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = equipmentBag.png; sourceTree = "<group>"; };
 		7209FCE32601C70A00483536 /* weapon_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = weapon_1.png; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 				723E91202600A9E6006B70BB /* Main.storyboard */,
 				723E91232600A9E6006B70BB /* Assets.xcassets */,
 				723E91252600A9E6006B70BB /* Info.plist */,
+				7209925D260339DB002566D0 /* Home.swift */,
 			);
 			path = AnApple;
 			sourceTree = "<group>";
@@ -319,6 +322,7 @@
 				72D0BA8E2600FBEB000FE1B9 /* Material.swift in Sources */,
 				72D0BA842600FB96000FE1B9 /* MaterialList.swift in Sources */,
 				72D0BA8B2600FBDD000FE1B9 /* Equipment.swift in Sources */,
+				7209925E260339DB002566D0 /* Home.swift in Sources */,
 				723E912D2600AC35006B70BB /* Player.swift in Sources */,
 				72D0BA9B26010772000FE1B9 /* MaterialBag.swift in Sources */,
 				72D0BA812600FB8A000FE1B9 /* EquipmentList.swift in Sources */,

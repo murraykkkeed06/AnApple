@@ -17,6 +17,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var movingNode: Material!
     var homeNode: SKSpriteNode!
     var workshopNode : SKSpriteNode!
+    var enterButton: MSButtonNode!
     override func didMove(to view: SKView) {
         
         physicsWorld.contactDelegate = self
@@ -28,6 +29,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         //storageBag = (self.childNode(withName: "//storageBag") as! StorageBag)
         showButton = (self.childNode(withName: "showButton") as! MSButtonNode)
         setupShowButton()
+        
+        enterButton = (self.childNode(withName: "enterButton") as! MSButtonNode)
         
         homeNode = (self.childNode(withName: "home") as! SKSpriteNode)
         workshopNode = (self.childNode(withName: "workshop") as! SKSpriteNode)
@@ -65,40 +68,59 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func didBegin(_ contact: SKPhysicsContact) {
         let nodeA = contact.bodyA.node
         let nodeB = contact.bodyB.node
+        handleBeginSelection(nodeA: nodeA!, nodeB: nodeB!)
+
+    }
+    
+    func didEnd(_ contact: SKPhysicsContact) {
+        let nodeA = contact.bodyA.node
+        let nodeB = contact.bodyB.node
         
-        if nodeA?.name == "home" || nodeB?.name == "home" {
+        handleEndSelection(nodeA: nodeA!, nodeB: nodeB!)
+       
+        
+        
+    }
+    
+    
+    
+    func handleBeginSelection(nodeA: SKNode, nodeB: SKNode) {
+        if nodeA.name == "home" || nodeB.name == "home" {
             homeNode.run(SKAction(named: "selected")!)
-            let enterButton = (homeNode.childNode(withName: "enterButton") as! MSButtonNode)
+            enterButton.move(toParent: homeNode)
+            enterButton.position = CGPoint(x: 0, y: 50)
+            //let enterButton = (homeNode.childNode(withName: "enterButton") as! MSButtonNode)
             //enterButton.selectedHandler = {}
             //enterButton.run(SKAction(named: "buttonShow")!)
             enterButton.run(SKAction.sequence([SKAction(named: "buttonShow")!,SKAction(named: "playerIdle")!]))
             //enterButton.run(SKAction(named: "buttonShow")!)
         }
         
-        if nodeA?.name == "workshop" || nodeB?.name == "workshop" {
+        if nodeA.name == "workshop" || nodeB.name == "workshop" {
             workshopNode.run(SKAction(named: "selected")!)
+            enterButton.move(toParent: workshopNode)
+            enterButton.position = CGPoint(x: 0, y: 50)
+            enterButton.run(SKAction.sequence([SKAction(named: "buttonShow")!,SKAction(named: "playerIdle")!]))
+            
         }
-        
     }
     
-    func didEnd(_ contact: SKPhysicsContact) {
-        let nodeA = contact.bodyA.node
-        let nodeB = contact.bodyB.node
-        if nodeA?.name == "home" || nodeB?.name == "home" {
-            print("end!")
-            let enterButton = (homeNode.childNode(withName: "enterButton") as! MSButtonNode)
+    
+    func handleEndSelection(nodeA: SKNode, nodeB: SKNode)  {
+        if nodeA.name == "home" || nodeB.name == "home" {
+            //print("end!")
+            //let enterButton = (homeNode.childNode(withName: "enterButton") as! MSButtonNode)
             //enterButton.selectedHandler = {}
             //enterButton.run(SKAction(named: "buttonShow")!)
             enterButton.removeAllActions()
             enterButton.run(SKAction(named: "buttonHide")!)
             //enterButton.removeAllActions()
         }
-        
-        
+        if nodeA.name == "workshop" || nodeB.name == "workshop" {
+            enterButton.removeAllActions()
+            enterButton.run(SKAction(named: "buttonHide")!)
+        }
     }
-    
-    
-    
     
     
     
