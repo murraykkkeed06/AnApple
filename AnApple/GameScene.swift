@@ -88,7 +88,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         //when contact tree
         if nodeA.name == "tree" || nodeB.name == "tree" {
             let arrow = (self.treeNode.childNode(withName: "arrow") as! MSButtonNode)
-            arrow.run(SKAction(named: "playerIdle")!)
+            //arrow.run(SKAction(named: "playerIdle")!)
+            arrow.run(SKAction.sequence([SKAction(named: "buttonShow")!,SKAction(named: "playerIdle")!]))
             arrow.selectedHandler = {
                 self.loadTreeScene()
             }
@@ -145,6 +146,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if nodeA.name == "tree" || nodeB.name == "tree" {
             let arrow = (self.treeNode.childNode(withName: "arrow") as! MSButtonNode)
             arrow.removeAllActions()
+            arrow.run(SKAction(named: "buttonHide")!)
         }
         
         //when stop contact home

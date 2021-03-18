@@ -21,13 +21,6 @@ class Rock: GroundNode {
         self.neighborIsDigged = false
         self.name = "rock"
         
-//        self.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: 60, height: 45))
-//        self.physicsBody?.affectedByGravity = false
-//        self.physicsBody?.isDynamic = false
-        
-        //physicsBody?.usesPreciseCollisionDetection = true
-        //physicsBody.collisionBitMask = 0xFFFFFFFF
-        
     }
     
     required init?(coder aDecoder: NSCoder) {

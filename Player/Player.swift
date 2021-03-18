@@ -78,7 +78,7 @@ class Player: SKSpriteNode {
         self.physicsBody!.allowsRotation = false
         self.physicsBody!.categoryBitMask = 1
         self.physicsBody!.contactTestBitMask = 14
-        self.physicsBody!.collisionBitMask = 0
+        self.physicsBody!.collisionBitMask = 16
         
         
         

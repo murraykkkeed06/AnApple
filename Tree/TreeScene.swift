@@ -73,6 +73,9 @@ class TreeScene: SKScene, SKPhysicsContactDelegate {
     }
     
     override func update(_ currentTime: TimeInterval) {
+        //set player x y in groundnode class
+        GroundNode.playerPosition = player.position
+        
         countPlayerAbility(healthBarBackground: healthBarBackground, player: player)
         
         sinceStart += eachFrame
@@ -256,4 +259,6 @@ class TreeScene: SKScene, SKPhysicsContactDelegate {
         }
         return hasMonster
     }
+    
 }
+

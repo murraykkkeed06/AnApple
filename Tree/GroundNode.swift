@@ -46,6 +46,8 @@ enum GroundType: UInt32 {
 class GroundNode: SKSpriteNode {
     
     //var monsterList = [Monster]()
+    static var playerPosition: CGPoint!
+    
     var gridXY: GridXY!
     
     private var _groundType: GroundType!
@@ -65,8 +67,9 @@ class GroundNode: SKSpriteNode {
         set{
             _isDigged = newValue
             if (newValue==true){
-                self.alpha=0.5
-                self.physicsBody = nil
+                //self.alpha=0.5
+                //self.physicsBody?.collisionBitMask = 0
+                self.removeFromParent()
                 
             }
         }
@@ -90,9 +93,57 @@ class GroundNode: SKSpriteNode {
         }
     }
     
+    override init(texture: SKTexture?, color: UIColor, size: CGSize) {
+        super.init(texture: texture, color: color, size: size)
+        
+        self.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: 60, height: 45))
+        self.physicsBody?.isDynamic = false
+        self.physicsBody?.pinned = true
+        self.physicsBody?.affectedByGravity = false
+        self.physicsBody?.allowsRotation = false
+        self.physicsBody?.categoryBitMask = 16
+        self.physicsBody?.collisionBitMask = 1
+        
+        self.isUserInteractionEnabled = true
+    }
     
-   
-
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if neighborIsDigged && !isDigged && playerIsAround(){
+            let digger = Digger()
+            digger.position = CGPoint(x: 0, y: 30)
+            digger.selectedHandler = {
+                self.isDigged = true
+            }
+            addChild(digger)
+        }
+    }
+    
+    func playerIsAround() -> Bool {
+        
+        var isAround = false
+        
+        if let top = self.top {
+            if top.frame.contains(GroundNode.playerPosition) {isAround = true}
+        }
+        if let bottom = self.bottom {
+            if bottom.frame.contains(GroundNode.playerPosition) {isAround = true}
+        }
+        if let left = self.left {
+            if left.frame.contains(GroundNode.playerPosition) {isAround = true}
+        }
+        if let right = self.right {
+            if right.frame.contains(GroundNode.playerPosition) {isAround = true}
+        }
+        
+        
+        
+        return isAround
+    }
+    
     
 
 }

@@ -21,15 +21,7 @@ class Dirt: GroundNode {
         self.isDigged = false
         self.neighborIsDigged = false
         self.name = "dirt"
-        
-        //self.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: 60, height: 45))
-        //physicsBody?.usesPreciseCollisionDetection = true
-        //self.physicsBody?.affectedByGravity = false
-        //self.physicsBody?.isDynamic = false
-        
-        //physicsBody.collisionBitMask = 0xFFFFFFFF
-        
-        
+           
     }
     
     required init?(coder aDecoder: NSCoder) {
