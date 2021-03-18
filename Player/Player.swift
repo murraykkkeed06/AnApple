@@ -34,6 +34,8 @@ class Player: SKSpriteNode {
     
     var timer: Timer?
     
+    
+    
     private var _playerState: PlayerState!
     var playerState: PlayerState {
         set{
@@ -60,7 +62,7 @@ class Player: SKSpriteNode {
         super.init(texture: texture, color: .clear , size: bodySize)
         
         self.playerState = .idle
-        self.zPosition = 1
+        self.zPosition = 2
         self.position = bornPosition
         self.homeScene = scene
         self.isUserInteractionEnabled = true
