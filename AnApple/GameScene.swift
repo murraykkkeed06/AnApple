@@ -222,7 +222,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             if let scene = TreeScene(fileNamed: "TreeScene") {
                 // Set the scale mode to scale to fit the window
                 scene.scaleMode = .aspectFill
-                
+                //passing data
+                scene.player = self.player
                 // Present the scene
                 view.presentScene(scene)
             }
