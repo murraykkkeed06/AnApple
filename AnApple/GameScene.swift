@@ -17,6 +17,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var movingNode: Material!
     var homeNode: SKSpriteNode!
     var workshopNode : SKSpriteNode!
+    var treeNode: SKSpriteNode!
         override func didMove(to view: SKView) {
         
         physicsWorld.contactDelegate = self
@@ -32,7 +33,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         homeNode = (self.childNode(withName: "home") as! SKSpriteNode)
         workshopNode = (self.childNode(withName: "workshop") as! SKSpriteNode)
-        
+        treeNode = (self.childNode(withName: "tree") as! SKSpriteNode)
+            
         healthBarBackground = (self.childNode(withName: "healthBarBackground") as! SKSpriteNode)
         
     }
@@ -83,6 +85,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     
     func handleBeginSelection(nodeA: SKNode, nodeB: SKNode) {
+        //when contact tree
+        if nodeA.name == "tree" || nodeB.name == "tree" {
+            let arrow = (self.treeNode.childNode(withName: "arrow") as! MSButtonNode)
+            arrow.run(SKAction(named: "playerIdle")!)
+            arrow.selectedHandler = {
+                self.loadTreeScene()
+            }
+        }
+        
         //when contact home
         if nodeA.name == "home" || nodeB.name == "home" {
             
@@ -129,6 +140,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     
     func handleEndSelection(nodeA: SKNode, nodeB: SKNode)  {
+        
+        //when end contact tree
+        if nodeA.name == "tree" || nodeB.name == "tree" {
+            let arrow = (self.treeNode.childNode(withName: "arrow") as! MSButtonNode)
+            arrow.removeAllActions()
+        }
         
         //when stop contact home
         if nodeA.name == "home" || nodeB.name == "home" {
@@ -199,6 +216,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
     }
     
+    func loadTreeScene() {
+        if let view = self.view as SKView? {
+            // Load the SKScene from 'GameScene.sks'
+            if let scene = TreeScene(fileNamed: "TreeScene") {
+                // Set the scale mode to scale to fit the window
+                scene.scaleMode = .aspectFill
+                
+                // Present the scene
+                view.presentScene(scene)
+            }
+        }
+    }
     
     
     

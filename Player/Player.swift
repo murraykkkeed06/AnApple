@@ -75,7 +75,7 @@ class Player: SKSpriteNode {
         //self.physicsBody!.isDynamic = false
         self.physicsBody!.allowsRotation = false
         self.physicsBody!.categoryBitMask = 1
-        self.physicsBody!.contactTestBitMask = 6
+        self.physicsBody!.contactTestBitMask = 14
         self.physicsBody!.collisionBitMask = 0
         
         
