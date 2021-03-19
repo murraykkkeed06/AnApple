@@ -24,7 +24,7 @@ class Furry: Monster {
         self.mosterType = .furry
         self.zPosition = 1
         self.name = "furry"
-        self.attackInterval = 1.8
+        self.attackInterval = 3
         self.ability = Abiltiy(attackNumber: 6, defenseNumber: 5, healthNumber: 50)
         
 //        self.physicsBody = SKPhysicsBody()

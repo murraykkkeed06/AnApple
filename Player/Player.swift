@@ -42,7 +42,7 @@ class Player: SKSpriteNode {
     
     var stopAfterSecond: TimeInterval = 3
     
-    var attackInterval: TimeInterval = 0.8
+    var attackInterval: TimeInterval = 2
     
     private var _playerState: PlayerState!
     var playerState: PlayerState {

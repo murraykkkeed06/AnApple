@@ -23,7 +23,7 @@ class TreeScene: SKScene, SKPhysicsContactDelegate {
     var sinceStart: TimeInterval = 0
     
     var monsterList = [Monster]()
-   
+    
     
     var debugButton : MSButtonNode!
     var vineButton: MSButtonNode!
@@ -37,6 +37,7 @@ class TreeScene: SKScene, SKPhysicsContactDelegate {
     var ladderList = [Ladder]()
     
     var fightScreen: FightScreen!
+    
     
     
     override func didMove(to view: SKView) {
@@ -140,6 +141,8 @@ class TreeScene: SKScene, SKPhysicsContactDelegate {
         Player.playerStartFrame += eachFrame
         
         setupMonster()
+        
+        
     }
     
     func didBegin(_ contact: SKPhysicsContact) {
@@ -150,7 +153,9 @@ class TreeScene: SKScene, SKPhysicsContactDelegate {
         
         
     }
-
+    
+    
+    
     
     func checkMonsterGravity() {
         for i in 0..<monsterList.count{
@@ -164,11 +169,46 @@ class TreeScene: SKScene, SKPhysicsContactDelegate {
     
     func handleClimb(location: CGPoint) {
         let nodeAtPoint = atPoint(location)
-        if nodeAtPoint.name == "ladder" && nodeAtPoint.frame.contains(player.position){
-            player.climb(position: location)
+        if !positionInRange(position: location){return}
+        let groundNode = xyGroundNode(location: location)
+        
+        if let ladder = playerOnLadder()  {
+            if let bottom = groundNode.bottom {
+            if nodeAtPoint.name == "ladder" && nodeAtPoint.frame.contains(player.position){
+                player.climb(position: location)
+            }else if (groundNode.isDigged &&
+                        ladder.frame.contains(bottom.position) ){
+                player.climb(position: location)
+            }
+            }
         }
+        
+        
     }
     
+    //|| (groundNode.isDigged && playerOnLadder )
+    
+    
+    func playerOnLadder() -> Ladder? {
+        //check player is on ladder
+        var ladder: Ladder!
+        for i in 0..<ladderList.count{
+            if ladderList[i].frame.contains(player.position){
+                ladder = ladderList[i]
+                break
+            }
+            ladder = nil
+        }
+        return ladder
+    }
+    
+    func positionInRange(position: CGPoint) -> Bool {
+        var inRange = false
+        
+        if position.x > 80 && position.x < 620  && position.y < 305 && position.y > 80 {inRange = true}
+        
+        return inRange
+    }
     
     func handleLadder(phase: String, location: CGPoint) {
         let nodeAtPoint = atPoint(location)
@@ -182,7 +222,7 @@ class TreeScene: SKScene, SKPhysicsContactDelegate {
                 movingNode.position = location
             case "ended":
                 if xyCanPutLadder(location: location) {
-        
+                    
                     //player.plantCardList.removeComponent(name: "flowerCard")
                     plantCardBag.removePlantCard(name: "flowerCard")
                     movingNode.removeFromParent()
