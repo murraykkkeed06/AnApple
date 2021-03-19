@@ -11,9 +11,11 @@ import SpriteKit
 class MaterialList {
     
     var componentList = [Material]()
+   // var componentDic = [Material: Int]()
     
     func addComponent(component: Material){
         componentList.append(component)
+        //componentDic[component] += 1
     }
     
     func removeComponent(name: String){
@@ -26,6 +28,8 @@ class MaterialList {
         for i in 0..<componentList.count{
             if componentList[i].name == name{
                 componentList.remove(at: i)
+                //componentList[i].removeFromParent()
+                break
             }
         }
     }

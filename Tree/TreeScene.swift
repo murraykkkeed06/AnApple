@@ -27,7 +27,10 @@ class TreeScene: SKScene, SKPhysicsContactDelegate {
     
     var debugButton : MSButtonNode!
     
+    var movingNode: SKSpriteNode!
+    var originPosition: CGPoint!
     
+    var materialBag: MaterialBag!
     
     
     override func didMove(to view: SKView) {
@@ -36,6 +39,8 @@ class TreeScene: SKScene, SKPhysicsContactDelegate {
         
         player = Player(scene: self)
         addChild(player)
+        
+        materialBag = (self.childNode(withName: "materialBag") as! MaterialBag)
         
         showButton = (self.childNode(withName: "showButton") as! MSButtonNode)
         setupShowButton()
@@ -66,19 +71,39 @@ class TreeScene: SKScene, SKPhysicsContactDelegate {
         let location = touch.location(in: self)
         //set player position when touch
         player.playerHandler(position: location, boundage: true)
-    }
-    
-    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        //drag apple to player
+        handleApple(phase: "began", location: location)
         
     }
     
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        let touch = touches.first!
+        let location = touch.location(in: self)
+        //drag apple to player
+        handleApple(phase: "moved", location: location)
+        
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        let touch = touches.first!
+        let location = touch.location(in: self)
+        //drag apple to player
+        handleApple(phase: "ended", location: location)
+        
+        
+        
+    }
+    
+    
     override func update(_ currentTime: TimeInterval) {
+        
         //set player x y in groundnode class
-        GroundNode.playerPosition = player.position
+        Player.playerPosition = player.position
         
         countPlayerAbility(healthBarBackground: healthBarBackground, player: player)
         
         sinceStart += eachFrame
+        Player.playerStartFrame += eachFrame
         
         setupMonster()
     }
@@ -91,6 +116,34 @@ class TreeScene: SKScene, SKPhysicsContactDelegate {
         
     }
     
+    
+    func handleApple(phase: String, location: CGPoint) {
+        
+        let nodeAtPoint = atPoint(location)
+        if nodeAtPoint.name == "apple"{
+            switch phase {
+            case "began":
+                nodeAtPoint.move(toParent: self)
+                originPosition = nodeAtPoint.position
+                movingNode = (nodeAtPoint as! SKSpriteNode)
+            case "moved":
+                movingNode.position = location
+            case "ended":
+                if nodeAtPoint.frame.contains(player.position){
+                    player.materialList.removeComponent(name: "apple")
+                    movingNode.removeFromParent()
+                    let apple = movingNode as! Material
+                    player.ability.healthNumber += apple.ability.healthNumber
+                }else{
+                    movingNode.position = originPosition
+                    movingNode.move(toParent: materialBag)
+                }
+            default:
+                break
+                
+            }
+        }
+    }
     
     
     
@@ -259,6 +312,7 @@ class TreeScene: SKScene, SKPhysicsContactDelegate {
         }
         return hasMonster
     }
+    
     
 }
 

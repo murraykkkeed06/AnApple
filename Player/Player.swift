@@ -15,6 +15,10 @@ enum PlayerState {
 }
 
 class Player: SKSpriteNode {
+    
+    static var playerPosition: CGPoint!
+    static var playerStartFrame: TimeInterval = 0
+    
     var homeScene: SKScene!
     //player move distance per 0.01 sec
     let playerMoveDistance: CGFloat = 1
@@ -34,6 +38,7 @@ class Player: SKSpriteNode {
     
     var timer: Timer?
     
+    var stopAfterSecond: TimeInterval = 3
     
     
     private var _playerState: PlayerState!
@@ -83,16 +88,30 @@ class Player: SKSpriteNode {
         
         
         //add the initial plant card
-        let flowerTexture = SKTexture(imageNamed: "flower")
-        let flowerPlantCard = PlantCard(texture: flowerTexture, scene: homeScene)
-        flowerPlantCard.name = "flower"
-        plantCardList.addComponent(component: flowerPlantCard)
+        let flower_1Texture = SKTexture(imageNamed: "flower")
+        let flower_1PlantCard = PlantCard(texture: flower_1Texture, scene: homeScene)
+        flower_1PlantCard.name = "flowerCard"
+        plantCardList.addComponent(component: flower_1PlantCard)
+        
+        //add the initial plant card
+        let flower_2Texture = SKTexture(imageNamed: "flower")
+        let flower_2PlantCard = PlantCard(texture: flower_2Texture, scene: homeScene)
+        flower_2PlantCard.name = "flowerCard"
+        plantCardList.addComponent(component: flower_2PlantCard)
         
         //add the initail material
-        let appleTexture = SKTexture(imageNamed: "apple")
-        let appleMaterial = Material(texture: appleTexture, scene: homeScene)
-        appleMaterial.name = "apple"
-        materialList.addComponent(component: appleMaterial)
+        let apple_1Texture = SKTexture(imageNamed: "apple")
+        let apple_1Material = Material(texture: apple_1Texture, scene: homeScene)
+        apple_1Material.name = "apple"
+        apple_1Material.ability = Abiltiy(attackNumber: 0, defenseNumber: 0, healthNumber: 100)
+        materialList.addComponent(component: apple_1Material)
+        
+        //add the initail material
+        let apple_2Texture = SKTexture(imageNamed: "apple")
+        let apple_2Material = Material(texture: apple_2Texture, scene: homeScene)
+        apple_2Material.name = "apple"
+        apple_2Material.ability = Abiltiy(attackNumber: 0, defenseNumber: 0, healthNumber: 100)
+        materialList.addComponent(component: apple_2Material)
         
 
         //declare ability
@@ -197,10 +216,21 @@ class Player: SKSpriteNode {
         let position = timer.userInfo as! CGPoint
         if(self.isMoving){
             self.position.x -= self.playerMoveDistance
+            
+            
+            
+            // suscess to get to pos
             if (self.position.x <= position.x) {
                 self.isMoving = false
                 self.playerState = .idle
                 timer.invalidate()
+                Player.playerStartFrame = 0
+                
+            // fail to get to pos in 10 seconds
+            }else if (Player.playerStartFrame > self.stopAfterSecond){
+                timer.invalidate()
+                Player.playerStartFrame = 0
+                playerState = .idle
             }
         }
     }
@@ -213,6 +243,11 @@ class Player: SKSpriteNode {
                 self.isMoving = false
                 self.playerState = .idle
                 timer.invalidate()
+                Player.playerStartFrame = 0
+            }else if (Player.playerStartFrame > self.stopAfterSecond){
+                timer.invalidate()
+                Player.playerStartFrame = 0
+                playerState = .idle
             }
         }
     }

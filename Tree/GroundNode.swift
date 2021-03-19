@@ -31,7 +31,7 @@ enum GroundType: UInt32 {
         if CGFloat.random(in: 0..<100) < dirt*100 {
             result = 0
         }
-        else if CGFloat.random(in: 0..<100) < rock*100 {
+        else if CGFloat.random(in: 0..<100) < (rock/(1-dirt))*100 {
             result = 1
         }
         else {
@@ -46,7 +46,7 @@ enum GroundType: UInt32 {
 class GroundNode: SKSpriteNode {
     
     //var monsterList = [Monster]()
-    static var playerPosition: CGPoint!
+    
     
     var gridXY: GridXY!
     
@@ -127,16 +127,16 @@ class GroundNode: SKSpriteNode {
         var isAround = false
         
         if let top = self.top {
-            if top.frame.contains(GroundNode.playerPosition) {isAround = true}
+            if top.frame.contains(Player.playerPosition) {isAround = true}
         }
         if let bottom = self.bottom {
-            if bottom.frame.contains(GroundNode.playerPosition) {isAround = true}
+            if bottom.frame.contains(Player.playerPosition) {isAround = true}
         }
         if let left = self.left {
-            if left.frame.contains(GroundNode.playerPosition) {isAround = true}
+            if left.frame.contains(Player.playerPosition) {isAround = true}
         }
         if let right = self.right {
-            if right.frame.contains(GroundNode.playerPosition) {isAround = true}
+            if right.frame.contains(Player.playerPosition) {isAround = true}
         }
         
         
