@@ -38,18 +38,19 @@ class MaterialBag: SKSpriteNode {
     }
     
     
-    func removeStorage(name: String){
+    func removeMaterial(name: String){
         //check if empty
         if materialList.count == 0 {
             return
         }
         //remove
-//        for i in 0..<storageList.count{
-//            if storageList[i].name == name{
-//                storageList.remove(at: i)
-//            }
-//        }
-        materialList = materialList.filter({$0.name! != name})
+        for i in 0..<materialList.count{
+            if materialList[i].name == name{
+                materialList.remove(at: i)
+                break
+            }
+        }
+//        materialList = materialList.filter({$0.name! != name})
         
         //render the bag
         renderMaterial()

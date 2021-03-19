@@ -26,6 +26,7 @@ class PlantCardList {
         for i in 0..<componentList.count{
             if componentList[i].name == name{
                 componentList.remove(at: i)
+                break
             }
         }
     }

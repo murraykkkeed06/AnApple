@@ -44,12 +44,13 @@ class PlantCardBag: SKSpriteNode {
             return
         }
         //remove
-//        for i in 0..<storageList.count{
-//            if storageList[i].name == name{
-//                storageList.remove(at: i)
-//            }
-//        }
-        plantCardList = plantCardList.filter({$0.name! != name})
+        for i in 0..<plantCardList.count{
+            if plantCardList[i].name == name{
+                plantCardList.remove(at: i)
+                break
+            }
+        }
+//        plantCardList = plantCardList.filter({$0.name! != name})
         
         //render the bag
         renderPlantCard()

@@ -13,10 +13,10 @@ class Rock: GroundNode {
     init(){
         let texture = SKTexture(imageNamed: "rock")
         super.init(texture: texture, color: .clear, size: CGSize(width: 60, height: 45))
-        self.zPosition = 1
+        //self.zPosition = 2
         //self.anchorPoint = CGPoint(x: 0, y: 0)
         
-        self.alpha = 1
+        //self.alpha = 1
         self.isDigged = false
         self.neighborIsDigged = false
         self.name = "rock"

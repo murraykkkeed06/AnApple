@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		720793AD26046F6A002C7689 /* ladder.png in Resources */ = {isa = PBXBuildFile; fileRef = 720793AC26046F6A002C7689 /* ladder.png */; };
+		720793B026046FB7002C7689 /* Ladder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 720793AF26046FB7002C7689 /* Ladder.swift */; };
 		7209925E260339DB002566D0 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7209925D260339DB002566D0 /* Home.swift */; };
 		7209926226033FC4002566D0 /* workshopEnterButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 7209926026033FC4002566D0 /* workshopEnterButton.png */; };
 		7209926326033FC4002566D0 /* homeEnterButton.png in Resources */ = {isa = PBXBuildFile; fileRef = 7209926126033FC4002566D0 /* homeEnterButton.png */; };
@@ -77,6 +79,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		720793AC26046F6A002C7689 /* ladder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ladder.png; sourceTree = "<group>"; };
+		720793AF26046FB7002C7689 /* Ladder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ladder.swift; sourceTree = "<group>"; };
 		7209925D260339DB002566D0 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		7209926026033FC4002566D0 /* workshopEnterButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = workshopEnterButton.png; sourceTree = "<group>"; };
 		7209926126033FC4002566D0 /* homeEnterButton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = homeEnterButton.png; sourceTree = "<group>"; };
@@ -207,6 +211,7 @@
 		723E91332600B4E7006B70BB /* assets.atlas */ = {
 			isa = PBXGroup;
 			children = (
+				720793AC26046F6A002C7689 /* ladder.png */,
 				72A456AA2603C258003BF6DF /* digger.png */,
 				728F71C72603BE740065AE90 /* dirtBackGround.png */,
 				728F71C42603BCB60065AE90 /* vine.png */,
@@ -283,6 +288,7 @@
 				72D029502603A342008EF98A /* Wood.swift */,
 				728F71CA2603BF350065AE90 /* GridXY.swift */,
 				72A456AE2603C74E003BF6DF /* Digger.swift */,
+				720793AF26046FB7002C7689 /* Ladder.swift */,
 			);
 			path = Tree;
 			sourceTree = "<group>";
@@ -381,6 +387,7 @@
 				723E91192600A9E6006B70BB /* GameScene.sks in Resources */,
 				7288D04226025A0E0051C735 /* workshop.png in Resources */,
 				72CBB7DE2601B67C003687F9 /* storageBag.png in Resources */,
+				720793AD26046F6A002C7689 /* ladder.png in Resources */,
 				7209FCE82601C86200483536 /* helmet_1.png in Resources */,
 				72A456AB2603C258003BF6DF /* digger.png in Resources */,
 				7209926226033FC4002566D0 /* workshopEnterButton.png in Resources */,
@@ -428,6 +435,7 @@
 				7209FCEE2601CB1D00483536 /* MSButtonNode.swift in Sources */,
 				72D0BA912600FBF9000FE1B9 /* PlantCard.swift in Sources */,
 				72D0BAA126010792000FE1B9 /* EquipmentBag.swift in Sources */,
+				720793B026046FB7002C7689 /* Ladder.swift in Sources */,
 				723E911F2600A9E6006B70BB /* GameViewController.swift in Sources */,
 				72D0BA97260106A4000FE1B9 /* Ability.swift in Sources */,
 				72D0BAA5260107A7000FE1B9 /* PlantCardBag.swift in Sources */,

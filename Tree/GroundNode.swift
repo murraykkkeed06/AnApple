@@ -96,6 +96,9 @@ class GroundNode: SKSpriteNode {
     override init(texture: SKTexture?, color: UIColor, size: CGSize) {
         super.init(texture: texture, color: color, size: size)
         
+        self.zPosition = 2
+        self.alpha = 0.8
+        
         self.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: 60, height: 45))
         self.physicsBody?.isDynamic = false
         self.physicsBody?.pinned = true

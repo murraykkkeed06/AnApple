@@ -20,7 +20,7 @@ class Furry: Monster {
         super.init(texture: texture)
         
         self.mosterType = .furry
-        self.zPosition = 2
+        self.zPosition = 1
         self.name = "furry"
         self.ability = Abiltiy(attackNumber: 6, defenseNumber: 5, healthNumber: 50)
         

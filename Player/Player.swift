@@ -67,7 +67,7 @@ class Player: SKSpriteNode {
         super.init(texture: texture, color: .clear , size: bodySize)
         
         self.playerState = .idle
-        self.zPosition = 2
+        self.zPosition = 3
         self.position = bornPosition
         self.homeScene = scene
         self.isUserInteractionEnabled = true

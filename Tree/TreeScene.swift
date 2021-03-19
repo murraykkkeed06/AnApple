@@ -31,7 +31,9 @@ class TreeScene: SKScene, SKPhysicsContactDelegate {
     var originPosition: CGPoint!
     
     var materialBag: MaterialBag!
+    var plantCardBag: PlantCardBag!
     
+    var ladderList = [Ladder]()
     
     override func didMove(to view: SKView) {
         
@@ -41,6 +43,7 @@ class TreeScene: SKScene, SKPhysicsContactDelegate {
         addChild(player)
         
         materialBag = (self.childNode(withName: "materialBag") as! MaterialBag)
+        plantCardBag = (self.childNode(withName: "plantCardBag") as! PlantCardBag)
         
         showButton = (self.childNode(withName: "showButton") as! MSButtonNode)
         setupShowButton()
@@ -73,6 +76,9 @@ class TreeScene: SKScene, SKPhysicsContactDelegate {
         player.playerHandler(position: location, boundage: true)
         //drag apple to player
         handleApple(phase: "began", location: location)
+        handleLadder(phase: "began", location: location)
+        //handle plant card to ground
+        
         
     }
     
@@ -81,6 +87,7 @@ class TreeScene: SKScene, SKPhysicsContactDelegate {
         let location = touch.location(in: self)
         //drag apple to player
         handleApple(phase: "moved", location: location)
+        handleLadder(phase: "moved", location: location)
         
     }
     
@@ -89,7 +96,7 @@ class TreeScene: SKScene, SKPhysicsContactDelegate {
         let location = touch.location(in: self)
         //drag apple to player
         handleApple(phase: "ended", location: location)
-        
+        handleLadder(phase: "ended", location: location)
         
         
     }
@@ -116,6 +123,43 @@ class TreeScene: SKScene, SKPhysicsContactDelegate {
         
     }
     
+    func handleLadder(phase: String, location: CGPoint) {
+        let nodeAtPoint = atPoint(location)
+        if nodeAtPoint.name == "flowerCard"{
+            switch phase {
+            case "began":
+                nodeAtPoint.move(toParent: self)
+                originPosition = nodeAtPoint.position
+                movingNode = (nodeAtPoint as! SKSpriteNode)
+            case "moved":
+                movingNode.position = location
+            case "ended":
+                if xyCanPutLadder(location: location) {
+        
+                    //player.plantCardList.removeComponent(name: "flowerCard")
+                    plantCardBag.removePlantCard(name: "flowerCard")
+                    movingNode.removeFromParent()
+                    let ladder = Ladder()
+                    let groundNode = xyGroundNode(location: location)
+                    ladder.position = groundNode.position - CGPoint(x: 0, y: 22.5)
+                    ladderList.append(ladder)
+                    addChild(ladder)
+                    //plantCardBag.renderPlantCard()
+                } else {
+                    movingNode.position = originPosition
+                    movingNode.move(toParent: plantCardBag)
+                    movingNode = nil
+                }
+            default:
+                break
+            }
+            
+            
+        }
+    }
+    
+    
+    
     
     func handleApple(phase: String, location: CGPoint) {
         
@@ -130,13 +174,16 @@ class TreeScene: SKScene, SKPhysicsContactDelegate {
                 movingNode.position = location
             case "ended":
                 if nodeAtPoint.frame.contains(player.position){
-                    player.materialList.removeComponent(name: "apple")
+                    //player.materialList.removeComponent(name: "apple")
+                    materialBag.removeMaterial(name: "apple")
                     movingNode.removeFromParent()
                     let apple = movingNode as! Material
                     player.ability.healthNumber += apple.ability.healthNumber
+                    //materialBag.renderMaterial()
                 }else{
                     movingNode.position = originPosition
                     movingNode.move(toParent: materialBag)
+                    movingNode = nil
                 }
             default:
                 break
@@ -313,6 +360,52 @@ class TreeScene: SKScene, SKPhysicsContactDelegate {
         return hasMonster
     }
     
+    func xyGroundNode(location: CGPoint) -> GroundNode {
+        var groundNode: GroundNode!
+        for y in 0..<groundRow {
+            for x in 0..<groundCol{
+                if(groundList[y][x].frame.contains(location)){
+                    groundNode = groundList[y][x]
+                    break
+                }
+            }
+        }
+        return groundNode
+    }
+    
+    
+    func xyCanPutLadder(location: CGPoint) -> Bool {
+        
+        
+        
+        var canPut = false
+        var groundNode: GroundNode!
+        
+        for y in 0..<groundRow {
+            for x in 0..<groundCol{
+                if(groundList[y][x].frame.contains(location)){
+                    groundNode = groundList[y][x]
+                    break
+                }
+            }
+        }
+        
+        if let top = groundNode.top {
+            if groundNode.isDigged && top.isDigged {
+                canPut = true
+            }
+        }
+        // check no ladder at location
+        for i in 0..<ladderList.count{
+            if ladderList[i].frame.contains(location){
+                canPut = false
+            }
+        }
+        
+        
+        
+        return canPut
+    }
     
 }
 
