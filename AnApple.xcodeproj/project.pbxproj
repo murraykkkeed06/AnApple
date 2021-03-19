@@ -52,6 +52,7 @@
 		72A456AF2603C74E003BF6DF /* Digger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A456AE2603C74E003BF6DF /* Digger.swift */; };
 		72C5E7042604B5C400390FC4 /* antClimb_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 72C5E7022604B5C400390FC4 /* antClimb_2.png */; };
 		72C5E7052604B5C400390FC4 /* antClimb_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 72C5E7032604B5C400390FC4 /* antClimb_1.png */; };
+		72C5E7082604DFCB00390FC4 /* FightScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72C5E7072604DFCB00390FC4 /* FightScreen.swift */; };
 		72CBB7DE2601B67C003687F9 /* storageBag.png in Resources */ = {isa = PBXBuildFile; fileRef = 72CBB7DD2601B67C003687F9 /* storageBag.png */; };
 		72CC85812602627700F47B9C /* helmet_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 72CC85802602627700F47B9C /* helmet_2.png */; };
 		72CC85852602628500F47B9C /* weapon_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 72CC85832602628500F47B9C /* weapon_2.png */; };
@@ -128,6 +129,7 @@
 		72A456AE2603C74E003BF6DF /* Digger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Digger.swift; sourceTree = "<group>"; };
 		72C5E7022604B5C400390FC4 /* antClimb_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = antClimb_2.png; sourceTree = "<group>"; };
 		72C5E7032604B5C400390FC4 /* antClimb_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = antClimb_1.png; sourceTree = "<group>"; };
+		72C5E7072604DFCB00390FC4 /* FightScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FightScreen.swift; sourceTree = "<group>"; };
 		72CBB7DD2601B67C003687F9 /* storageBag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = storageBag.png; sourceTree = "<group>"; };
 		72CC85802602627700F47B9C /* helmet_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = helmet_2.png; sourceTree = "<group>"; };
 		72CC85832602628500F47B9C /* weapon_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = weapon_2.png; sourceTree = "<group>"; };
@@ -295,6 +297,7 @@
 				728F71CA2603BF350065AE90 /* GridXY.swift */,
 				72A456AE2603C74E003BF6DF /* Digger.swift */,
 				720793AF26046FB7002C7689 /* Ladder.swift */,
+				72C5E7072604DFCB00390FC4 /* FightScreen.swift */,
 			);
 			path = Tree;
 			sourceTree = "<group>";
@@ -430,6 +433,7 @@
 				72D029532603A342008EF98A /* Wood.swift in Sources */,
 				723E912D2600AC35006B70BB /* Player.swift in Sources */,
 				72D029552603A342008EF98A /* Rock.swift in Sources */,
+				72C5E7082604DFCB00390FC4 /* FightScreen.swift in Sources */,
 				72D0BA9B26010772000FE1B9 /* MaterialBag.swift in Sources */,
 				72D0294D2603A319008EF98A /* GroundNode.swift in Sources */,
 				72D029542603A342008EF98A /* Dirt.swift in Sources */,

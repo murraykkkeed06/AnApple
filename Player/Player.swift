@@ -42,6 +42,7 @@ class Player: SKSpriteNode {
     
     var stopAfterSecond: TimeInterval = 3
     
+    var attackInterval: TimeInterval = 0.8
     
     private var _playerState: PlayerState!
     var playerState: PlayerState {
@@ -81,7 +82,8 @@ class Player: SKSpriteNode {
         self.zPosition = 3
         self.position = bornPosition
         self.homeScene = scene
-        self.isUserInteractionEnabled = true
+        self.name = "player"
+        //self.isUserInteractionEnabled = true
         //declare the basic component
         equipmentList = EquipmentList()
         materialList = MaterialList()

@@ -23,6 +23,8 @@ class Monster: SKSpriteNode {
     var isAlived: Bool = false
     
     var ability: Abiltiy!
+    
+    var attackInterval: TimeInterval!
 
 //    var bornSecond: TimeInterval!
 //    var bornGround: GroundType!

@@ -36,6 +36,7 @@ class TreeScene: SKScene, SKPhysicsContactDelegate {
     
     var ladderList = [Ladder]()
     
+    var fightScreen: FightScreen!
     
     
     override func didMove(to view: SKView) {
@@ -44,6 +45,8 @@ class TreeScene: SKScene, SKPhysicsContactDelegate {
         
         player = Player(scene: self)
         addChild(player)
+        
+        fightScreen = (self.childNode(withName: "fightScreen") as! FightScreen)
         
         materialBag = (self.childNode(withName: "materialBag") as! MaterialBag)
         plantCardBag = (self.childNode(withName: "plantCardBag") as! PlantCardBag)
@@ -143,16 +146,11 @@ class TreeScene: SKScene, SKPhysicsContactDelegate {
         let nodeA = contact.bodyA.node
         let nodeB = contact.bodyB.node
         
-        if nodeA?.name == "furry" || nodeB?.name == "furry" {
-            print("furry!")
-        }
+        fightScreen.handleFight(nodeA: nodeA!, nodeB: nodeB!,monsterList: monsterList)
         
         
     }
-    
-    func didEnd(_ contact: SKPhysicsContact) {
-        
-    }
+
     
     func checkMonsterGravity() {
         for i in 0..<monsterList.count{
@@ -315,6 +313,7 @@ class TreeScene: SKScene, SKPhysicsContactDelegate {
                     newGround.groundType = .dirt
                     newGround.position = oringinPos
                     newGround.gridXY = GridXY(x: 0, y: 0)
+                    newGround.isDigged = true
                 }else{
                     switch newType {
                     case .dirt:
@@ -355,7 +354,7 @@ class TreeScene: SKScene, SKPhysicsContactDelegate {
         }
         
         //groundList[0][0] = Dirt()
-        groundList[0][0].isDigged = true
+        //groundList[0][0].isDigged = true
         //groundList[0][0].alpha = 0.5
         
     }

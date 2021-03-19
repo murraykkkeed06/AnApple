@@ -18,7 +18,7 @@ class Material: SKSpriteNode {
     
     init(texture: SKTexture, scene: SKScene) {
         super.init(texture: texture, color: .clear, size: CGSize(width: 40, height: 40))
-        self.zPosition = 4
+        self.zPosition = 3
         self.homeScene = scene
         self.materialBag = (self.homeScene.childNode(withName: "materialBag") as! MaterialBag)
         self.materialBag.addMaterial(material: self)

@@ -14,6 +14,8 @@ class Furry: Monster {
     static var bornGround: GroundType = .dirt
     static var bornChance: CGFloat = 0.03
     
+    
+    
     init(){
         
         let texture = SKTexture(imageNamed: "furry")
@@ -22,6 +24,7 @@ class Furry: Monster {
         self.mosterType = .furry
         self.zPosition = 1
         self.name = "furry"
+        self.attackInterval = 1.8
         self.ability = Abiltiy(attackNumber: 6, defenseNumber: 5, healthNumber: 50)
         
 //        self.physicsBody = SKPhysicsBody()
