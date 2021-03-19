@@ -12,6 +12,8 @@ enum PlayerState {
     case goingLeft
     case goingRight
     case idle
+    case goingUp
+    case goingDown
 }
 
 class Player: SKSpriteNode {
@@ -45,16 +47,25 @@ class Player: SKSpriteNode {
     var playerState: PlayerState {
         set{
             self.removeAllActions()
-            self.position.y = bornPosition.y
+            //self.position.y = bornPosition.y
             _playerState = newValue
             switch newValue {
             case .goingLeft:
-                
+                self.physicsBody?.affectedByGravity = true
                 self.run(SKAction(named: "playerGoingLeft")!)
             case .goingRight:
+                self.physicsBody?.affectedByGravity = true
                 self.run(SKAction(named: "playerGoingRight")!)
+            case .goingUp:
+                self.physicsBody?.affectedByGravity = false
+                self.run(SKAction(named: "playerGoingUp")!)
+            case .goingDown:
+                self.physicsBody?.affectedByGravity = false
+                self.run(SKAction(named: "playerGoingUp")!)
             case .idle:
-                self.run(SKAction(named: "playerIdle")!)
+                //self.run(SKAction(named: "playerIdle")!)
+               // self.physicsBody?.affectedByGravity = true
+                self.removeAllActions()
             }
         }
         get{
@@ -78,7 +89,7 @@ class Player: SKSpriteNode {
         
         //setup physicbody
         self.physicsBody = SKPhysicsBody(rectangleOf: bodySize)
-        self.physicsBody!.affectedByGravity = false
+        self.physicsBody!.affectedByGravity = true
         //self.physicsBody!.isDynamic = false
         self.physicsBody!.allowsRotation = false
         self.physicsBody!.categoryBitMask = 1
@@ -98,6 +109,18 @@ class Player: SKSpriteNode {
         let flower_2PlantCard = PlantCard(texture: flower_2Texture, scene: homeScene)
         flower_2PlantCard.name = "flowerCard"
         plantCardList.addComponent(component: flower_2PlantCard)
+        
+        //add the initial plant card
+        let flower_3Texture = SKTexture(imageNamed: "flower")
+        let flower_3PlantCard = PlantCard(texture: flower_3Texture, scene: homeScene)
+        flower_3PlantCard.name = "flowerCard"
+        plantCardList.addComponent(component: flower_3PlantCard)
+        
+        //add the initial plant card
+        let flower_4Texture = SKTexture(imageNamed: "flower")
+        let flower_4PlantCard = PlantCard(texture: flower_4Texture, scene: homeScene)
+        flower_4PlantCard.name = "flowerCard"
+        plantCardList.addComponent(component: flower_4PlantCard)
         
         //add the initail material
         let apple_1Texture = SKTexture(imageNamed: "apple")
@@ -185,6 +208,61 @@ class Player: SKSpriteNode {
     }
     
     
+    func climb(position: CGPoint)  {
+        if(self.isMoving){timer?.invalidate()}
+        
+        //moving down
+        if(position.y < self.position.y){
+            self.isMoving = true
+            self.playerState = .goingDown
+            timer = Timer.scheduledTimer(timeInterval: 0.01, target: self,selector: #selector(playerGoingDown), userInfo: position, repeats: true)
+        }
+        //moviing up
+        if(position.y>self.position.y){
+            self.isMoving = true
+            self.playerState = .goingUp
+            timer = Timer.scheduledTimer(timeInterval: 0.01, target: self,selector: #selector(playerGoingUp), userInfo: position, repeats: true)
+        }
+    }
+    
+    @objc func playerGoingDown(timer: Timer) {
+        let position = timer.userInfo as! CGPoint
+        if(self.isMoving){
+            self.position.y -= self.playerMoveDistance
+                        
+            // suscess to get to pos
+            if (self.position.y <= position.y || self.position.y <= 100) {
+                self.isMoving = false
+                self.playerState = .idle
+                timer.invalidate()
+                Player.playerStartFrame = 0
+                
+            // fail to get to pos in 10 seconds
+            }else if (Player.playerStartFrame > self.stopAfterSecond){
+                timer.invalidate()
+                Player.playerStartFrame = 0
+                playerState = .idle
+            }
+        }
+    }
+    
+    @objc func playerGoingUp(timer: Timer) {
+        let position = timer.userInfo as! CGPoint
+        if(self.isMoving){
+            self.position.y += self.playerMoveDistance
+            if (self.position.y >= position.y || self.position.y >= 285) {
+                self.isMoving = false
+                self.playerState = .idle
+                timer.invalidate()
+                Player.playerStartFrame = 0
+            }else if (Player.playerStartFrame > self.stopAfterSecond){
+                timer.invalidate()
+                Player.playerStartFrame = 0
+                playerState = .idle
+            }
+        }
+    }
+    
     
     //handle movement when user touch began
     func playerHandler(position: CGPoint, boundage: Bool) {
@@ -220,7 +298,7 @@ class Player: SKSpriteNode {
             
             
             // suscess to get to pos
-            if (self.position.x <= position.x) {
+            if (self.position.x <= position.x || self.position.x <= 100) {
                 self.isMoving = false
                 self.playerState = .idle
                 timer.invalidate()
@@ -239,7 +317,7 @@ class Player: SKSpriteNode {
         let position = timer.userInfo as! CGPoint
         if(self.isMoving){
             self.position.x += self.playerMoveDistance
-            if (self.position.x >= position.x) {
+            if (self.position.x >= position.x || self.position.x >= 620) {
                 self.isMoving = false
                 self.playerState = .idle
                 timer.invalidate()

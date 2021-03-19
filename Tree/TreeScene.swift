@@ -26,6 +26,7 @@ class TreeScene: SKScene, SKPhysicsContactDelegate {
    
     
     var debugButton : MSButtonNode!
+    var vineButton: MSButtonNode!
     
     var movingNode: SKSpriteNode!
     var originPosition: CGPoint!
@@ -48,6 +49,24 @@ class TreeScene: SKScene, SKPhysicsContactDelegate {
         showButton = (self.childNode(withName: "showButton") as! MSButtonNode)
         setupShowButton()
         
+        vineButton = (self.childNode(withName: "vine") as! MSButtonNode)
+        vineButton.selectedHandler = {
+            //if not in (5,9) position
+            if !self.groundList[4][8].frame.contains(self.player.position){return}
+            
+            guard let skView = self.view as SKView? else {
+                print("Could not get Skview")
+                return
+            }
+            /* Load Game scene */
+            guard let scene = GameScene(fileNamed: "GameScene") else {
+                print("Could not load CaveScene")
+                return
+            }
+            scene.player = self.player
+            scene.scaleMode = .aspectFill
+            skView.presentScene(scene)
+        }
         debugButton = (self.childNode(withName: "debugButton") as! MSButtonNode)
         debugButton.selectedHandler = {
             guard let skView = self.view as SKView? else {
@@ -74,6 +93,8 @@ class TreeScene: SKScene, SKPhysicsContactDelegate {
         let location = touch.location(in: self)
         //set player position when touch
         player.playerHandler(position: location, boundage: true)
+        //ladder climb handler
+        handleClimb(location: location)
         //drag apple to player
         handleApple(phase: "began", location: location)
         handleLadder(phase: "began", location: location)
@@ -122,6 +143,14 @@ class TreeScene: SKScene, SKPhysicsContactDelegate {
     func didEnd(_ contact: SKPhysicsContact) {
         
     }
+    
+    func handleClimb(location: CGPoint) {
+        let nodeAtPoint = atPoint(location)
+        if nodeAtPoint.name == "ladder" && nodeAtPoint.frame.contains(player.position){
+            player.climb(position: location)
+        }
+    }
+    
     
     func handleLadder(phase: String, location: CGPoint) {
         let nodeAtPoint = atPoint(location)

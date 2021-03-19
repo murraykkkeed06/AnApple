@@ -67,9 +67,11 @@ class GroundNode: SKSpriteNode {
         set{
             _isDigged = newValue
             if (newValue==true){
-                //self.alpha=0.5
-                //self.physicsBody?.collisionBitMask = 0
-                self.removeFromParent()
+                self.alpha=0
+                self.isUserInteractionEnabled = false
+                //self.physicsBody!.collisionBitMask = 0
+                self.physicsBody = nil
+                //self.removeFromParent()
                 
             }
         }
