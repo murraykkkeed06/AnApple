@@ -30,6 +30,16 @@ class Monster: SKSpriteNode {
     
     init(texture: SKTexture) {
         super.init(texture: texture, color: .clear, size: CGSize(width: 50, height: 50))
+        
+        self.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: 50, height: 50))
+        
+        self.physicsBody?.allowsRotation = false
+        self.physicsBody?.affectedByGravity = false
+        self.physicsBody?.categoryBitMask = 32
+        self.physicsBody?.collisionBitMask = 0
+        self.physicsBody?.contactTestBitMask = 1
+        
+        
     }
     
     required init?(coder aDecoder: NSCoder) {

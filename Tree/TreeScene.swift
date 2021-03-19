@@ -36,6 +36,8 @@ class TreeScene: SKScene, SKPhysicsContactDelegate {
     
     var ladderList = [Ladder]()
     
+    
+    
     override func didMove(to view: SKView) {
         
         physicsWorld.contactDelegate = self
@@ -129,6 +131,7 @@ class TreeScene: SKScene, SKPhysicsContactDelegate {
         Player.playerPosition = player.position
         
         countPlayerAbility(healthBarBackground: healthBarBackground, player: player)
+        checkMonsterGravity()
         
         sinceStart += eachFrame
         Player.playerStartFrame += eachFrame
@@ -137,11 +140,28 @@ class TreeScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func didBegin(_ contact: SKPhysicsContact) {
+        let nodeA = contact.bodyA.node
+        let nodeB = contact.bodyB.node
+        
+        if nodeA?.name == "furry" || nodeB?.name == "furry" {
+            print("furry!")
+        }
+        
         
     }
     
     func didEnd(_ contact: SKPhysicsContact) {
         
+    }
+    
+    func checkMonsterGravity() {
+        for i in 0..<monsterList.count{
+            let position = monsterList[i].position
+            if xyGroundNode(location: position).isDigged{
+                monsterList[i].physicsBody?.affectedByGravity = true
+                monsterList[i].physicsBody?.collisionBitMask = 16
+            }
+        }
     }
     
     func handleClimb(location: CGPoint) {
@@ -357,7 +377,8 @@ class TreeScene: SKScene, SKPhysicsContactDelegate {
                         if (xyHasMonster(x: x,y: y)){return}
                         //ant position won't born monster
                         if(groundList[y][x].frame.contains(player.position)){return}
-                        
+                        //digged ground won't born monster
+                        if groundList[y][x].isDigged {return}
                         let newMonster = Furry()
                         newMonster.isAlived = true
                         newMonster.gridXY = GridXY(x: x, y: y)
