@@ -114,6 +114,7 @@ class Player: SKSpriteNode {
         //add plantcard
         plantCardBag.addPlantCard(plantCard: Flower())
         plantCardBag.addPlantCard(plantCard: WoodBreaker())
+        plantCardBag.addPlantCard(plantCard: StoneBreaker())
         
         //add material
         materialBag.addMaterial(material: Apple())
@@ -125,24 +126,28 @@ class Player: SKSpriteNode {
         
         //add equipment
         let shoes_1 = Shoes(version: "1", equipmentBag: equipmentBag, showButton: showButton)
-        let shoes_2 = Shoes(version: "2", equipmentBag: equipmentBag, showButton: showButton)
+        //shoes_1.isWeared = false
+//        let shoes_2 = Shoes(version: "2", equipmentBag: equipmentBag, showButton: showButton)
         equipmentList.addComponent(component: shoes_1)
-        equipmentList.addComponent(component: shoes_2)
+        //equipmentList.addComponent(component: shoes_2)
         
         let weapon_1 = Weapon(version: "1", equipmentBag: equipmentBag, showButton: showButton)
-        let weapon_2 = Weapon(version: "2", equipmentBag: equipmentBag, showButton: showButton)
+        //weapon_1.isWeared = false
+//        let weapon_2 = Weapon(version: "2", equipmentBag: equipmentBag, showButton: showButton)
         equipmentList.addComponent(component: weapon_1)
-        equipmentList.addComponent(component: weapon_2)
+        //equipmentList.addComponent(component: weapon_2)
         
         let armor_1 = Armor(version: "1", equipmentBag: equipmentBag, showButton: showButton)
-        let armor_2 = Armor(version: "1", equipmentBag: equipmentBag, showButton: showButton)
+        //armor_1.isWeared = false
+//        let armor_2 = Armor(version: "2", equipmentBag: equipmentBag, showButton: showButton)
         equipmentList.addComponent(component: armor_1)
-        equipmentList.addComponent(component: armor_2)
+//        equipmentList.addComponent(component: armor_2)
         
         let helmet_1 = Helmet(version: "1", equipmentBag: equipmentBag, showButton: showButton)
-        let helmet_2 = Helmet(version: "2", equipmentBag: equipmentBag, showButton: showButton)
+        //helmet_1.isWeared = false
+//        let helmet_2 = Helmet(version: "2", equipmentBag: equipmentBag, showButton: showButton)
         equipmentList.addComponent(component: helmet_1)
-        equipmentList.addComponent(component: helmet_2)
+//        equipmentList.addComponent(component: helmet_2)
         
         
         

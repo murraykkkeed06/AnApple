@@ -30,6 +30,7 @@ class StorageBag: SKSpriteNode {
 //            }
 //        }
         //check full
+        storage.physicsBody = nil
         if storageList.count == storageRow * storageCol {return}
         //add storage
         storageList.append(storage)

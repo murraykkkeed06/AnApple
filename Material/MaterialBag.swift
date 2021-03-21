@@ -22,6 +22,7 @@ class MaterialBag: SKSpriteNode {
     }
     
     func addMaterial(material: Material) {
+        material.physicsBody = nil
         print("add material")
 //        //if already exist
 //        for i in 0..<materialList.count{

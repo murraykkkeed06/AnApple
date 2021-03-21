@@ -130,6 +130,7 @@ class TreeScene: SKScene, SKPhysicsContactDelegate {
         handleApple(phase: "began", location: location)
         handleLadder(phase: "began", location: location)
         handleWoodBreaker(phase: "began", location: location)
+        handleStoneBreaker(phase: "began", location: location)
         //handle plant card to ground
         
         
@@ -142,6 +143,7 @@ class TreeScene: SKScene, SKPhysicsContactDelegate {
         handleApple(phase: "moved", location: location)
         handleLadder(phase: "moved", location: location)
         handleWoodBreaker(phase: "moved", location: location)
+        handleStoneBreaker(phase: "moved", location: location)
         
     }
     
@@ -152,6 +154,7 @@ class TreeScene: SKScene, SKPhysicsContactDelegate {
         handleApple(phase: "ended", location: location)
         handleLadder(phase: "ended", location: location)
         handleWoodBreaker(phase: "ended", location: location)
+        handleStoneBreaker(phase: "ended", location: location)
         
         
     }
@@ -176,18 +179,40 @@ class TreeScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func didBegin(_ contact: SKPhysicsContact) {
-        let nodeA = contact.bodyA.node
-        let nodeB = contact.bodyB.node
-        
-        fightScreen.handleFight(nodeA: nodeA!, nodeB: nodeB!,monsterList: monsterList)
-        playerPickUp(nodeA: nodeA!, nodeB: nodeB!)
-        
+        //let nodeA = contact.bodyA.node
+        //let nodeB = contact.bodyB.node
+        if let nodeA = contact.bodyA.node  {
+            if let nodeB = contact.bodyB.node {
+        fightScreen.handleFight(nodeA: nodeA, nodeB: nodeB,monsterList: monsterList)
+        playerPickUp(nodeA: nodeA, nodeB: nodeB)
+            }
+        }
     }
     
     func playerPickUp(nodeA: SKNode, nodeB: SKNode)  {
         pickUpSeed(nodeA: nodeA, nodeB: nodeB)
         pickUpEgg(nodeA: nodeA, nodeB: nodeB)
+        pickUpHelmet(nodeA: nodeA, nodeB: nodeB)
     }
+    
+    func pickUpHelmet(nodeA: SKNode, nodeB: SKNode){
+        //pick up seed
+        var helmet: Helmet!
+        if (nodeA.name == "helmet" && nodeB.name == "player"){
+            player = nodeB as? Player
+            helmet = nodeA as? Helmet
+        }else if nodeA.name == "player" && nodeB.name == "helmet" {
+            player = nodeA as? Player
+            helmet = nodeB as? Helmet
+        }else { return }
+        
+        helmet.removeFromParent()
+        let newHelmet = Helmet(version: "2", equipmentBag: equipmentBag, showButton: showButton)
+        player.equipmentList.addComponent(component: newHelmet)
+        //newHelmet.physicsBody = nil
+        
+    }
+    
     
     
     func pickUpSeed(nodeA: SKNode, nodeB: SKNode){
@@ -203,7 +228,7 @@ class TreeScene: SKScene, SKPhysicsContactDelegate {
         
         seed.removeFromParent()
         let newSeed = Seed()
-        newSeed.physicsBody = nil
+        //newSeed.physicsBody = nil
         materialBag.addMaterial(material: newSeed)
     }
     
@@ -220,7 +245,7 @@ class TreeScene: SKScene, SKPhysicsContactDelegate {
         
         egg.removeFromParent()
         let newEgg = Egg()
-        newEgg.physicsBody = nil
+        //newEgg.physicsBody = nil
         materialBag.addMaterial(material: newEgg)
     }
     
@@ -349,6 +374,41 @@ class TreeScene: SKScene, SKPhysicsContactDelegate {
                     if groundNode.groundType == .wood {
                         groundNode.isDigged = true
                         plantCardBag.removePlantCard(name: "woodBreaker")
+                    }else {
+                        movingNode.position = originPosition
+                        movingNode.move(toParent: plantCardBag)
+                        movingNode = nil
+                    }
+                }else {
+                    movingNode.position = originPosition
+                    movingNode.move(toParent: plantCardBag)
+                    movingNode = nil
+                }
+                
+            default:
+                break
+            }
+            
+            
+        }
+    }
+    
+    func handleStoneBreaker(phase: String, location: CGPoint) {
+        let nodeAtPoint = atPoint(location)
+        if nodeAtPoint.name == "stoneBreaker"{
+            switch phase {
+            case "began":
+                nodeAtPoint.move(toParent: self)
+                originPosition = nodeAtPoint.position
+                movingNode = (nodeAtPoint as! SKSpriteNode)
+            case "moved":
+                movingNode.position = location
+            case "ended":
+                
+                if let groundNode = xyGroundNode(location: location){
+                    if groundNode.groundType == .rock {
+                        groundNode.isDigged = true
+                        plantCardBag.removePlantCard(name: "stoneBreaker")
                     }else {
                         movingNode.position = originPosition
                         movingNode.move(toParent: plantCardBag)
@@ -529,12 +589,12 @@ class TreeScene: SKScene, SKPhysicsContactDelegate {
             for x in 0..<groundCol{
                 if groundList[y][x].groundType == .dirt {
                     groundList[y][x].diggedDrop = {
-                        if Int.random(in: 0..<10)<5{
+                        if Int.random(in: 0..<10)<2{
                             let seed = Seed()
                             seed.position = self.groundList[y][x].position
                             self.addChild(seed)
                         }
-                        if Int.random(in: 0..<10)<5{
+                        if Int.random(in: 0..<10)<2{
                             let egg = Egg()
                             egg.position = self.groundList[y][x].position
                             self.addChild(egg)
@@ -544,6 +604,8 @@ class TreeScene: SKScene, SKPhysicsContactDelegate {
             }
         }
     }
+    
+    
     
     func setupMonster()  {
         
@@ -565,9 +627,19 @@ class TreeScene: SKScene, SKPhysicsContactDelegate {
                         //digged ground won't born monster
                         if groundList[y][x].isDigged {return}
                         let newMonster = Furry()
-                        newMonster.isAlived = true
+                        //newMonster.isAlived = true
                         newMonster.gridXY = GridXY(x: x, y: y)
                         newMonster.position = oringinPos + CGPoint(x: x*60, y: y*45)
+                        newMonster.dieDrop = {
+                            if Int.random(in: 0..<10)<8{
+                                let helmet = Helmet(version: "2", equipmentBag: self.equipmentBag, showButton: self.showButton)
+                                    helmet.position = newMonster.position
+                                    self.addChild(helmet)
+                                newMonster.hasDrop = true
+                            }
+                            
+                            
+                        }
                         //newMonster.move(toParent: groundList[y][x])
                         monsterList.append(newMonster)
                         addChild(newMonster)

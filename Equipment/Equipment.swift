@@ -66,10 +66,19 @@ class Equipment: SKSpriteNode {
         self.equipmentBag = equipmentBag
         self.storageBag = (showButton.childNode(withName: "storageBag") as! StorageBag)
         self.showButton = showButton
-        self.isWeared = false
+        //self.isWeared = false
         self.zPosition = 5
         self.ability = ability
         self.isUserInteractionEnabled = true
+        
+        self.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: 40, height: 40))
+        self.physicsBody?.allowsRotation = false
+        self.physicsBody?.affectedByGravity = true
+        self.physicsBody?.categoryBitMask = 128
+        self.physicsBody?.collisionBitMask = 16
+        self.physicsBody?.contactTestBitMask = 1
+        
+        
         
        detailDisplay = (showButton.childNode(withName: "//detailDisplay") as! SKSpriteNode)
         detailDisplay.isHidden = true

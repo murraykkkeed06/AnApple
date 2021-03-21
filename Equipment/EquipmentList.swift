@@ -13,6 +13,7 @@ class EquipmentList {
     var componentList = [Equipment]()
     
     func addComponent(component: Equipment){
+        component.isWeared = false
         componentList.append(component)
     }
     

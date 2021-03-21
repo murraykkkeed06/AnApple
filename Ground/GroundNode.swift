@@ -108,7 +108,7 @@ class GroundNode: SKSpriteNode {
         self.physicsBody?.allowsRotation = false
         self.physicsBody?.categoryBitMask = 16
         self.physicsBody?.collisionBitMask = 1
-        
+        self.physicsBody?.contactTestBitMask = 0
         self.isUserInteractionEnabled = true
     }
     

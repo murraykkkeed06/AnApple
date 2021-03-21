@@ -17,10 +17,26 @@ enum MonsterType {
 class Monster: SKSpriteNode {
     
     var gridXY: GridXY!
-    
+    var dieDrop: () -> Void = {print("not implemented!")}
+    var hasDrop = false
     var mosterType: MonsterType!
-
-    var isAlived: Bool = false
+    private var _isAlived: Bool!
+    var isAlived: Bool {
+        set{
+            _isAlived = newValue
+            switch newValue {
+            case true:
+                break
+            case false:
+                if !hasDrop{
+                self.dieDrop()
+                }
+            }
+        }
+        get{
+            return _isAlived
+        }
+    }
     
     var ability: Abiltiy!
     
@@ -60,9 +76,9 @@ class Monster: SKSpriteNode {
     
     init(texture: SKTexture) {
         super.init(texture: texture, color: .clear, size: CGSize(width: 40, height: 40))
+        self.isAlived = true
         
         self.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: 40, height: 40))
-        
         self.physicsBody?.allowsRotation = false
         self.physicsBody?.affectedByGravity = false
         self.physicsBody?.categoryBitMask = 32

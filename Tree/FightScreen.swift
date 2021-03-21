@@ -69,6 +69,7 @@ class FightScreen: SKSpriteNode {
        // monster.ability.healthNumber += monster.ability.defenseNumber
         monster.ability.healthNumber -= player.ability.attackNumber
         if monster.ability.healthNumber <= 0 {
+            monster.isAlived = false
             monsterTimer.invalidate()
             playerTimer.invalidate()
             monster.removeFromParent()
