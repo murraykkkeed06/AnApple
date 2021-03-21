@@ -18,6 +18,10 @@
 		7209FCE82601C86200483536 /* helmet_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7209FCE72601C86200483536 /* helmet_1.png */; };
 		7209FCEB2601C87500483536 /* armor_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 7209FCEA2601C87500483536 /* armor_1.png */; };
 		7209FCEE2601CB1D00483536 /* MSButtonNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7209FCED2601CB1D00483536 /* MSButtonNode.swift */; };
+		722BD2D72607721E0083B418 /* ToolBoxCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722BD2D62607721E0083B418 /* ToolBoxCard.swift */; };
+		722BD2DB260772490083B418 /* toolBoxCard.png in Resources */ = {isa = PBXBuildFile; fileRef = 722BD2DA260772490083B418 /* toolBoxCard.png */; };
+		722BD2DE260774950083B418 /* ToolBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722BD2DD260774950083B418 /* ToolBox.swift */; };
+		722BD2E1260774D20083B418 /* toolBox.png in Resources */ = {isa = PBXBuildFile; fileRef = 722BD2E0260774D20083B418 /* toolBox.png */; };
 		723E91172600A9E6006B70BB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723E91162600A9E6006B70BB /* AppDelegate.swift */; };
 		723E91192600A9E6006B70BB /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 723E91182600A9E6006B70BB /* GameScene.sks */; };
 		723E911B2600A9E6006B70BB /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 723E911A2600A9E6006B70BB /* Actions.sks */; };
@@ -110,6 +114,10 @@
 		7209FCE72601C86200483536 /* helmet_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = helmet_1.png; sourceTree = "<group>"; };
 		7209FCEA2601C87500483536 /* armor_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = armor_1.png; sourceTree = "<group>"; };
 		7209FCED2601CB1D00483536 /* MSButtonNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSButtonNode.swift; sourceTree = "<group>"; };
+		722BD2D62607721E0083B418 /* ToolBoxCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolBoxCard.swift; sourceTree = "<group>"; };
+		722BD2DA260772490083B418 /* toolBoxCard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = toolBoxCard.png; sourceTree = "<group>"; };
+		722BD2DD260774950083B418 /* ToolBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolBox.swift; sourceTree = "<group>"; };
+		722BD2E0260774D20083B418 /* toolBox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = toolBox.png; sourceTree = "<group>"; };
 		723E91132600A9E6006B70BB /* AnApple.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AnApple.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		723E91162600A9E6006B70BB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		723E91182600A9E6006B70BB /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -257,7 +265,9 @@
 		723E91332600B4E7006B70BB /* assets.atlas */ = {
 			isa = PBXGroup;
 			children = (
+				722BD2DA260772490083B418 /* toolBoxCard.png */,
 				72690EAB26072EE60068CEDE /* egg.png */,
+				722BD2E0260774D20083B418 /* toolBox.png */,
 				7294DB27260749F4002F02EC /* workshop.png */,
 				72690EA826072EB20068CEDE /* seed.png */,
 				72690E822607181A0068CEDE /* sun.png */,
@@ -343,6 +353,7 @@
 				72690E93260726AE0068CEDE /* Flower.swift */,
 				72690E96260727750068CEDE /* WoodBreaker.swift */,
 				7294DB2026073D1D002F02EC /* StoneBreaker.swift */,
+				722BD2D62607721E0083B418 /* ToolBoxCard.swift */,
 			);
 			path = PlantCard;
 			sourceTree = "<group>";
@@ -392,6 +403,7 @@
 				72A456AE2603C74E003BF6DF /* Digger.swift */,
 				720793AF26046FB7002C7689 /* Ladder.swift */,
 				72C5E7072604DFCB00390FC4 /* FightScreen.swift */,
+				722BD2DD260774950083B418 /* ToolBox.swift */,
 			);
 			path = Tree;
 			sourceTree = "<group>";
@@ -460,6 +472,8 @@
 				72448E972601D6CF008B13D0 /* life_bg.png in Resources */,
 				723E91432600BA63006B70BB /* nakedAnt_3.png in Resources */,
 				723E91412600BA63006B70BB /* nakedAnt_2.png in Resources */,
+				722BD2DB260772490083B418 /* toolBoxCard.png in Resources */,
+				722BD2E1260774D20083B418 /* toolBox.png in Resources */,
 				729E077726035A08008929D2 /* arrow.png in Resources */,
 				72690EB326072F6D0068CEDE /* stoneBreaker.png in Resources */,
 				72448E9A2601D6EF008B13D0 /* life.png in Resources */,
@@ -532,6 +546,7 @@
 				72690E9D26072BAF0068CEDE /* Weapon.swift in Sources */,
 				72D029542603A342008EF98A /* Dirt.swift in Sources */,
 				72A456AF2603C74E003BF6DF /* Digger.swift in Sources */,
+				722BD2D72607721E0083B418 /* ToolBoxCard.swift in Sources */,
 				72D0BA812600FB8A000FE1B9 /* EquipmentList.swift in Sources */,
 				72690E9A2607284A0068CEDE /* Shoes.swift in Sources */,
 				7209FCDC2601BBC500483536 /* Extension.swift in Sources */,
@@ -546,6 +561,7 @@
 				72690E912607249C0068CEDE /* Apple.swift in Sources */,
 				72690EA626072C900068CEDE /* Helmet.swift in Sources */,
 				72690EB926072FE30068CEDE /* Egg.swift in Sources */,
+				722BD2DE260774950083B418 /* ToolBox.swift in Sources */,
 				7294DB2126073D1D002F02EC /* StoneBreaker.swift in Sources */,
 				720793B026046FB7002C7689 /* Ladder.swift in Sources */,
 				723E911F2600A9E6006B70BB /* GameViewController.swift in Sources */,

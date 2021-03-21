@@ -43,6 +43,12 @@ class TreeScene: SKScene, SKPhysicsContactDelegate {
     
     var sun: SKSpriteNode!
     
+    var backButton: SKSpriteNode!
+    
+    var firstPos: SKSpriteNode!
+    var secondPos: SKSpriteNode!
+    var thirdPos: SKSpriteNode!
+    var fourthPos: SKSpriteNode!
     
     override func didMove(to view: SKView) {
         
@@ -69,6 +75,10 @@ class TreeScene: SKScene, SKPhysicsContactDelegate {
         materialBag = (self.childNode(withName: "materialBag") as! MaterialBag)
         plantCardBag = (self.childNode(withName: "plantCardBag") as! PlantCardBag)
         
+        backButton = (self.childNode(withName: "backButton") as! SKSpriteNode)
+//        backButton.selectedHandler = {
+//            self.backButton.run(SKAction.move(to: CGPoint(x: 999, y: 999), duration: 1))
+//        }
         
         showButton = (self.childNode(withName: "showButton") as! MSButtonNode)
         setupShowButton()
@@ -117,6 +127,7 @@ class TreeScene: SKScene, SKPhysicsContactDelegate {
         
         setDirtDrop()
         
+        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -131,7 +142,13 @@ class TreeScene: SKScene, SKPhysicsContactDelegate {
         handleLadder(phase: "began", location: location)
         handleWoodBreaker(phase: "began", location: location)
         handleStoneBreaker(phase: "began", location: location)
+        handleToolBox(phase: "began", location: location)
         //handle plant card to ground
+        let node = atPoint(location)
+        if node.name == "backButton"{
+            backButton.run(SKAction.move(to: CGPoint(x: 999, y: 999), duration: 1))
+        }
+        toolBoxTrade(phase: "began", location: location)
         
         
     }
@@ -144,7 +161,8 @@ class TreeScene: SKScene, SKPhysicsContactDelegate {
         handleLadder(phase: "moved", location: location)
         handleWoodBreaker(phase: "moved", location: location)
         handleStoneBreaker(phase: "moved", location: location)
-        
+        handleToolBox(phase: "moved", location: location)
+        toolBoxTrade(phase: "moved", location: location)
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -155,7 +173,8 @@ class TreeScene: SKScene, SKPhysicsContactDelegate {
         handleLadder(phase: "ended", location: location)
         handleWoodBreaker(phase: "ended", location: location)
         handleStoneBreaker(phase: "ended", location: location)
-        
+        handleToolBox(phase: "ended", location: location)
+        toolBoxTrade(phase: "ended", location: location)
         
     }
     
@@ -188,6 +207,8 @@ class TreeScene: SKScene, SKPhysicsContactDelegate {
             }
         }
     }
+    
+    
     
     func playerPickUp(nodeA: SKNode, nodeB: SKNode)  {
         pickUpSeed(nodeA: nodeA, nodeB: nodeB)
@@ -322,6 +343,78 @@ class TreeScene: SKScene, SKPhysicsContactDelegate {
         return inRange
     }
     
+    func toolBoxTrade(phase: String, location: CGPoint) {
+        let nodeAtPoint = atPoint(location)
+        //print("\(nodeAtPoint.name)")
+        if nodeAtPoint.name == "seed" || nodeAtPoint.name == "egg"{
+            //print("toolbox material touch!")
+            switch phase {
+            case "began":
+                nodeAtPoint.move(toParent: self)
+                originPosition = nodeAtPoint.position
+                movingNode = (nodeAtPoint as! SKSpriteNode)
+            case "moved":
+                movingNode.position = location
+            case "ended":
+                movingNode.move(toParent: backButton)
+                let firstPosition = (backButton.childNode(withName: "//firstPosition") as! SKSpriteNode)
+                let secondPosition = (backButton.childNode(withName: "//secondPosition") as! SKSpriteNode)
+                let thirdPosition = (backButton.childNode(withName: "//thirdPosition") as! SKSpriteNode)
+                let fourthPosition = (backButton.childNode(withName: "//fourthPosition") as! SKSpriteNode)
+                let transferLocation = self.convert(location, to: backButton)
+                if firstPosition.frame.contains(transferLocation) && !firstPosition.isHidden{
+                    print("first add!")
+                    firstPosition.isHidden = true
+                    firstPos = movingNode
+                    movingNode.position = firstPosition.position
+                }
+                if secondPosition.frame.contains(transferLocation) && !secondPosition.isHidden{
+                    secondPosition.isHidden = true
+                    secondPos = movingNode
+                    movingNode.position = secondPosition.position
+                }
+                if thirdPosition.frame.contains(transferLocation) && !thirdPosition.isHidden{
+                    thirdPosition.isHidden = true
+                    thirdPos = movingNode
+                    movingNode.position = thirdPosition.position
+                }
+                if fourthPosition.frame.contains(transferLocation) && !fourthPosition.isHidden{
+                    fourthPosition.isHidden = true
+                    fourthPos = movingNode
+                    movingNode.position = fourthPosition.position
+                }
+                
+                //trade legal
+                if firstPosition.isHidden && secondPosition.isHidden && thirdPosition.isHidden && fourthPosition.isHidden {
+                    firstPos.removeFromParent()
+                    firstPos = nil
+                    secondPos.removeFromParent()
+                    secondPos = nil
+                    thirdPos.removeFromParent()
+                    thirdPos = nil
+                    fourthPos.removeFromParent()
+                    fourthPos = nil
+                    
+                    firstPosition.isHidden = false
+                    secondPosition.isHidden = false
+                    thirdPosition.isHidden = false
+                    fourthPosition.isHidden = false
+                    plantCardBag.addPlantCard(plantCard: Flower())
+                    
+                }
+                
+                
+                
+            default:
+                break
+            }
+            
+            
+        }
+    }
+    
+    
+    
     func handleLadder(phase: String, location: CGPoint) {
         let nodeAtPoint = atPoint(location)
         if nodeAtPoint.name == "flowerCard"{
@@ -356,6 +449,71 @@ class TreeScene: SKScene, SKPhysicsContactDelegate {
             
             
         }
+    }
+    
+    
+    
+    
+    
+    func handleToolBox(phase: String, location: CGPoint) {
+        let nodeAtPoint = atPoint(location)
+        if nodeAtPoint.name == "toolBoxCard"{
+            
+            switch phase {
+            case "began":
+                nodeAtPoint.move(toParent: self)
+                originPosition = nodeAtPoint.position
+                movingNode = (nodeAtPoint as! SKSpriteNode)
+            case "moved":
+                movingNode.position = location
+            case "ended":
+                
+                if xyCanPutToolBox(location: location) {
+                    if let groundNode = xyGroundNode(location: location) {
+                        //player.plantCardList.removeComponent(name: "flowerCard")
+                        plantCardBag.removePlantCard(name: "toolBoxCard")
+                        //movingNode.removeFromParent()
+                        let toolBox = ToolBox()
+                        toolBox.selectHandler = {
+                            self.backButton.run(SKAction.move(to: CGPoint(x: 148, y: 268), duration: 1))
+                        }
+                        toolBox.position = groundNode.position - CGPoint(x: 10, y: -2.5)
+                        addChild(toolBox)
+                    }
+                    //plantCardBag.renderPlantCard()
+                } else {
+                    movingNode.position = originPosition
+                    movingNode.move(toParent: plantCardBag)
+                    movingNode = nil
+                }
+            default:
+                break
+            }
+            
+            
+        }
+    }
+    
+    func xyCanPutToolBox(location: CGPoint) -> Bool {
+        var canPut = false
+        
+        if let groundNode = xyGroundNode(location: location) {
+        
+            
+            if let top = groundNode.top {
+                
+                if let right = groundNode.right {
+                    
+                    if let topRight = top.right{
+                        
+                        if groundNode.isDigged && top.isDigged && right.isDigged && topRight.isDigged {
+                            canPut = true
+                        }
+                    }
+                }
+            }
+        }
+        return canPut
     }
     
     func handleWoodBreaker(phase: String, location: CGPoint) {
@@ -631,7 +789,7 @@ class TreeScene: SKScene, SKPhysicsContactDelegate {
                         newMonster.gridXY = GridXY(x: x, y: y)
                         newMonster.position = oringinPos + CGPoint(x: x*60, y: y*45)
                         newMonster.dieDrop = {
-                            if Int.random(in: 0..<10)<8{
+                            if Int.random(in: 0..<10)<2{
                                 let helmet = Helmet(version: "2", equipmentBag: self.equipmentBag, showButton: self.showButton)
                                     helmet.position = newMonster.position
                                     self.addChild(helmet)

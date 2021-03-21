@@ -69,6 +69,7 @@ class FightScreen: SKSpriteNode {
        // monster.ability.healthNumber += monster.ability.defenseNumber
         monster.ability.healthNumber -= player.ability.attackNumber
         if monster.ability.healthNumber <= 0 {
+            
             monster.isAlived = false
             monsterTimer.invalidate()
             playerTimer.invalidate()
@@ -89,8 +90,10 @@ class FightScreen: SKSpriteNode {
     
     @objc func fightLeft(){
         monsterNode.run(SKAction(named: "fightLeft")!)
+        if !monster.isAlived {return}
        // player.ability.healthNumber += player.ability.defenseNumber
         player.ability.healthNumber -= monster.ability.attackNumber
+        print("called!")
         if player.ability.healthNumber <= 0 {
             playerTimer.invalidate()
             monsterTimer.invalidate()

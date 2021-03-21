@@ -115,6 +115,7 @@ class Player: SKSpriteNode {
         plantCardBag.addPlantCard(plantCard: Flower())
         plantCardBag.addPlantCard(plantCard: WoodBreaker())
         plantCardBag.addPlantCard(plantCard: StoneBreaker())
+        plantCardBag.addPlantCard(plantCard: ToolBoxCard())
         
         //add material
         materialBag.addMaterial(material: Apple())

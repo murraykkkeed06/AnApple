@@ -18,7 +18,7 @@ class Material: SKSpriteNode {
     
     init(texture: SKTexture) {
         super.init(texture: texture, color: .clear, size: CGSize(width: 30, height: 30))
-        self.zPosition = 3
+        self.zPosition = 7
         //self.homeScene = scene
         
         //self.isUserInteractionEnabled = true
