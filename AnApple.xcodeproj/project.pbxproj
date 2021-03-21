@@ -38,6 +38,7 @@
 		72448EA726021DB7008B13D0 /* apple.png in Resources */ = {isa = PBXBuildFile; fileRef = 72448EA626021DB7008B13D0 /* apple.png */; };
 		72690E842607181B0068CEDE /* sun.png in Resources */ = {isa = PBXBuildFile; fileRef = 72690E822607181A0068CEDE /* sun.png */; };
 		72690E852607181B0068CEDE /* time_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 72690E832607181B0068CEDE /* time_bg.png */; };
+		72690E8826071F2E0068CEDE /* woodBreaker.png in Resources */ = {isa = PBXBuildFile; fileRef = 72690E8726071F2E0068CEDE /* woodBreaker.png */; };
 		7288D03426023D310051C735 /* plantCardBag.png in Resources */ = {isa = PBXBuildFile; fileRef = 7288D03326023D310051C735 /* plantCardBag.png */; };
 		7288D037260241370051C735 /* flower.png in Resources */ = {isa = PBXBuildFile; fileRef = 7288D036260241370051C735 /* flower.png */; };
 		7288D03B260257450051C735 /* home.png in Resources */ = {isa = PBXBuildFile; fileRef = 7288D03A260257450051C735 /* home.png */; };
@@ -117,6 +118,7 @@
 		72448EA626021DB7008B13D0 /* apple.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = apple.png; sourceTree = "<group>"; };
 		72690E822607181A0068CEDE /* sun.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sun.png; sourceTree = "<group>"; };
 		72690E832607181B0068CEDE /* time_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = time_bg.png; sourceTree = "<group>"; };
+		72690E8726071F2E0068CEDE /* woodBreaker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = woodBreaker.png; sourceTree = "<group>"; };
 		7288D03326023D310051C735 /* plantCardBag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plantCardBag.png; sourceTree = "<group>"; };
 		7288D036260241370051C735 /* flower.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flower.png; sourceTree = "<group>"; };
 		7288D03A260257450051C735 /* home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home.png; sourceTree = "<group>"; };
@@ -221,6 +223,7 @@
 		723E91332600B4E7006B70BB /* assets.atlas */ = {
 			isa = PBXGroup;
 			children = (
+				72690E8726071F2E0068CEDE /* woodBreaker.png */,
 				72690E822607181A0068CEDE /* sun.png */,
 				72690E832607181B0068CEDE /* time_bg.png */,
 				720793AC26046F6A002C7689 /* ladder.png */,
@@ -395,6 +398,7 @@
 				72448EA726021DB7008B13D0 /* apple.png in Resources */,
 				72CC85852602628500F47B9C /* weapon_2.png in Resources */,
 				7209FCEB2601C87500483536 /* armor_1.png in Resources */,
+				72690E8826071F2E0068CEDE /* woodBreaker.png in Resources */,
 				72C5E7042604B5C400390FC4 /* antClimb_2.png in Resources */,
 				72D029642603A6AB008EF98A /* furry.png in Resources */,
 				729E078026035D8E008929D2 /* treeScene.png in Resources */,

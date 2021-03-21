@@ -116,6 +116,10 @@ class Player: SKSpriteNode {
         plantCardBag.addPlantCard(plantCard: flower_1PlantCard)
         //plantCardList.addComponent(component: flower_1PlantCard)
         
+        let woodBreaker_1Texture = SKTexture(imageNamed: "woodBreaker")
+        let woodBreaker_1PlantCard = PlantCard(texture: woodBreaker_1Texture)
+        woodBreaker_1PlantCard.name = "woodBreaker"
+        plantCardBag.addPlantCard(plantCard: woodBreaker_1PlantCard)
         
 //        //add the initial plant card
 //        let flower_2Texture = SKTexture(imageNamed: "flower")

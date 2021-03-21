@@ -127,6 +127,7 @@ class TreeScene: SKScene, SKPhysicsContactDelegate {
         //drag apple to player
         handleApple(phase: "began", location: location)
         handleLadder(phase: "began", location: location)
+        handleWoodBreaker(phase: "began", location: location)
         //handle plant card to ground
         
         
@@ -138,6 +139,7 @@ class TreeScene: SKScene, SKPhysicsContactDelegate {
         //drag apple to player
         handleApple(phase: "moved", location: location)
         handleLadder(phase: "moved", location: location)
+        handleWoodBreaker(phase: "moved", location: location)
         
     }
     
@@ -147,6 +149,7 @@ class TreeScene: SKScene, SKPhysicsContactDelegate {
         //drag apple to player
         handleApple(phase: "ended", location: location)
         handleLadder(phase: "ended", location: location)
+        handleWoodBreaker(phase: "ended", location: location)
         
         
     }
@@ -178,7 +181,6 @@ class TreeScene: SKScene, SKPhysicsContactDelegate {
         
         
     }
-    
     
     
     
@@ -283,6 +285,41 @@ class TreeScene: SKScene, SKPhysicsContactDelegate {
                     movingNode.move(toParent: plantCardBag)
                     movingNode = nil
                 }
+            default:
+                break
+            }
+            
+            
+        }
+    }
+    
+    func handleWoodBreaker(phase: String, location: CGPoint) {
+        let nodeAtPoint = atPoint(location)
+        if nodeAtPoint.name == "woodBreaker"{
+            switch phase {
+            case "began":
+                nodeAtPoint.move(toParent: self)
+                originPosition = nodeAtPoint.position
+                movingNode = (nodeAtPoint as! SKSpriteNode)
+            case "moved":
+                movingNode.position = location
+            case "ended":
+                
+                if let groundNode = xyGroundNode(location: location){
+                    if groundNode.groundType == .wood {
+                        groundNode.isDigged = true
+                        plantCardBag.removePlantCard(name: "woodBreaker")
+                    }else {
+                        movingNode.position = originPosition
+                        movingNode.move(toParent: plantCardBag)
+                        movingNode = nil
+                    }
+                }else {
+                    movingNode.position = originPosition
+                    movingNode.move(toParent: plantCardBag)
+                    movingNode = nil
+                }
+                
             default:
                 break
             }
