@@ -33,8 +33,14 @@ class Player: SKSpriteNode {
     let bodySize : CGSize = CGSize(width: 40, height: 40)
     //component
     var equipmentList: EquipmentList!
-    var materialList: MaterialList!
-    var plantCardList: PlantCardList!
+    //var materialList: MaterialList!
+    var materialBag: MaterialBag!
+    //var plantCardList: PlantCardList!
+    
+    var plantCardBag: PlantCardBag!
+    
+    var equipmentBag: EquipmentBag!
+    var showButton : MSButtonNode!
     
     var ability: Abiltiy!
     
@@ -86,9 +92,12 @@ class Player: SKSpriteNode {
         //self.isUserInteractionEnabled = true
         //declare the basic component
         equipmentList = EquipmentList()
-        materialList = MaterialList()
-        plantCardList = PlantCardList()
-        
+        //materialList = MaterialList()
+        //plantCardList = PlantCardList()
+        plantCardBag = (self.homeScene.childNode(withName: "plantCardBag") as! PlantCardBag)
+        materialBag = (self.homeScene.childNode(withName: "materialBag") as! MaterialBag)
+        equipmentBag = (self.homeScene.childNode(withName: "equipmentBag") as! EquipmentBag)
+        showButton = (self.homeScene.childNode(withName: "showButton") as! MSButtonNode)
         //setup physicbody
         self.physicsBody = SKPhysicsBody(rectangleOf: bodySize)
         self.physicsBody!.affectedByGravity = true
@@ -102,9 +111,10 @@ class Player: SKSpriteNode {
         
         //add the initial plant card
         let flower_1Texture = SKTexture(imageNamed: "flower")
-        let flower_1PlantCard = PlantCard(texture: flower_1Texture, scene: homeScene)
+        let flower_1PlantCard = PlantCard(texture: flower_1Texture)
         flower_1PlantCard.name = "flowerCard"
-        plantCardList.addComponent(component: flower_1PlantCard)
+        plantCardBag.addPlantCard(plantCard: flower_1PlantCard)
+        //plantCardList.addComponent(component: flower_1PlantCard)
         
         
 //        //add the initial plant card
@@ -127,18 +137,19 @@ class Player: SKSpriteNode {
         
         //add the initail material
         let apple_1Texture = SKTexture(imageNamed: "apple")
-        let apple_1Material = Material(texture: apple_1Texture, scene: homeScene)
+        let apple_1Material = Material(texture: apple_1Texture)
         apple_1Material.name = "apple"
         apple_1Material.ability = Abiltiy(attackNumber: 0, defenseNumber: 0, healthNumber: 100)
-        materialList.addComponent(component: apple_1Material)
+        materialBag.addMaterial(material: apple_1Material)
+        //materialList.addComponent(component: apple_1Material)
         
         //add the initail material
         let apple_2Texture = SKTexture(imageNamed: "apple")
-        let apple_2Material = Material(texture: apple_2Texture, scene: homeScene)
+        let apple_2Material = Material(texture: apple_2Texture)
         apple_2Material.name = "apple"
         apple_2Material.ability = Abiltiy(attackNumber: 0, defenseNumber: 0, healthNumber: 100)
-        materialList.addComponent(component: apple_2Material)
-        
+        //materialList.addComponent(component: apple_2Material)
+        materialBag.addMaterial(material: apple_2Material)
 
         //declare ability
         self.ability = Abiltiy(attackNumber: 20, defenseNumber: 20, healthNumber: 100)
@@ -147,14 +158,14 @@ class Player: SKSpriteNode {
         //shoes
         let shoes_1Texture = SKTexture(imageNamed: "shoes_1")
         let shoes_1Ability = Abiltiy(attackNumber: 4, defenseNumber: 1, healthNumber: 13)
-        let shoes_1Equipment = Equipment(texture: shoes_1Texture, type: .shoes, scene: homeScene, ability: shoes_1Ability)
+        let shoes_1Equipment = Equipment(texture: shoes_1Texture, type: .shoes, ability: shoes_1Ability,equipmentBag: equipmentBag, showButton: showButton)
         shoes_1Equipment.name = "shoes_1"
         equipmentList.addComponent(component: shoes_1Equipment)
         
         //shoes
         let shoes_2Texture = SKTexture(imageNamed: "shoes_2")
         let shoes_2Ability = Abiltiy(attackNumber: 9, defenseNumber: 2, healthNumber: 19)
-        let shoes_2Equipment = Equipment(texture: shoes_2Texture, type: .shoes, scene: homeScene, ability: shoes_2Ability)
+        let shoes_2Equipment = Equipment(texture: shoes_2Texture, type: .shoes,  ability: shoes_2Ability,equipmentBag: equipmentBag,showButton: showButton)
         shoes_2Equipment.name = "shoes_2"
         equipmentList.addComponent(component: shoes_2Equipment)
         
@@ -163,42 +174,42 @@ class Player: SKSpriteNode {
         //weapon
         let weapon_1Texture = SKTexture(imageNamed: "weapon_1")
         let weapon_1Ability = Abiltiy(attackNumber: 5, defenseNumber: 9, healthNumber: 7)
-        let weapon_1Equipment = Equipment(texture: weapon_1Texture, type: .weapon, scene: homeScene, ability: weapon_1Ability)
+        let weapon_1Equipment = Equipment(texture: weapon_1Texture, type: .weapon,  ability: weapon_1Ability,equipmentBag: equipmentBag,showButton: showButton)
         weapon_1Equipment.name = "weapon_1"
         equipmentList.addComponent(component: weapon_1Equipment)
         
         //weapon
         let weapon_2Texture = SKTexture(imageNamed: "weapon_2")
         let weapon_2Ability = Abiltiy(attackNumber: 9, defenseNumber: 9, healthNumber: 21)
-        let weapon_2Equipment = Equipment(texture: weapon_2Texture, type: .weapon, scene: homeScene, ability: weapon_2Ability)
+        let weapon_2Equipment = Equipment(texture: weapon_2Texture, type: .weapon, ability: weapon_2Ability,equipmentBag: equipmentBag,showButton: showButton)
         weapon_2Equipment.name = "weapon_2"
         equipmentList.addComponent(component: weapon_2Equipment)
         
         //armor
         let armor_1Texture = SKTexture(imageNamed: "armor_1")
         let armor_1Ability = Abiltiy(attackNumber: 4, defenseNumber: 6, healthNumber: 12)
-        let armor_1Equipment = Equipment(texture: armor_1Texture, type: .armor, scene: homeScene, ability: armor_1Ability)
+        let armor_1Equipment = Equipment(texture: armor_1Texture, type: .armor,  ability: armor_1Ability,equipmentBag: equipmentBag,showButton: showButton)
         armor_1Equipment.name = "armor_1"
         equipmentList.addComponent(component: armor_1Equipment)
         
         //armor
         let armor_2Texture = SKTexture(imageNamed: "armor_2")
         let armor_2Ability = Abiltiy(attackNumber: 9, defenseNumber: 9, healthNumber: 12)
-        let armor_2Equipment = Equipment(texture: armor_2Texture, type: .armor, scene: homeScene, ability: armor_2Ability)
+        let armor_2Equipment = Equipment(texture: armor_2Texture, type: .armor,  ability: armor_2Ability,equipmentBag: equipmentBag,showButton: showButton)
         armor_2Equipment.name = "armor_2"
         equipmentList.addComponent(component: armor_2Equipment)
         
         //helmet
         let helmet_1Texture = SKTexture(imageNamed: "helmet_1")
         let helmet_1Ability = Abiltiy(attackNumber: 5, defenseNumber: 2, healthNumber: 10)
-        let helmet_1Equipment = Equipment(texture: helmet_1Texture, type: .helmet, scene: homeScene, ability: helmet_1Ability)
+        let helmet_1Equipment = Equipment(texture: helmet_1Texture, type: .helmet, ability: helmet_1Ability,equipmentBag: equipmentBag,showButton: showButton)
         helmet_1Equipment.name = "helmet_1"
         equipmentList.addComponent(component: helmet_1Equipment)
         
         //helmet
         let helmet_2Texture = SKTexture(imageNamed: "helmet_2")
         let helmet_2Ability = Abiltiy(attackNumber: 8, defenseNumber: 5, healthNumber: 19)
-        let helmet_2Equipment = Equipment(texture: helmet_2Texture, type: .helmet, scene: homeScene, ability: helmet_2Ability)
+        let helmet_2Equipment = Equipment(texture: helmet_2Texture, type: .helmet,  ability: helmet_2Ability,equipmentBag: equipmentBag,showButton: showButton)
         helmet_2Equipment.name = "helmet_2"
         equipmentList.addComponent(component: helmet_2Equipment)
         

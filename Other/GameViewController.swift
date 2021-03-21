@@ -10,7 +10,7 @@ import SpriteKit
 import GameplayKit
 
 class GameViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -19,7 +19,11 @@ class GameViewController: UIViewController {
             if let scene = GameScene(fileNamed: "GameScene") {
                 // Set the scale mode to scale to fit the window
                 scene.scaleMode = .aspectFill
-                
+                scene.player =  Player(scene: scene)
+                scene.materialBag = (scene.childNode(withName: "materialBag") as! MaterialBag)
+                scene.equipmentBag = (scene.childNode(withName: "equipmentBag") as! EquipmentBag)
+                scene.showButton = (scene.childNode(withName: "showButton") as! MSButtonNode)
+                scene.plantCardBag = (scene.childNode(withName: "plantCardBag") as! PlantCardBag)
                 // Present the scene
                 view.presentScene(scene)
             }

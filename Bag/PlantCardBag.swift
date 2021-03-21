@@ -46,6 +46,7 @@ class PlantCardBag: SKSpriteNode {
         //remove
         for i in 0..<plantCardList.count{
             if plantCardList[i].name == name{
+                plantCardList[i].removeFromParent()
                 plantCardList.remove(at: i)
                 break
             }

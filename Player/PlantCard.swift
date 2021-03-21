@@ -10,15 +10,15 @@ import SpriteKit
 
 class PlantCard: SKSpriteNode {
     
-    var homeScene: SKScene!
-    var plantCardBag: PlantCardBag!
+    //var homeScene: SKScene!
+   // var plantCardBag: PlantCardBag!
     
-    init(texture: SKTexture, scene: SKScene) {
+    init(texture: SKTexture) {
         super.init(texture: texture, color: .clear, size: CGSize(width: 80, height: 80))
-        self.homeScene = scene
+        //self.homeScene = scene
         self.zPosition = 4
-        self.plantCardBag = (self.homeScene.childNode(withName: "plantCardBag") as! PlantCardBag)
-        self.plantCardBag.addPlantCard(plantCard: self)
+        //self.plantCardBag = (self.homeScene.childNode(withName: "plantCardBag") as! PlantCardBag)
+        //self.plantCardBag.addPlantCard(plantCard: self)
         
     }
     

@@ -11,20 +11,37 @@ import GameplayKit
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var player: Player!
-    var showButton: MSButtonNode!
+    
     var healthBarBackground: SKSpriteNode!
     var timer: Timer?
     var movingNode: Material!
     var homeNode: SKSpriteNode!
     var workshopNode : SKSpriteNode!
     var treeNode: SKSpriteNode!
-        override func didMove(to view: SKView) {
+    
+    var materialBag: MaterialBag!
+    var plantCardBag: PlantCardBag!
+    var equipmentBag: EquipmentBag!
+    var showButton: MSButtonNode!
+    
+    override func didMove(to view: SKView) {
         
         physicsWorld.contactDelegate = self
         
-        player = Player(scene: self)
+        player.move(toParent: self)
+        player.position = CGPoint(x: 110, y: 102.5)
+        
+        materialBag.move(toParent: self)
+        materialBag.position = CGPoint(x: 178, y: 341)
+        plantCardBag.move(toParent: self)
+        plantCardBag.position = CGPoint(x: 178, y: 27)
+        equipmentBag.move(toParent: self)
+        equipmentBag.position = CGPoint(x: 27, y: 186)
+        showButton.move(toParent: self)
+        showButton.position = CGPoint(x: 494, y: 258)
+        //player = Player(scene: self)
         //equipmentBag = (self.childNode(withName: "equipmentBag") as! EquipmentBag)
-        addChild(player)
+        //addChild(player)
         //storagebag is included in a button
         //storageBag = (self.childNode(withName: "//storageBag") as! StorageBag)
         showButton = (self.childNode(withName: "showButton") as! MSButtonNode)
@@ -42,7 +59,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         let touch = touches.first!
         let location = touch.location(in: self)
-        let nodeAtPoint = atPoint(location)
+        //let nodeAtPoint = atPoint(location)
         //set player position when touch
         player.playerHandler(position: location, boundage: false)
         
@@ -51,12 +68,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 //            movingNode.move(toParent: self)
 //        }
         
-        print("\(nodeAtPoint.name)")
+        //print("\(nodeAtPoint.name)")
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        let touch = touches.first!
-        let location = touch.location(in: self)
+//        let touch = touches.first!
+//        let location = touch.location(in: self)
         //movingNode.position = location
     }
     
@@ -226,6 +243,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 scene.scaleMode = .aspectFill
                 //passing data
                 scene.player = self.player
+                scene.materialBag = self.materialBag
+                scene.equipmentBag = self.equipmentBag
+                scene.showButton = self.showButton
+                scene.plantCardBag = self.plantCardBag
                 // Present the scene
                 view.presentScene(scene)
             }

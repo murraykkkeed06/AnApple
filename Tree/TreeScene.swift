@@ -21,6 +21,7 @@ class TreeScene: SKScene, SKPhysicsContactDelegate {
     
     var eachFrame: TimeInterval = 1/60
     var sinceStart: TimeInterval = 0
+    var sinceMonsterBorn: TimeInterval = 0
     
     var monsterList = [Monster]()
     
@@ -33,24 +34,41 @@ class TreeScene: SKScene, SKPhysicsContactDelegate {
     
     var materialBag: MaterialBag!
     var plantCardBag: PlantCardBag!
+    var equipmentBag: EquipmentBag!
+   
     
     var ladderList = [Ladder]()
     
     var fightScreen: FightScreen!
     
+    var sun: SKSpriteNode!
     
     
     override func didMove(to view: SKView) {
         
         physicsWorld.contactDelegate = self
         
-        player = Player(scene: self)
-        addChild(player)
+        //player = Player(scene: self)
+        //saddChild(player)
+        player.move(toParent: self)
+        player.position = CGPoint(x: 110, y: 102.5)
+        
+        materialBag.move(toParent: self)
+        materialBag.position = CGPoint(x: 178, y: 341)
+        plantCardBag.move(toParent: self)
+        plantCardBag.position = CGPoint(x: 178, y: 27)
+        equipmentBag.move(toParent: self)
+        equipmentBag.position = CGPoint(x: 27, y: 186)
+        showButton.move(toParent: self)
+        showButton.position = CGPoint(x: 494, y: 258)
+        
+        sun = (self.childNode(withName: "//sun") as! SKSpriteNode)
         
         fightScreen = (self.childNode(withName: "fightScreen") as! FightScreen)
         
         materialBag = (self.childNode(withName: "materialBag") as! MaterialBag)
         plantCardBag = (self.childNode(withName: "plantCardBag") as! PlantCardBag)
+        
         
         showButton = (self.childNode(withName: "showButton") as! MSButtonNode)
         setupShowButton()
@@ -85,6 +103,11 @@ class TreeScene: SKScene, SKPhysicsContactDelegate {
                 return
             }
             scene.scaleMode = .aspectFill
+            scene.player = self.player
+            scene.materialBag = self.materialBag
+            scene.equipmentBag = self.equipmentBag
+            scene.showButton = self.showButton
+            scene.plantCardBag = self.plantCardBag
             skView.presentScene(scene)
         }
         
@@ -138,10 +161,12 @@ class TreeScene: SKScene, SKPhysicsContactDelegate {
         checkMonsterGravity()
         
         sinceStart += eachFrame
+        sinceMonsterBorn += eachFrame
         Player.playerStartFrame += eachFrame
         
         setupMonster()
         
+        sunMoving()
         
     }
     
@@ -178,6 +203,12 @@ class TreeScene: SKScene, SKPhysicsContactDelegate {
     }
     
     
+    func sunMoving() {
+        sun.position.x = CGFloat(sinceStart)
+        if sinceStart>100 {
+            sinceStart = 0
+        }
+    }
     
     func handleClimb(location: CGPoint) {
         let nodeAtPoint = atPoint(location)
@@ -239,7 +270,7 @@ class TreeScene: SKScene, SKPhysicsContactDelegate {
                     if let groundNode = xyGroundNode(location: location) {
                         //player.plantCardList.removeComponent(name: "flowerCard")
                         plantCardBag.removePlantCard(name: "flowerCard")
-                        movingNode.removeFromParent()
+                        //movingNode.removeFromParent()
                         let ladder = Ladder()
                         
                         ladder.position = groundNode.position - CGPoint(x: 0, y: 22.5)
@@ -278,7 +309,7 @@ class TreeScene: SKScene, SKPhysicsContactDelegate {
                 if nodeAtPoint.frame.contains(player.position){
                     //player.materialList.removeComponent(name: "apple")
                     materialBag.removeMaterial(name: "apple")
-                    movingNode.removeFromParent()
+                    //movingNode.removeFromParent()
                     let apple = movingNode as! Material
                     player.ability.healthNumber += apple.ability.healthNumber
                     //materialBag.renderMaterial()
@@ -358,7 +389,7 @@ class TreeScene: SKScene, SKPhysicsContactDelegate {
             groundList.append([])
             for x in 0..<groundCol{
                 
-                let newType = GroundType.getRadom(dirt: 0.7, rock: 0.2, wood: 0.1)
+                let newType = GroundType.getRadom(dirt: 0.6, rock: 0.2, wood: 0.2)
                 var newGround : GroundNode!
                 
                 
@@ -420,7 +451,7 @@ class TreeScene: SKScene, SKPhysicsContactDelegate {
         
         
         
-        if(sinceStart > Furry.bornSecond){
+        if(sinceMonsterBorn > Furry.bornSecond){
             
             let oringinPos = CGPoint(x: 110, y: 102.5)
             
@@ -447,7 +478,7 @@ class TreeScene: SKScene, SKPhysicsContactDelegate {
                     
                 }
             }
-            sinceStart = 0
+            sinceMonsterBorn = 0
         }
     }
     

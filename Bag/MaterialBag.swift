@@ -46,6 +46,7 @@ class MaterialBag: SKSpriteNode {
         //remove
         for i in 0..<materialList.count{
             if materialList[i].name == name{
+                materialList[i].removeFromParent()
                 materialList.remove(at: i)
                 break
             }

@@ -58,18 +58,18 @@ class Equipment: SKSpriteNode {
     }
     
     
-    init(texture: SKTexture, type: EquipmentType, scene: SKScene, ability: Abiltiy) {
+    init(texture: SKTexture, type: EquipmentType, ability: Abiltiy, equipmentBag: EquipmentBag, showButton: MSButtonNode) {
         super.init(texture: texture, color: .clear, size: CGSize(width: 40, height: 40))
         self.type = type
         self.homeScene = scene
-        self.equipmentBag = (scene.childNode(withName: "equipmentBag") as! EquipmentBag)
-        self.storageBag = (scene.childNode(withName: "//storageBag") as! StorageBag)
+        self.equipmentBag = equipmentBag
+        self.storageBag = (showButton.childNode(withName: "storageBag") as! StorageBag)
         self.isWeared = false
         self.zPosition = 5
         self.ability = ability
         self.isUserInteractionEnabled = true
         
-       detailDisplay = (self.homeScene.childNode(withName: "//detailDisplay") as! SKSpriteNode)
+       detailDisplay = (showButton.childNode(withName: "//detailDisplay") as! SKSpriteNode)
         detailDisplay.isHidden = true
     }
     
@@ -99,7 +99,7 @@ class Equipment: SKSpriteNode {
     
     func setupDetailDisplay()  {
         //detail will hide when storagebag is hide
-        let showButton = (self.homeScene.childNode(withName: "showButton") as! MSButtonNode)
+        let showButton = (self.parent!.parent! as! MSButtonNode)
         if showButton.buttonState == .hide {
             return
         }
