@@ -160,26 +160,40 @@ class TreeScene: SKScene, SKPhysicsContactDelegate {
     func checkMonsterGravity() {
         for i in 0..<monsterList.count{
             let position = monsterList[i].position
-            if xyGroundNode(location: position).isDigged{
-                monsterList[i].physicsBody?.affectedByGravity = true
-                monsterList[i].physicsBody?.collisionBitMask = 16
+            if let groundNode = xyGroundNode(location: position){
+                if groundNode.isDigged{
+                    //if monsterList[i].isDiggedOut {return}
+                    //monsterList[i].isDiggedOut = true
+                    if !monsterList[i].isDiggedOut {
+                        monsterList[i].physicsBody?.affectedByGravity = true
+                        monsterList[i].physicsBody?.collisionBitMask = 16
+                        //monsterList[i].isGoingRight = true
+                        //monsterList[i].moveAround(groundList: groundList)
+                        monsterList[i].run(SKAction(named: "moveAround")!)
+                        monsterList[i].isDiggedOut = true
+                    }
+                }
             }
         }
     }
     
+    
+    
     func handleClimb(location: CGPoint) {
         let nodeAtPoint = atPoint(location)
         if !positionInRange(position: location){return}
-        let groundNode = xyGroundNode(location: location)
+        //let groundNode = xyGroundNode(location: location)
         
         if let ladder = playerOnLadder()  {
-            if let bottom = groundNode.bottom {
-            if nodeAtPoint.name == "ladder" && nodeAtPoint.frame.contains(player.position){
-                player.climb(position: location)
-            }else if (groundNode.isDigged &&
-                        ladder.frame.contains(bottom.position) ){
-                player.climb(position: location)
-            }
+            if let groundNode = xyGroundNode(location: location) {
+                if let bottom = groundNode.bottom {
+                    if nodeAtPoint.name == "ladder" && nodeAtPoint.frame.contains(player.position){
+                        player.climb(position: location)
+                    }else if (groundNode.isDigged &&
+                                ladder.frame.contains(bottom.position) ){
+                        player.climb(position: location)
+                    }
+                }
             }
         }
         
@@ -222,15 +236,16 @@ class TreeScene: SKScene, SKPhysicsContactDelegate {
                 movingNode.position = location
             case "ended":
                 if xyCanPutLadder(location: location) {
-                    
-                    //player.plantCardList.removeComponent(name: "flowerCard")
-                    plantCardBag.removePlantCard(name: "flowerCard")
-                    movingNode.removeFromParent()
-                    let ladder = Ladder()
-                    let groundNode = xyGroundNode(location: location)
-                    ladder.position = groundNode.position - CGPoint(x: 0, y: 22.5)
-                    ladderList.append(ladder)
-                    addChild(ladder)
+                    if let groundNode = xyGroundNode(location: location) {
+                        //player.plantCardList.removeComponent(name: "flowerCard")
+                        plantCardBag.removePlantCard(name: "flowerCard")
+                        movingNode.removeFromParent()
+                        let ladder = Ladder()
+                        
+                        ladder.position = groundNode.position - CGPoint(x: 0, y: 22.5)
+                        ladderList.append(ladder)
+                        addChild(ladder)
+                    }
                     //plantCardBag.renderPlantCard()
                 } else {
                     movingNode.position = originPosition
@@ -354,6 +369,7 @@ class TreeScene: SKScene, SKPhysicsContactDelegate {
                     newGround.position = oringinPos
                     newGround.gridXY = GridXY(x: 0, y: 0)
                     newGround.isDigged = true
+                    // newGround.physicsBody = nil
                 }else{
                     switch newType {
                     case .dirt:
@@ -449,8 +465,8 @@ class TreeScene: SKScene, SKPhysicsContactDelegate {
         return hasMonster
     }
     
-    func xyGroundNode(location: CGPoint) -> GroundNode {
-        var groundNode: GroundNode!
+    func xyGroundNode(location: CGPoint) -> GroundNode? {
+        var groundNode: GroundNode?
         for y in 0..<groundRow {
             for x in 0..<groundCol{
                 if(groundList[y][x].frame.contains(location)){
@@ -468,20 +484,14 @@ class TreeScene: SKScene, SKPhysicsContactDelegate {
         
         
         var canPut = false
-        var groundNode: GroundNode!
         
-        for y in 0..<groundRow {
-            for x in 0..<groundCol{
-                if(groundList[y][x].frame.contains(location)){
-                    groundNode = groundList[y][x]
-                    break
+        if let groundNode = xyGroundNode(location: location) {
+            
+            
+            if let top = groundNode.top {
+                if groundNode.isDigged && top.isDigged {
+                    canPut = true
                 }
-            }
-        }
-        
-        if let top = groundNode.top {
-            if groundNode.isDigged && top.isDigged {
-                canPut = true
             }
         }
         // check no ladder at location

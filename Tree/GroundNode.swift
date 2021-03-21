@@ -118,12 +118,14 @@ class GroundNode: SKSpriteNode {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if neighborIsDigged && !isDigged && playerIsAround(){
+            if self.groundType == .dirt {
             let digger = Digger()
             digger.position = CGPoint(x: 0, y: 30)
             digger.selectedHandler = {
                 self.isDigged = true
             }
             addChild(digger)
+            }
         }
     }
     

@@ -14,8 +14,7 @@ class Furry: Monster {
     static var bornGround: GroundType = .dirt
     static var bornChance: CGFloat = 0.03
     
-    
-    
+   
     init(){
         
         let texture = SKTexture(imageNamed: "furry")
@@ -27,6 +26,7 @@ class Furry: Monster {
         self.attackInterval = 3
         self.ability = Abiltiy(attackNumber: 6, defenseNumber: 5, healthNumber: 50)
         
+        //self.run(SKAction(named: "moveAround")!)
 //        self.physicsBody = SKPhysicsBody()
 //        self.physicsBody?.collisionBitMask = 0
 //        self.physicsBody?.categoryBitMask = 2
@@ -35,11 +35,14 @@ class Furry: Monster {
 //        self.physicsBody?.isDynamic = false
         
         //physicsBody.collisionBitMask = 0xFFFFFFFF
-
         
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
+    
+    
+    
+    
 }

@@ -106,23 +106,24 @@ class Player: SKSpriteNode {
         flower_1PlantCard.name = "flowerCard"
         plantCardList.addComponent(component: flower_1PlantCard)
         
-        //add the initial plant card
-        let flower_2Texture = SKTexture(imageNamed: "flower")
-        let flower_2PlantCard = PlantCard(texture: flower_2Texture, scene: homeScene)
-        flower_2PlantCard.name = "flowerCard"
-        plantCardList.addComponent(component: flower_2PlantCard)
         
-        //add the initial plant card
-        let flower_3Texture = SKTexture(imageNamed: "flower")
-        let flower_3PlantCard = PlantCard(texture: flower_3Texture, scene: homeScene)
-        flower_3PlantCard.name = "flowerCard"
-        plantCardList.addComponent(component: flower_3PlantCard)
-        
-        //add the initial plant card
-        let flower_4Texture = SKTexture(imageNamed: "flower")
-        let flower_4PlantCard = PlantCard(texture: flower_4Texture, scene: homeScene)
-        flower_4PlantCard.name = "flowerCard"
-        plantCardList.addComponent(component: flower_4PlantCard)
+//        //add the initial plant card
+//        let flower_2Texture = SKTexture(imageNamed: "flower")
+//        let flower_2PlantCard = PlantCard(texture: flower_2Texture, scene: homeScene)
+//        flower_2PlantCard.name = "flowerCard"
+//        plantCardList.addComponent(component: flower_2PlantCard)
+//
+//        //add the initial plant card
+//        let flower_3Texture = SKTexture(imageNamed: "flower")
+//        let flower_3PlantCard = PlantCard(texture: flower_3Texture, scene: homeScene)
+//        flower_3PlantCard.name = "flowerCard"
+//        plantCardList.addComponent(component: flower_3PlantCard)
+//
+//        //add the initial plant card
+//        let flower_4Texture = SKTexture(imageNamed: "flower")
+//        let flower_4PlantCard = PlantCard(texture: flower_4Texture, scene: homeScene)
+//        flower_4PlantCard.name = "flowerCard"
+//        plantCardList.addComponent(component: flower_4PlantCard)
         
         //add the initail material
         let apple_1Texture = SKTexture(imageNamed: "apple")

@@ -50,6 +50,7 @@ class PlantCardBag: SKSpriteNode {
                 break
             }
         }
+        
 //        plantCardList = plantCardList.filter({$0.name! != name})
         
         //render the bag
