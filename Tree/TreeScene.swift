@@ -115,6 +115,8 @@ class TreeScene: SKScene, SKPhysicsContactDelegate {
         
         setupAllGround()
         
+        setDirtDrop()
+        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -178,11 +180,49 @@ class TreeScene: SKScene, SKPhysicsContactDelegate {
         let nodeB = contact.bodyB.node
         
         fightScreen.handleFight(nodeA: nodeA!, nodeB: nodeB!,monsterList: monsterList)
-        
+        playerPickUp(nodeA: nodeA!, nodeB: nodeB!)
         
     }
     
+    func playerPickUp(nodeA: SKNode, nodeB: SKNode)  {
+        pickUpSeed(nodeA: nodeA, nodeB: nodeB)
+        pickUpEgg(nodeA: nodeA, nodeB: nodeB)
+    }
     
+    
+    func pickUpSeed(nodeA: SKNode, nodeB: SKNode){
+        //pick up seed
+        var seed: Seed!
+        if (nodeA.name == "seed" && nodeB.name == "player"){
+            player = nodeB as? Player
+            seed = nodeA as? Seed
+        }else if nodeA.name == "player" && nodeB.name == "seed" {
+            player = nodeA as? Player
+            seed = nodeB as? Seed
+        }else { return }
+        
+        seed.removeFromParent()
+        let newSeed = Seed()
+        newSeed.physicsBody = nil
+        materialBag.addMaterial(material: newSeed)
+    }
+    
+    func pickUpEgg(nodeA: SKNode, nodeB: SKNode) {
+        //pick up egg
+        var egg: Egg!
+        if (nodeA.name == "egg" && nodeB.name == "player"){
+            player = nodeB as? Player
+            egg = nodeA as? Egg
+        }else if nodeA.name == "player" && nodeB.name == "egg" {
+            player = nodeA as? Player
+            egg = nodeB as? Egg
+        }else { return }
+        
+        egg.removeFromParent()
+        let newEgg = Egg()
+        newEgg.physicsBody = nil
+        materialBag.addMaterial(material: newEgg)
+    }
     
     func checkMonsterGravity() {
         for i in 0..<monsterList.count{
@@ -481,6 +521,28 @@ class TreeScene: SKScene, SKPhysicsContactDelegate {
         //groundList[0][0].isDigged = true
         //groundList[0][0].alpha = 0.5
         
+    }
+    
+    
+    func setDirtDrop()  {
+        for y in 0..<groundRow {
+            for x in 0..<groundCol{
+                if groundList[y][x].groundType == .dirt {
+                    groundList[y][x].diggedDrop = {
+                        if Int.random(in: 0..<10)<5{
+                            let seed = Seed()
+                            seed.position = self.groundList[y][x].position
+                            self.addChild(seed)
+                        }
+                        if Int.random(in: 0..<10)<5{
+                            let egg = Egg()
+                            egg.position = self.groundList[y][x].position
+                            self.addChild(egg)
+                        }
+                    }
+                }
+            }
+        }
     }
     
     func setupMonster()  {

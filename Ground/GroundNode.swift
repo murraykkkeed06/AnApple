@@ -46,7 +46,7 @@ enum GroundType: UInt32 {
 class GroundNode: SKSpriteNode {
     
     //var monsterList = [Monster]()
-    var diggedDrop: () -> void = {print("not implemted drop")}
+    var diggedDrop: () -> Void = {print("not implemted drop")}
     
     var gridXY: GridXY!
     

@@ -63,7 +63,7 @@ class MaterialBag: SKSpriteNode {
         
         for i in 0..<materialList.count{
             //storageList.sort(by: {$0.name! < $1.name!})
-            materialList[i].position = CGPoint(x: 50 + 50*i, y: 0 )
+            materialList[i].position = CGPoint(x: 40 + 40*i, y: 0 )
         }
     }
     

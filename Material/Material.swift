@@ -17,7 +17,7 @@ class Material: SKSpriteNode {
     var ability: Abiltiy!
     
     init(texture: SKTexture) {
-        super.init(texture: texture, color: .clear, size: CGSize(width: 40, height: 40))
+        super.init(texture: texture, color: .clear, size: CGSize(width: 30, height: 30))
         self.zPosition = 3
         //self.homeScene = scene
         
