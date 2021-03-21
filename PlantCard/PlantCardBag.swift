@@ -23,11 +23,11 @@ class PlantCardBag: SKSpriteNode {
     
     func addPlantCard(plantCard: PlantCard) {
         //if already exist
-        for i in 0..<plantCardList.count{
-            if plantCardList[i].name == plantCard.name{
-                 return
-            }
-        }
+//        for i in 0..<plantCardList.count{
+//            if plantCardList[i].name == plantCard.name{
+//                 return
+//            }
+//        }
         //check full
         if plantCardList.count == plantCardMax {return}
         //add storage

@@ -89,6 +89,8 @@ class Player: SKSpriteNode {
         self.position = bornPosition
         self.homeScene = scene
         self.name = "player"
+        //declare ability
+        self.ability = Abiltiy(attackNumber: 20, defenseNumber: 20, healthNumber: 100)
         //self.isUserInteractionEnabled = true
         //declare the basic component
         equipmentList = EquipmentList()
@@ -109,113 +111,38 @@ class Player: SKSpriteNode {
         
         
         
-        //add the initial plant card
-        let flower_1Texture = SKTexture(imageNamed: "flower")
-        let flower_1PlantCard = PlantCard(texture: flower_1Texture)
-        flower_1PlantCard.name = "flowerCard"
-        plantCardBag.addPlantCard(plantCard: flower_1PlantCard)
-        //plantCardList.addComponent(component: flower_1PlantCard)
+        //add plantcard
+        plantCardBag.addPlantCard(plantCard: Flower())
+        plantCardBag.addPlantCard(plantCard: WoodBreaker())
         
-        let woodBreaker_1Texture = SKTexture(imageNamed: "woodBreaker")
-        let woodBreaker_1PlantCard = PlantCard(texture: woodBreaker_1Texture)
-        woodBreaker_1PlantCard.name = "woodBreaker"
-        plantCardBag.addPlantCard(plantCard: woodBreaker_1PlantCard)
-        
-//        //add the initial plant card
-//        let flower_2Texture = SKTexture(imageNamed: "flower")
-//        let flower_2PlantCard = PlantCard(texture: flower_2Texture, scene: homeScene)
-//        flower_2PlantCard.name = "flowerCard"
-//        plantCardList.addComponent(component: flower_2PlantCard)
-//
-//        //add the initial plant card
-//        let flower_3Texture = SKTexture(imageNamed: "flower")
-//        let flower_3PlantCard = PlantCard(texture: flower_3Texture, scene: homeScene)
-//        flower_3PlantCard.name = "flowerCard"
-//        plantCardList.addComponent(component: flower_3PlantCard)
-//
-//        //add the initial plant card
-//        let flower_4Texture = SKTexture(imageNamed: "flower")
-//        let flower_4PlantCard = PlantCard(texture: flower_4Texture, scene: homeScene)
-//        flower_4PlantCard.name = "flowerCard"
-//        plantCardList.addComponent(component: flower_4PlantCard)
-        
-        //add the initail material
-        let apple_1Texture = SKTexture(imageNamed: "apple")
-        let apple_1Material = Material(texture: apple_1Texture)
-        apple_1Material.name = "apple"
-        apple_1Material.ability = Abiltiy(attackNumber: 0, defenseNumber: 0, healthNumber: 100)
-        materialBag.addMaterial(material: apple_1Material)
-        //materialList.addComponent(component: apple_1Material)
-        
-        //add the initail material
-        let apple_2Texture = SKTexture(imageNamed: "apple")
-        let apple_2Material = Material(texture: apple_2Texture)
-        apple_2Material.name = "apple"
-        apple_2Material.ability = Abiltiy(attackNumber: 0, defenseNumber: 0, healthNumber: 100)
-        //materialList.addComponent(component: apple_2Material)
-        materialBag.addMaterial(material: apple_2Material)
+        //add material
+        materialBag.addMaterial(material: Apple())
+        materialBag.addMaterial(material: Apple())
+        //materialBag.addMaterial(material: Seed())
+        //materialBag.addMaterial(material: Egg())
 
-        //declare ability
-        self.ability = Abiltiy(attackNumber: 20, defenseNumber: 20, healthNumber: 100)
-        
-        //add the initial equipment
-        //shoes
-        let shoes_1Texture = SKTexture(imageNamed: "shoes_1")
-        let shoes_1Ability = Abiltiy(attackNumber: 4, defenseNumber: 1, healthNumber: 13)
-        let shoes_1Equipment = Equipment(texture: shoes_1Texture, type: .shoes, ability: shoes_1Ability,equipmentBag: equipmentBag, showButton: showButton)
-        shoes_1Equipment.name = "shoes_1"
-        equipmentList.addComponent(component: shoes_1Equipment)
-        
-        //shoes
-        let shoes_2Texture = SKTexture(imageNamed: "shoes_2")
-        let shoes_2Ability = Abiltiy(attackNumber: 9, defenseNumber: 2, healthNumber: 19)
-        let shoes_2Equipment = Equipment(texture: shoes_2Texture, type: .shoes,  ability: shoes_2Ability,equipmentBag: equipmentBag,showButton: showButton)
-        shoes_2Equipment.name = "shoes_2"
-        equipmentList.addComponent(component: shoes_2Equipment)
         
         
+        //add equipment
+        let shoes_1 = Shoes(version: "1", equipmentBag: equipmentBag, showButton: showButton)
+        let shoes_2 = Shoes(version: "2", equipmentBag: equipmentBag, showButton: showButton)
+        equipmentList.addComponent(component: shoes_1)
+        equipmentList.addComponent(component: shoes_2)
         
-        //weapon
-        let weapon_1Texture = SKTexture(imageNamed: "weapon_1")
-        let weapon_1Ability = Abiltiy(attackNumber: 5, defenseNumber: 9, healthNumber: 7)
-        let weapon_1Equipment = Equipment(texture: weapon_1Texture, type: .weapon,  ability: weapon_1Ability,equipmentBag: equipmentBag,showButton: showButton)
-        weapon_1Equipment.name = "weapon_1"
-        equipmentList.addComponent(component: weapon_1Equipment)
+        let weapon_1 = Weapon(version: "1", equipmentBag: equipmentBag, showButton: showButton)
+        let weapon_2 = Weapon(version: "2", equipmentBag: equipmentBag, showButton: showButton)
+        equipmentList.addComponent(component: weapon_1)
+        equipmentList.addComponent(component: weapon_2)
         
-        //weapon
-        let weapon_2Texture = SKTexture(imageNamed: "weapon_2")
-        let weapon_2Ability = Abiltiy(attackNumber: 9, defenseNumber: 9, healthNumber: 21)
-        let weapon_2Equipment = Equipment(texture: weapon_2Texture, type: .weapon, ability: weapon_2Ability,equipmentBag: equipmentBag,showButton: showButton)
-        weapon_2Equipment.name = "weapon_2"
-        equipmentList.addComponent(component: weapon_2Equipment)
+        let armor_1 = Armor(version: "1", equipmentBag: equipmentBag, showButton: showButton)
+        let armor_2 = Armor(version: "1", equipmentBag: equipmentBag, showButton: showButton)
+        equipmentList.addComponent(component: armor_1)
+        equipmentList.addComponent(component: armor_2)
         
-        //armor
-        let armor_1Texture = SKTexture(imageNamed: "armor_1")
-        let armor_1Ability = Abiltiy(attackNumber: 4, defenseNumber: 6, healthNumber: 12)
-        let armor_1Equipment = Equipment(texture: armor_1Texture, type: .armor,  ability: armor_1Ability,equipmentBag: equipmentBag,showButton: showButton)
-        armor_1Equipment.name = "armor_1"
-        equipmentList.addComponent(component: armor_1Equipment)
-        
-        //armor
-        let armor_2Texture = SKTexture(imageNamed: "armor_2")
-        let armor_2Ability = Abiltiy(attackNumber: 9, defenseNumber: 9, healthNumber: 12)
-        let armor_2Equipment = Equipment(texture: armor_2Texture, type: .armor,  ability: armor_2Ability,equipmentBag: equipmentBag,showButton: showButton)
-        armor_2Equipment.name = "armor_2"
-        equipmentList.addComponent(component: armor_2Equipment)
-        
-        //helmet
-        let helmet_1Texture = SKTexture(imageNamed: "helmet_1")
-        let helmet_1Ability = Abiltiy(attackNumber: 5, defenseNumber: 2, healthNumber: 10)
-        let helmet_1Equipment = Equipment(texture: helmet_1Texture, type: .helmet, ability: helmet_1Ability,equipmentBag: equipmentBag,showButton: showButton)
-        helmet_1Equipment.name = "helmet_1"
-        equipmentList.addComponent(component: helmet_1Equipment)
-        
-        //helmet
-        let helmet_2Texture = SKTexture(imageNamed: "helmet_2")
-        let helmet_2Ability = Abiltiy(attackNumber: 8, defenseNumber: 5, healthNumber: 19)
-        let helmet_2Equipment = Equipment(texture: helmet_2Texture, type: .helmet,  ability: helmet_2Ability,equipmentBag: equipmentBag,showButton: showButton)
-        helmet_2Equipment.name = "helmet_2"
-        equipmentList.addComponent(component: helmet_2Equipment)
+        let helmet_1 = Helmet(version: "1", equipmentBag: equipmentBag, showButton: showButton)
+        let helmet_2 = Helmet(version: "2", equipmentBag: equipmentBag, showButton: showButton)
+        equipmentList.addComponent(component: helmet_1)
+        equipmentList.addComponent(component: helmet_2)
         
         
         

@@ -38,7 +38,20 @@
 		72448EA726021DB7008B13D0 /* apple.png in Resources */ = {isa = PBXBuildFile; fileRef = 72448EA626021DB7008B13D0 /* apple.png */; };
 		72690E842607181B0068CEDE /* sun.png in Resources */ = {isa = PBXBuildFile; fileRef = 72690E822607181A0068CEDE /* sun.png */; };
 		72690E852607181B0068CEDE /* time_bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 72690E832607181B0068CEDE /* time_bg.png */; };
-		72690E8826071F2E0068CEDE /* woodBreaker.png in Resources */ = {isa = PBXBuildFile; fileRef = 72690E8726071F2E0068CEDE /* woodBreaker.png */; };
+		72690E912607249C0068CEDE /* Apple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72690E902607249C0068CEDE /* Apple.swift */; };
+		72690E94260726AE0068CEDE /* Flower.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72690E93260726AE0068CEDE /* Flower.swift */; };
+		72690E97260727750068CEDE /* WoodBreaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72690E96260727750068CEDE /* WoodBreaker.swift */; };
+		72690E9A2607284A0068CEDE /* Shoes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72690E992607284A0068CEDE /* Shoes.swift */; };
+		72690E9D26072BAF0068CEDE /* Weapon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72690E9C26072BAF0068CEDE /* Weapon.swift */; };
+		72690EA026072C400068CEDE /* Armor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72690E9F26072C400068CEDE /* Armor.swift */; };
+		72690EA326072C690068CEDE /* Pants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72690EA226072C690068CEDE /* Pants.swift */; };
+		72690EA626072C900068CEDE /* Helmet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72690EA526072C900068CEDE /* Helmet.swift */; };
+		72690EA926072EB20068CEDE /* seed.png in Resources */ = {isa = PBXBuildFile; fileRef = 72690EA826072EB20068CEDE /* seed.png */; };
+		72690EAC26072EE60068CEDE /* egg.png in Resources */ = {isa = PBXBuildFile; fileRef = 72690EAB26072EE60068CEDE /* egg.png */; };
+		72690EB026072F320068CEDE /* woodBreaker.png in Resources */ = {isa = PBXBuildFile; fileRef = 72690EAF26072F320068CEDE /* woodBreaker.png */; };
+		72690EB326072F6D0068CEDE /* stoneBreaker.png in Resources */ = {isa = PBXBuildFile; fileRef = 72690EB226072F6D0068CEDE /* stoneBreaker.png */; };
+		72690EB626072F830068CEDE /* Seed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72690EB526072F830068CEDE /* Seed.swift */; };
+		72690EB926072FE30068CEDE /* Egg.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72690EB826072FE30068CEDE /* Egg.swift */; };
 		7288D03426023D310051C735 /* plantCardBag.png in Resources */ = {isa = PBXBuildFile; fileRef = 7288D03326023D310051C735 /* plantCardBag.png */; };
 		7288D037260241370051C735 /* flower.png in Resources */ = {isa = PBXBuildFile; fileRef = 7288D036260241370051C735 /* flower.png */; };
 		7288D03B260257450051C735 /* home.png in Resources */ = {isa = PBXBuildFile; fileRef = 7288D03A260257450051C735 /* home.png */; };
@@ -118,7 +131,20 @@
 		72448EA626021DB7008B13D0 /* apple.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = apple.png; sourceTree = "<group>"; };
 		72690E822607181A0068CEDE /* sun.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sun.png; sourceTree = "<group>"; };
 		72690E832607181B0068CEDE /* time_bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = time_bg.png; sourceTree = "<group>"; };
-		72690E8726071F2E0068CEDE /* woodBreaker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = woodBreaker.png; sourceTree = "<group>"; };
+		72690E902607249C0068CEDE /* Apple.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Apple.swift; sourceTree = "<group>"; };
+		72690E93260726AE0068CEDE /* Flower.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flower.swift; sourceTree = "<group>"; };
+		72690E96260727750068CEDE /* WoodBreaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WoodBreaker.swift; sourceTree = "<group>"; };
+		72690E992607284A0068CEDE /* Shoes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shoes.swift; sourceTree = "<group>"; };
+		72690E9C26072BAF0068CEDE /* Weapon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weapon.swift; sourceTree = "<group>"; };
+		72690E9F26072C400068CEDE /* Armor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Armor.swift; sourceTree = "<group>"; };
+		72690EA226072C690068CEDE /* Pants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pants.swift; sourceTree = "<group>"; };
+		72690EA526072C900068CEDE /* Helmet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helmet.swift; sourceTree = "<group>"; };
+		72690EA826072EB20068CEDE /* seed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = seed.png; sourceTree = "<group>"; };
+		72690EAB26072EE60068CEDE /* egg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = egg.png; sourceTree = "<group>"; };
+		72690EAF26072F320068CEDE /* woodBreaker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = woodBreaker.png; sourceTree = "<group>"; };
+		72690EB226072F6D0068CEDE /* stoneBreaker.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = stoneBreaker.png; sourceTree = "<group>"; };
+		72690EB526072F830068CEDE /* Seed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Seed.swift; sourceTree = "<group>"; };
+		72690EB826072FE30068CEDE /* Egg.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Egg.swift; sourceTree = "<group>"; };
 		7288D03326023D310051C735 /* plantCardBag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plantCardBag.png; sourceTree = "<group>"; };
 		7288D036260241370051C735 /* flower.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flower.png; sourceTree = "<group>"; };
 		7288D03A260257450051C735 /* home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home.png; sourceTree = "<group>"; };
@@ -178,8 +204,10 @@
 		72176B3B26039ABD0050A260 /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				72D0BA832600FB96000FE1B9 /* MaterialList.swift */,
 				7209FCDB2601BBC500483536 /* Extension.swift */,
 				723E91202600A9E6006B70BB /* Main.storyboard */,
+				72D0BA862600FBA7000FE1B9 /* PlantCardList.swift */,
 				723E911E2600A9E6006B70BB /* GameViewController.swift */,
 				723E91162600A9E6006B70BB /* AppDelegate.swift */,
 			);
@@ -189,10 +217,14 @@
 		723E910A2600A9E5006B70BB = {
 			isa = PBXGroup;
 			children = (
+				72690E8E260724000068CEDE /* Ground */,
+				72690E8D260723F50068CEDE /* Monster */,
+				72690E8C260723B40068CEDE /* Equipment */,
+				72690E8B260723860068CEDE /* PlantCard */,
+				72690E8A2607234E0068CEDE /* Material */,
 				72D0294F2603A31F008EF98A /* Tree */,
 				72176B3B26039ABD0050A260 /* Other */,
 				7247909A2603167700D4D70A /* ActionFile */,
-				72D0BA9926010746000FE1B9 /* Bag */,
 				723E914D2600CE00006B70BB /* Player */,
 				723E91332600B4E7006B70BB /* assets.atlas */,
 				723E91152600A9E6006B70BB /* AnApple */,
@@ -223,8 +255,11 @@
 		723E91332600B4E7006B70BB /* assets.atlas */ = {
 			isa = PBXGroup;
 			children = (
-				72690E8726071F2E0068CEDE /* woodBreaker.png */,
+				72690EAB26072EE60068CEDE /* egg.png */,
+				72690EA826072EB20068CEDE /* seed.png */,
 				72690E822607181A0068CEDE /* sun.png */,
+				72690EB226072F6D0068CEDE /* stoneBreaker.png */,
+				72690EAF26072F320068CEDE /* woodBreaker.png */,
 				72690E832607181B0068CEDE /* time_bg.png */,
 				720793AC26046F6A002C7689 /* ladder.png */,
 				72A456AA2603C258003BF6DF /* digger.png */,
@@ -272,12 +307,6 @@
 			isa = PBXGroup;
 			children = (
 				723E912C2600AC35006B70BB /* Player.swift */,
-				72D0BA802600FB8A000FE1B9 /* EquipmentList.swift */,
-				72D0BA832600FB96000FE1B9 /* MaterialList.swift */,
-				72D0BA862600FBA7000FE1B9 /* PlantCardList.swift */,
-				72D0BA8A2600FBDD000FE1B9 /* Equipment.swift */,
-				72D0BA8D2600FBEB000FE1B9 /* Material.swift */,
-				72D0BA902600FBF9000FE1B9 /* PlantCard.swift */,
 				72D0BA96260106A4000FE1B9 /* Ability.swift */,
 			);
 			path = Player;
@@ -292,34 +321,76 @@
 			path = ActionFile;
 			sourceTree = "<group>";
 		};
+		72690E8A2607234E0068CEDE /* Material */ = {
+			isa = PBXGroup;
+			children = (
+				72D0BA8D2600FBEB000FE1B9 /* Material.swift */,
+				72D0BA9A26010771000FE1B9 /* MaterialBag.swift */,
+				72690E902607249C0068CEDE /* Apple.swift */,
+				72690EB526072F830068CEDE /* Seed.swift */,
+				72690EB826072FE30068CEDE /* Egg.swift */,
+			);
+			path = Material;
+			sourceTree = "<group>";
+		};
+		72690E8B260723860068CEDE /* PlantCard */ = {
+			isa = PBXGroup;
+			children = (
+				72D0BAA4260107A7000FE1B9 /* PlantCardBag.swift */,
+				72D0BA902600FBF9000FE1B9 /* PlantCard.swift */,
+				72690E93260726AE0068CEDE /* Flower.swift */,
+				72690E96260727750068CEDE /* WoodBreaker.swift */,
+			);
+			path = PlantCard;
+			sourceTree = "<group>";
+		};
+		72690E8C260723B40068CEDE /* Equipment */ = {
+			isa = PBXGroup;
+			children = (
+				72D0BA8A2600FBDD000FE1B9 /* Equipment.swift */,
+				72D0BAA026010792000FE1B9 /* EquipmentBag.swift */,
+				72D0BA802600FB8A000FE1B9 /* EquipmentList.swift */,
+				72D0BA9D26010783000FE1B9 /* StorageBag.swift */,
+				72690E992607284A0068CEDE /* Shoes.swift */,
+				72690E9C26072BAF0068CEDE /* Weapon.swift */,
+				72690E9F26072C400068CEDE /* Armor.swift */,
+				72690EA226072C690068CEDE /* Pants.swift */,
+				72690EA526072C900068CEDE /* Helmet.swift */,
+			);
+			path = Equipment;
+			sourceTree = "<group>";
+		};
+		72690E8D260723F50068CEDE /* Monster */ = {
+			isa = PBXGroup;
+			children = (
+				72D0295F2603A645008EF98A /* Monster.swift */,
+				72D0295E2603A645008EF98A /* Furry.swift */,
+			);
+			path = Monster;
+			sourceTree = "<group>";
+		};
+		72690E8E260724000068CEDE /* Ground */ = {
+			isa = PBXGroup;
+			children = (
+				72D029512603A342008EF98A /* Dirt.swift */,
+				72D029522603A342008EF98A /* Rock.swift */,
+				72D029502603A342008EF98A /* Wood.swift */,
+				72D0294C2603A319008EF98A /* GroundNode.swift */,
+			);
+			path = Ground;
+			sourceTree = "<group>";
+		};
 		72D0294F2603A31F008EF98A /* Tree */ = {
 			isa = PBXGroup;
 			children = (
 				729E077926035C80008929D2 /* TreeScene.swift */,
 				729E077C26035CAC008929D2 /* TreeScene.sks */,
-				72D0294C2603A319008EF98A /* GroundNode.swift */,
-				72D0295E2603A645008EF98A /* Furry.swift */,
-				72D0295F2603A645008EF98A /* Monster.swift */,
-				72D029512603A342008EF98A /* Dirt.swift */,
-				72D029522603A342008EF98A /* Rock.swift */,
-				72D029502603A342008EF98A /* Wood.swift */,
 				728F71CA2603BF350065AE90 /* GridXY.swift */,
 				72A456AE2603C74E003BF6DF /* Digger.swift */,
 				720793AF26046FB7002C7689 /* Ladder.swift */,
 				72C5E7072604DFCB00390FC4 /* FightScreen.swift */,
 			);
 			path = Tree;
-			sourceTree = "<group>";
-		};
-		72D0BA9926010746000FE1B9 /* Bag */ = {
-			isa = PBXGroup;
-			children = (
-				72D0BA9A26010771000FE1B9 /* MaterialBag.swift */,
-				72D0BA9D26010783000FE1B9 /* StorageBag.swift */,
-				72D0BAA026010792000FE1B9 /* EquipmentBag.swift */,
-				72D0BAA4260107A7000FE1B9 /* PlantCardBag.swift */,
-			);
-			path = Bag;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -387,6 +458,7 @@
 				723E91432600BA63006B70BB /* nakedAnt_3.png in Resources */,
 				723E91412600BA63006B70BB /* nakedAnt_2.png in Resources */,
 				729E077726035A08008929D2 /* arrow.png in Resources */,
+				72690EB326072F6D0068CEDE /* stoneBreaker.png in Resources */,
 				72448E9A2601D6EF008B13D0 /* life.png in Resources */,
 				72CC85862602628500F47B9C /* armor_2.png in Resources */,
 				7209926326033FC4002566D0 /* homeEnterButton.png in Resources */,
@@ -398,11 +470,11 @@
 				72448EA726021DB7008B13D0 /* apple.png in Resources */,
 				72CC85852602628500F47B9C /* weapon_2.png in Resources */,
 				7209FCEB2601C87500483536 /* armor_1.png in Resources */,
-				72690E8826071F2E0068CEDE /* woodBreaker.png in Resources */,
 				72C5E7042604B5C400390FC4 /* antClimb_2.png in Resources */,
 				72D029642603A6AB008EF98A /* furry.png in Resources */,
 				729E078026035D8E008929D2 /* treeScene.png in Resources */,
 				72448E9E2601FFAB008B13D0 /* equipButton.png in Resources */,
+				72690EB026072F320068CEDE /* woodBreaker.png in Resources */,
 				72D0295C2603A4BF008EF98A /* wood.png in Resources */,
 				72CC85812602627700F47B9C /* helmet_2.png in Resources */,
 				72C5E7052604B5C400390FC4 /* antClimb_1.png in Resources */,
@@ -424,7 +496,9 @@
 				72D0295B2603A4BF008EF98A /* rock.png in Resources */,
 				729E077D26035CAC008929D2 /* TreeScene.sks in Resources */,
 				723E91422600BA63006B70BB /* nakedAnt_1.png in Resources */,
+				72690EAC26072EE60068CEDE /* egg.png in Resources */,
 				72448EA126020C0F008B13D0 /* shoes_2.png in Resources */,
+				72690EA926072EB20068CEDE /* seed.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -435,30 +509,40 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				72690EA326072C690068CEDE /* Pants.swift in Sources */,
 				72D029612603A645008EF98A /* Monster.swift in Sources */,
+				72690E97260727750068CEDE /* WoodBreaker.swift in Sources */,
 				729E077A26035C80008929D2 /* TreeScene.swift in Sources */,
 				72D0BA872600FBA7000FE1B9 /* PlantCardList.swift in Sources */,
 				72D0BA8E2600FBEB000FE1B9 /* Material.swift in Sources */,
 				72D0BA842600FB96000FE1B9 /* MaterialList.swift in Sources */,
+				72690EA026072C400068CEDE /* Armor.swift in Sources */,
 				72D0BA8B2600FBDD000FE1B9 /* Equipment.swift in Sources */,
 				7209925E260339DB002566D0 /* Home.swift in Sources */,
 				72D029532603A342008EF98A /* Wood.swift in Sources */,
 				723E912D2600AC35006B70BB /* Player.swift in Sources */,
+				72690E94260726AE0068CEDE /* Flower.swift in Sources */,
 				72D029552603A342008EF98A /* Rock.swift in Sources */,
 				72C5E7082604DFCB00390FC4 /* FightScreen.swift in Sources */,
 				72D0BA9B26010772000FE1B9 /* MaterialBag.swift in Sources */,
 				72D0294D2603A319008EF98A /* GroundNode.swift in Sources */,
+				72690E9D26072BAF0068CEDE /* Weapon.swift in Sources */,
 				72D029542603A342008EF98A /* Dirt.swift in Sources */,
 				72A456AF2603C74E003BF6DF /* Digger.swift in Sources */,
 				72D0BA812600FB8A000FE1B9 /* EquipmentList.swift in Sources */,
+				72690E9A2607284A0068CEDE /* Shoes.swift in Sources */,
 				7209FCDC2601BBC500483536 /* Extension.swift in Sources */,
 				72D029602603A645008EF98A /* Furry.swift in Sources */,
 				728F71CB2603BF350065AE90 /* GridXY.swift in Sources */,
 				723E911D2600A9E6006B70BB /* GameScene.swift in Sources */,
 				72D0BA9E26010783000FE1B9 /* StorageBag.swift in Sources */,
 				7209FCEE2601CB1D00483536 /* MSButtonNode.swift in Sources */,
+				72690EB626072F830068CEDE /* Seed.swift in Sources */,
 				72D0BA912600FBF9000FE1B9 /* PlantCard.swift in Sources */,
 				72D0BAA126010792000FE1B9 /* EquipmentBag.swift in Sources */,
+				72690E912607249C0068CEDE /* Apple.swift in Sources */,
+				72690EA626072C900068CEDE /* Helmet.swift in Sources */,
+				72690EB926072FE30068CEDE /* Egg.swift in Sources */,
 				720793B026046FB7002C7689 /* Ladder.swift in Sources */,
 				723E911F2600A9E6006B70BB /* GameViewController.swift in Sources */,
 				72D0BA97260106A4000FE1B9 /* Ability.swift in Sources */,

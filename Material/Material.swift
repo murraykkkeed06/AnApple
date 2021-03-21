@@ -10,16 +10,16 @@ import SpriteKit
 
 class Material: SKSpriteNode {
     
-    var materialBag: MaterialBag!
+    //var materialBag: MaterialBag!
     
-    var homeScene: SKScene!
+    //var homeScene: SKScene!
     
     var ability: Abiltiy!
     
     init(texture: SKTexture) {
         super.init(texture: texture, color: .clear, size: CGSize(width: 40, height: 40))
         self.zPosition = 3
-        self.homeScene = scene
+        //self.homeScene = scene
         
         //self.isUserInteractionEnabled = true
         

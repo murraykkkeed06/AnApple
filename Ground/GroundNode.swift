@@ -46,7 +46,7 @@ enum GroundType: UInt32 {
 class GroundNode: SKSpriteNode {
     
     //var monsterList = [Monster]()
-    
+    var diggedDrop: () -> void = {print("not implemted drop")}
     
     var gridXY: GridXY!
     
@@ -72,7 +72,7 @@ class GroundNode: SKSpriteNode {
                 //self.physicsBody!.collisionBitMask = 0
                 self.physicsBody = nil
                 //self.removeFromParent()
-                
+                self.diggedDrop()
             }
         }
         get{

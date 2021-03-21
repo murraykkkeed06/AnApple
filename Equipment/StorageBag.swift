@@ -23,12 +23,12 @@ class StorageBag: SKSpriteNode {
     }
     
     func addStorage(storage: Equipment) {
-        //if already exist
-        for i in 0..<storageList.count{
-            if storageList[i].name == storage.name{
-                 return
-            }
-        }
+//        //if already exist
+//        for i in 0..<storageList.count{
+//            if storageList[i].name == storage.name{
+//                 return
+//            }
+//        }
         //check full
         if storageList.count == storageRow * storageCol {return}
         //add storage

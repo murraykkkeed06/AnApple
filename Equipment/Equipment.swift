@@ -29,6 +29,7 @@ class Equipment: SKSpriteNode {
     //access bag
     var equipmentBag: EquipmentBag!
     var storageBag: StorageBag!
+    var showButton: MSButtonNode!
     
     var ability: Abiltiy!
     
@@ -64,6 +65,7 @@ class Equipment: SKSpriteNode {
         self.homeScene = scene
         self.equipmentBag = equipmentBag
         self.storageBag = (showButton.childNode(withName: "storageBag") as! StorageBag)
+        self.showButton = showButton
         self.isWeared = false
         self.zPosition = 5
         self.ability = ability
@@ -99,7 +101,7 @@ class Equipment: SKSpriteNode {
     
     func setupDetailDisplay()  {
         //detail will hide when storagebag is hide
-        let showButton = (self.parent!.parent! as! MSButtonNode)
+        //let showButton = (self.parent!.parent! as! MSButtonNode)
         if showButton.buttonState == .hide {
             return
         }

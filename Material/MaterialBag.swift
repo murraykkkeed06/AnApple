@@ -22,12 +22,13 @@ class MaterialBag: SKSpriteNode {
     }
     
     func addMaterial(material: Material) {
-        //if already exist
-        for i in 0..<materialList.count{
-            if materialList[i].name == material.name{
-                 return
-            }
-        }
+        print("add material")
+//        //if already exist
+//        for i in 0..<materialList.count{
+//            if materialList[i].name == material.name{
+//                 return
+//            }
+//        }
         //check full
         if materialList.count == materialMax {return}
         //add storage
@@ -35,6 +36,7 @@ class MaterialBag: SKSpriteNode {
         addChild(material)
         //render the bag
         renderMaterial()
+        
     }
     
     
